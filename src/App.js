@@ -5,6 +5,7 @@ import TeacherRegistrationForm from "./Components/Login/TeacherRegistrationForm"
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import StudentRegistrationForm from "./Components/Login/StudentRegistrationForm";
+import Login from "./Components/Login/Login";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
         <Route
           path="/teacherRegistrationForm"
           element={<TeacherRegistrationForm />}

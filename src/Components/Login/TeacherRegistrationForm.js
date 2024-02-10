@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useForm } from "react-hook-form";
 import Select from "react-select";
 import "./TeacherRegistrationForm.css";
+import teacher from "../../images/teacher.png";
 
 const TeacherRegistrationForm = () => {
   const {
@@ -84,13 +85,16 @@ const TeacherRegistrationForm = () => {
   };
 
   return (
-    <>
-      <div>
-        <div className="flex justify-center items-center bg-gradient-to-r from-neutral to-secondary">
-          <div className="w-1/2 bg-white mt-16 shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <h2 className="text-2xl text-center text-primary font-bold mb-4">
+    <div className="bg-gradient-to-r from-neutral to-secondary flex">
+      <div className="w-2/3">
+        <img src={teacher} className="w-full p-20 h-auto" alt="Login" />
+      </div>
+      <div className="w-2/3 pt-28 p-8">
+        <div className="card max-w-2xl  bg-gradient-to-r from-neutral to-accent shadow-xl">
+          <div className="card-body">
+            <h1 className="text-center text-2xl text-primary font-extrabold mb-4">
               Teacher Registration
-            </h2>
+            </h1>
 
             <form onSubmit={handleSubmit(handleSubmitForm)}>
               {/* Name field */}
@@ -266,77 +270,79 @@ const TeacherRegistrationForm = () => {
                 </label>
               </div>
 
-              {/* Password */}
-              <div className="form-control w-full">
-                <label className="label">
-                  <span className="label-text text-blue-700 font-bold text-md">
-                    Password
-                  </span>
-                </label>
-                <input
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  className="input input-sm input-bordered w-full"
-                  {...register("password", {
-                    required: {
-                      value: true,
-                      message: "Password is required",
-                    },
-                    minLength: {
-                      value: 6,
-                      message: "Must be 6 characters or longer",
-                    },
-                  })}
-                />
-                <label>
-                  {errors.password?.type === "required" && (
-                    <span className="text-red-500 text-xs mt-1">
-                      {errors.password.message}
+              <div className="flex gap-7">
+                {" "}
+                {/* Password */}
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text text-blue-700 font-bold text-md">
+                      Password
                     </span>
-                  )}
-                  {errors.password?.type === "minLength" && (
-                    <span className="text-red-500 text-xs mt-1">
-                      {errors.password.message}
+                  </label>
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    className="input input-sm input-bordered w-full"
+                    {...register("password", {
+                      required: {
+                        value: true,
+                        message: "Password is required",
+                      },
+                      minLength: {
+                        value: 6,
+                        message: "Must be 6 characters or longer",
+                      },
+                    })}
+                  />
+                  <label>
+                    {errors.password?.type === "required" && (
+                      <span className="text-red-500 text-xs mt-1">
+                        {errors.password.message}
+                      </span>
+                    )}
+                    {errors.password?.type === "minLength" && (
+                      <span className="text-red-500 text-xs mt-1">
+                        {errors.password.message}
+                      </span>
+                    )}
+                  </label>
+                </div>
+                {/* Confirm Password */}
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text text-blue-700 font-bold text-md">
+                      Confirm Password
                     </span>
-                  )}
-                </label>
-              </div>
-
-              {/* Confirm Password */}
-              <div className="form-control w-full">
-                <label className="label">
-                  <span className="label-text text-blue-700 font-bold text-md">
-                    Confirm Password
-                  </span>
-                </label>
-                <input
-                  type="password"
-                  placeholder="Confirm Password"
-                  name="confirmPassword"
-                  className="input input-sm input-bordered w-full"
-                  {...register("confirmPassword", {
-                    required: {
-                      value: true,
-                      message: "Password confirmation is required",
-                    },
-                    validate: (value) =>
-                      value === getValues("password") ||
-                      "Passwords do not match", // Check if it matches the "password" field
-                  })}
-                />
-                <label>
-                  {errors.confirmPassword?.type === "required" && (
-                    <span className="text-red-500 text-xs mt-1">
-                      {errors.confirmPassword.message}
-                    </span>
-                  )}
-                  {errors.confirmPassword?.type === "validate" && (
-                    <span className="text-red-500 text-xs mt-1">
-                      {errors.confirmPassword.message}
-                    </span>
-                  )}
-                </label>
+                  </label>
+                  <input
+                    type="password"
+                    placeholder="Confirm Password"
+                    name="confirmPassword"
+                    className="input input-sm input-bordered w-full"
+                    {...register("confirmPassword", {
+                      required: {
+                        value: true,
+                        message: "Password confirmation is required",
+                      },
+                      validate: (value) =>
+                        value === getValues("password") ||
+                        "Passwords do not match", // Check if it matches the "password" field
+                    })}
+                  />
+                  <label>
+                    {errors.confirmPassword?.type === "required" && (
+                      <span className="text-red-500 text-xs mt-1">
+                        {errors.confirmPassword.message}
+                      </span>
+                    )}
+                    {errors.confirmPassword?.type === "validate" && (
+                      <span className="text-red-500 text-xs mt-1">
+                        {errors.confirmPassword.message}
+                      </span>
+                    )}
+                  </label>
+                </div>
               </div>
 
               {signInError}
@@ -360,7 +366,7 @@ const TeacherRegistrationForm = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
