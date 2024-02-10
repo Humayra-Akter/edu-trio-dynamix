@@ -1,0 +1,45 @@
+.custom-btn {
+  width: 150px;
+  height: 50px;
+  border: 2px solid transparent;
+  background: linear-gradient(to right, #ffdb3b, #fe53bb, #8f51ea);
+  background-clip: padding-box;
+  background-size: 400% 400%;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s ease;
+  border-radius: 15px;
+}
+
+.custom-btn:hover {
+  border-color: black;
+  background: linear-gradient(to right, #0072b5, #70a4b8, #ffa500);
+  color: white;
+}
+
+.custom-btn:focus {
+  border-color: black;
+}
+
+.custom-btn::before,
+.custom-btn::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  background: linear-gradient(to right, #ffdb3b, #fe53bb, #8f51ea, #0044ff);
+  background-clip: padding-box;
+  background-size: 400% 400%;
+  z-index: -1;
+  border-radius: 5px; /* Adjust border radius as needed */
+}
+
+.custom-btn::after {
+  filter: blur(20px); /* Adjust blur value as needed */
+}
