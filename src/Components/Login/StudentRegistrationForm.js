@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
 import "./TeacherRegistrationForm.css";
 import student from "../../images/student.png";
+import { toast } from "react-toastify";
 
 const StudentRegistrationForm = () => {
   const {
@@ -15,9 +16,11 @@ const StudentRegistrationForm = () => {
     formState: { errors },
   } = useForm();
 
+  const imageStorageKey = "81a2b36646ff008b714220192e61707d";
+  const navigate = useNavigate();
   const [selectedCommunicationChannel, setSelectedCommunicationChannel] =
     useState([]);
-  const [selectedDateOfBirth, setSelectedDateOfBirth] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const communicationChannelOptions = [
     { label: "Email", value: "email" },
@@ -29,8 +32,78 @@ const StudentRegistrationForm = () => {
     setSelectedCommunicationChannel(selectedOption);
   };
 
-  const handleSubmitForm = async (data) => {
-    // Add your form submission logic here
+  const handleAddStudent = async (data) => {
+    const formattedDob = selectedDate
+      ? `${selectedDate.getFullYear()}-${(selectedDate.getMonth() + 1)
+          .toString()
+          .padStart(2, "0")}-${selectedDate
+          .getDate()
+          .toString()
+          .padStart(2, "0")}`
+      : "";
+
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgData) => {
+        if (imgData.success) {
+          const student = {
+            name: data.name,
+            email: data.email,
+            password: data.password,
+            dateOfBirth: formattedDob,
+            gradeYear: data.gradeYear,
+            role: "student",
+            institution: data.institution,
+            interestsHobbies: data.interestsHobbies,
+            parentGuardian: {
+              name: data.parentGuardianName,
+              email: data.parentGuardianEmail,
+              phoneNumber: data.parentGuardianPhoneNumber,
+            },
+            communicationChannel: selectedCommunicationChannel.value,
+            image: imgData.data.url,
+          };
+          const user = {
+            name: data.name,
+            email: data.email,
+            role: "student",
+            image: imgData.data.url,
+            password: data.password,
+          };
+          // save student information to the database
+          fetch("http://localhost:5000/student", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(student),
+          })
+            .then((res) => res.json())
+            .then((result) => {
+              toast.success(`${data.name} thanks for your registration`);
+            });
+          fetch("http://localhost:5000/user", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(user),
+          })
+            .then((res) => res.json())
+            .then((result) => {
+              toast.success(`${data.name} welcome to EdiTrio Dynamos`);
+            });
+        }
+      });
+    navigate("/");
   };
 
   return (
@@ -45,7 +118,7 @@ const StudentRegistrationForm = () => {
               Student Registration
             </h1>
 
-            <form onSubmit={handleSubmit(handleSubmitForm)}>
+            <form onSubmit={handleSubmit(handleAddStudent)}>
               <div className="flex gap-7">
                 {/* Full Name field */}
                 <div className="form-control w-full">
@@ -57,9 +130,9 @@ const StudentRegistrationForm = () => {
                   <input
                     type="text"
                     placeholder="First Name, Last Name"
-                    name="fullName"
+                    name="name"
                     className="input input-sm input-bordered w-full"
-                    {...register("fullName", {
+                    {...register("name", {
                       required: {
                         value: true,
                         message: "Full Name is required",
@@ -67,9 +140,9 @@ const StudentRegistrationForm = () => {
                     })}
                   />
                   <label>
-                    {errors.fullName?.type === "required" && (
+                    {errors.name?.type === "required" && (
                       <span className="text-red-500 text-xs mt-1">
-                        {errors.fullName.message}
+                        {errors.name.message}
                       </span>
                     )}
                   </label>
@@ -196,8 +269,8 @@ const StudentRegistrationForm = () => {
                     </span>
                   </label>
                   <DatePicker
-                    selected={selectedDateOfBirth}
-                    onChange={(date) => setSelectedDateOfBirth(date)}
+                    selected={selectedDate}
+                    onChange={(date) => setSelectedDate(date)}
                     dateFormat="yyyy-MM-dd"
                     className="input input-sm input-bordered w-full"
                     placeholderText="yyyy-MM-dd"

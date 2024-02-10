@@ -19,6 +19,7 @@ const TeacherRegistrationForm = () => {
   const navigate = useNavigate();
   let signInError;
 
+  const imageStorageKey = "81a2b36646ff008b714220192e61707d";
   const [selectedSubjects, setSelectedSubjects] = useState([]);
   const [selectedGender, setSelectedGender] = useState([]);
   const [selectedEducationLevel, setSelectedEducationLevel] = useState([]);
@@ -80,8 +81,93 @@ const TeacherRegistrationForm = () => {
     setSelectedProfessionalTitle(selectedOption);
   };
 
-  const handleSubmitForm = async (data) => {
-    // Add your form submission logic here
+  const handleAddTeacher = async (data) => {
+    const formattedDob = selectedDate
+      ? `${selectedDate.getFullYear()}-${(selectedDate.getMonth() + 1)
+          .toString()
+          .padStart(2, "0")}-${selectedDate
+          .getDate()
+          .toString()
+          .padStart(2, "0")}`
+      : "";
+
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+
+    try {
+      const imgResponse = await fetch(url, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (imgResponse.ok) {
+        const imgData = await imgResponse.json();
+
+        if (imgData.success) {
+          const teacher = {
+            name: data.name,
+            role: "teacher",
+            email: data.email,
+            img: imgData.data.url,
+            gender: selectedGender ? selectedGender.value : null,
+            dob: formattedDob,
+            subjects: selectedSubjects.map((subject) => subject.value),
+            educationLevel: selectedEducationLevel.value,
+            professionalTitle: selectedProfessionalTitle.value,
+            password: data.password,
+          };
+
+          const user = {
+            name: data.name,
+            email: data.email,
+            role: "teacher",
+            img: imgData.data.url,
+            password: data.password,
+          };
+
+          // Save teacher information to the database
+          const teacherResponse = await fetch("http://localhost:5000/teacher", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(teacher),
+          });
+
+          if (teacherResponse.ok) {
+            toast.success(`${data.name} thanks for your registration`);
+          } else {
+            console.error("Failed to register teacher");
+          }
+
+          // Save user information to the database
+          const userResponse = await fetch("http://localhost:5000/user", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+          });
+
+          if (userResponse.ok) {
+            toast.success(`${data.name} welcome to EduTrio Dynamos`);
+          } else {
+            console.error("Failed to create user account");
+          }
+
+          navigate("/");
+        } else {
+          toast.error("Failed to upload image");
+        }
+      } else {
+        toast.error("Failed to upload image");
+      }
+    } catch (error) {
+      console.error("Error registering teacher:", error);
+      // toast.error("An error occurred. Please try again later.");
+    }
   };
 
   return (
@@ -96,7 +182,7 @@ const TeacherRegistrationForm = () => {
               Teacher Registration
             </h1>
 
-            <form onSubmit={handleSubmit(handleSubmitForm)}>
+            <form onSubmit={handleSubmit(handleAddTeacher)}>
               {/* Name field */}
               <div className="form-control w-full">
                 <label className="label">
@@ -162,7 +248,6 @@ const TeacherRegistrationForm = () => {
                 </label>
               </div>
 
-              {/* Other fields similar to the MaidRegistrationForm */}
               {/* Subjects */}
               <div className="form-control w-full">
                 <label className="label">
@@ -271,7 +356,6 @@ const TeacherRegistrationForm = () => {
               </div>
 
               <div className="flex gap-7">
-                {" "}
                 {/* Password */}
                 <div className="form-control w-full">
                   <label className="label">
@@ -344,8 +428,6 @@ const TeacherRegistrationForm = () => {
                   </label>
                 </div>
               </div>
-
-              {signInError}
 
               <div className="flex justify-center items-center mt-7">
                 <input

@@ -25,7 +25,7 @@ const Login = () => {
         setLoggedUser(data);
       });
   }, []);
-
+  
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -41,16 +41,12 @@ const Login = () => {
     );
     if (matchingUser) {
       localStorage.setItem("userRole", data.role);
+      navigate("/");
     } else {
       toast.error(
-        `${data.email} or ${data.role} is invalid. Please check it again`,
-        {
-          position: toast.POSITION.TOP_CENTER,
-        }
+        `${data.email} or ${data.role} is invalid. Please check it again`
       );
     }
-    const userRole = localStorage.getItem("userRole");
-    navigate(`/${userRole}Dashboard`);
   };
 
   return (
