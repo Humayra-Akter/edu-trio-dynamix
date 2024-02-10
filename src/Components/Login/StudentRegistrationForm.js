@@ -107,11 +107,11 @@ const StudentRegistrationForm = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-neutral to-secondary flex">
-      <div className="w-2/3">
+    <div className="bg-gradient-to-r from-neutral to-secondary lg:flex">
+      <div className="lg:w-2/3">
         <img src={student} className="w-full p-20 h-auto" alt="Login" />
       </div>
-      <div className="w-2/3 pt-28 p-8">
+      <div className="lg:w-2/3 lg:pt-28 p-8">
         <div className="card max-w-2xl  bg-gradient-to-r from-neutral to-accent shadow-xl">
           <div className="card-body">
             <h1 className="text-center text-2xl text-primary font-extrabold mb-4">

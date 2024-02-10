@@ -27,7 +27,7 @@ const Landing = () => {
         <div className="text-center md:w mx-auto md:mx-0 md:mr-8">
           <h1
             style={{ fontFamily: "cursive" }}
-            className="text-4xl text-blue-900 font-bold mb-4"
+            className="lg:text-4xl text-blue-900 font-bold mb-4"
           >
             Welcome to EduTrio Dynamix
           </h1>

@@ -25,7 +25,7 @@ const Login = () => {
         setLoggedUser(data);
       });
   }, []);
-  
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -50,11 +50,11 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-neutral to-secondary flex">
-      <div className="w-1/2">
+    <div className="bg-gradient-to-r from-neutral to-secondary lg:flex">
+      <div className="lg:w-1/2">
         <img src={login} className="w-full p-20 h-auto" alt="Login" />
       </div>
-      <div className="w-1/2 pt-28 p-8">
+      <div className="lg:w-1/2 lg:pt-28 p-8">
         <div className="card max-w-md  bg-gradient-to-r from-neutral to-accent shadow-xl">
           <div className="card-body">
             <h1 className="text-center text-2xl text-primary font-extrabold mb-4">

@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import StudentRegistrationForm from "./Components/Login/StudentRegistrationForm";
 import Login from "./Components/Login/Login";
+import Error from "./Components/Error/Error";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           path="/studentRegistrationForm"
           element={<StudentRegistrationForm />}
         />
+        <Route path="*" element={<Error />} />
       </Routes>
       <ToastContainer />
     </div>
