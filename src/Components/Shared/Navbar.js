@@ -9,7 +9,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-primary via-secondary to-accent text-white font-bold p-4">
+    <nav className="bg-gradient-to-r from-primary via-secondary to-accent text-black font-bold p-4">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo/Home Link */}
         <Link to="/" className="text-xl">
@@ -85,7 +85,6 @@ const Navbar = () => {
                 Logout
               </Link>
             </li>
-            
           </ul>
         </div>
 
