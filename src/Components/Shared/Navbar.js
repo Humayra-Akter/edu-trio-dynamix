@@ -25,7 +25,7 @@ const Navbar = () => {
         )}
       </div>
 
-      {/* Navigation links */}
+      {/* Navigation links  */}
       {userRole && (
         <div className="container mx-auto flex justify-center items-center">
           {/* Dropdown Menu for Small Screens */}
@@ -54,50 +54,114 @@ const Navbar = () => {
                 className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
               >
                 {/* Navigation links */}
-                <li>
-                  <Link
-                    to="/"
-                    className="text-primary font-bold hover:text-black"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/projects"
-                    className="text-primary font-bold hover:text-black"
-                  >
-                    Projects
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/resources"
-                    className="text-primary font-bold hover:text-black"
-                  >
-                    Resources
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/dashboard"
-                    className="text-primary font-bold hover:text-black"
-                  >
-                    Dashboard
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/profile"
-                    className="text-primary font-bold hover:text-black"
-                  >
-                    Profile
-                  </Link>
-                </li>
+                {userRole === "teacher" && (
+                  <>
+                    <li>
+                      <Link
+                        to="/teacherProfile"
+                        className="text-black text-lg font-bold hover:text-neutral"
+                      >
+                        Profile
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/teacherCourse"
+                        className="text-black text-lg font-bold hover:text-neutral"
+                      >
+                        Course
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/teacherProject"
+                        className="text-black text-lg font-bold hover:text-neutral"
+                      >
+                        Project
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/teacherAssignment"
+                        className="text-black text-lg font-bold hover:text-neutral"
+                      >
+                        Assignment
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/teacherResource"
+                        className="text-black text-lg font-bold hover:text-neutral"
+                      >
+                        Resource
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/teacherAnalytics"
+                        className="text-black text-lg font-bold hover:text-neutral"
+                      >
+                        Analytics
+                      </Link>
+                    </li>
+                  </>
+                )}
+                {userRole === "student" && (
+                  <>
+                    <li>
+                      <Link
+                        to="/studentProfile"
+                        className="text-black text-lg font-bold hover:text-neutral"
+                      >
+                        Profile
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/studentCourse"
+                        className="text-black text-lg font-bold hover:text-neutral"
+                      >
+                        Course
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/studentProject"
+                        className="text-black text-lg font-bold hover:text-neutral"
+                      >
+                        Project
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/studentAssignment"
+                        className="text-black text-lg font-bold hover:text-neutral"
+                      >
+                        Assignment
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/studentResource"
+                        className="text-black text-lg font-bold hover:text-neutral"
+                      >
+                        Resource
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/studentAnalytics"
+                        className="text-black text-lg font-bold hover:text-neutral"
+                      >
+                        Analytics
+                      </Link>
+                    </li>
+                  </>
+                )}
                 <li>
                   <Link
                     to="/logout"
-                    className="text-primary font-bold hover:text-black"
+                    className="text-red font-bold hover:text-black"
                   >
                     Logout
                   </Link>
@@ -117,44 +181,116 @@ const Navbar = () => {
                   EdiTrio-Dynamos
                 </Link>
               </li>
-              <li>
-                <Link
-                  className="text-black text-lg font-bold hover:text-neutral"
-                  to="/projects"
-                >
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-black text-lg font-bold hover:text-neutral"
-                  to="/resources"
-                >
-                  Resources
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-black text-lg font-bold hover:text-neutral"
-                  to="/dashboard"
-                >
-                  Dashboard
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-black text-lg font-bold hover:text-neutral"
-                  to="/profile"
-                >
-                  Profile
-                </Link>
-              </li>
+              {userRole === "teacher" && (
+                <>
+                  <li>
+                    <Link
+                      to="/teacherProfile"
+                      className="text-black text-lg font-bold hover:text-neutral"
+                    >
+                      Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/teacherCourse"
+                      className="text-black text-lg font-bold hover:text-neutral"
+                    >
+                      Course
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/teacherProject"
+                      className="text-black text-lg font-bold hover:text-neutral"
+                    >
+                      Project
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/teacherAssignment"
+                      className="text-black text-lg font-bold hover:text-neutral"
+                    >
+                      Assignment
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/teacherResource"
+                      className="text-black text-lg font-bold hover:text-neutral"
+                    >
+                      Resource
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/teacherAnalytics"
+                      className="text-black text-lg font-bold hover:text-neutral"
+                    >
+                      Analytics
+                    </Link>
+                  </li>
+                </>
+              )}
+              {userRole === "student" && (
+                <>
+                  <li>
+                    <Link
+                      to="/studentProfile"
+                      className="text-black text-lg font-bold hover:text-neutral"
+                    >
+                      Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/studentCourse"
+                      className="text-black text-lg font-bold hover:text-neutral"
+                    >
+                      Course
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/studentProject"
+                      className="text-black text-lg font-bold hover:text-neutral"
+                    >
+                      Project
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/studentAssignment"
+                      className="text-black text-lg font-bold hover:text-neutral"
+                    >
+                      Assignment
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/studentResource"
+                      className="text-black text-lg font-bold hover:text-neutral"
+                    >
+                      Resource
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/studentAnalytics"
+                      className="text-black text-lg font-bold hover:text-neutral"
+                    >
+                      Analytics
+                    </Link>
+                  </li>
+                </>
+              )}
               <li>
                 <button
                   onClick={logout}
-                  className="text-black text-lg font-bold hover:text-neutral"
+                  className="text-red-600 text-lg font-bold hover:text-neutral"
                 >
-                  <div class="indicator">Logout</div>
+                  Logout
                 </button>
               </li>
             </ul>
