@@ -9,6 +9,7 @@ import Login from "./Components/Login/Login";
 import Error from "./Components/Error/Error";
 import TeacherProfile from "./Components/Teacher/TeacherProfile/TeacherProfile";
 import TeacherCourse from "./Components/Teacher/TeacherCourse/TeacherCourse";
+import TeacherProject from "./Components/Teacher/TeacherProject/TeacherProject";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         />
         <Route path="/teacherProfile" element={<TeacherProfile />} />
         <Route path="/teacherCourse" element={<TeacherCourse />} />
+        <Route path="/teacherProject" element={<TeacherProject />} />
         <Route
           path="/studentRegistrationForm"
           element={<StudentRegistrationForm />}
