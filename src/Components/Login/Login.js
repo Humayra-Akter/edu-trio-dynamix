@@ -40,7 +40,10 @@ const Login = () => {
       (sysUser) => sysUser.email === data.email && sysUser.role === data.role
     );
     if (matchingUser) {
+      console.log(data);
       localStorage.setItem("userRole", data.role);
+      localStorage.setItem("userEmail", data.email);
+      localStorage.setItem("userPassword", data.password);
       navigate("/");
     } else {
       toast.error(

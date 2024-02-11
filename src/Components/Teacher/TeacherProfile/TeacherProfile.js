@@ -1,59 +1,34 @@
 import React, { useEffect, useState } from "react";
 
 const TeacherProfile = () => {
+  const userRole = localStorage.getItem("userRole");
+  const userEmail = localStorage.getItem("userEmail");
   const [loggedTeacher, setLoggedTeacher] = useState({});
-  const [isEditing, setIsEditing] = useState(false);
-  const [updatedTeacher, setUpdatedTeacher] = useState({});
   const [newProject, setNewProject] = useState({
     title: "",
     description: "",
     subject: "",
     batchName: "",
     yearOfStudy: "",
+    teacherEmail: userEmail,
   });
-
   useEffect(() => {
-    fetch(`http://localhost:5000/teacher`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.length > 0) {
-          setLoggedTeacher(data[0]); // Assuming only one teacher is returned, modify this logic as per your requirements
-          setUpdatedTeacher(data[0]);
-        }
-      });
+    // console.log(userEmail, userRole);
+    if (userRole === "teacher" && userEmail) {
+      fetch(`http://localhost:5000/teacher?email=${userEmail}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.length > 0) {
+            const matchingUser = data.find(
+              (userData) => userData.email === userEmail
+            );
+            if (matchingUser) {
+              setLoggedTeacher(matchingUser);
+            }
+          }
+        });
+    }
   }, []);
-
-  const handleEditClick = () => {
-    setIsEditing(true);
-  };
-
-  const handleCancelEdit = () => {
-    setIsEditing(false);
-    setUpdatedTeacher(loggedTeacher);
-  };
-
-  const handleSaveChanges = () => {
-    fetch(`http://localhost:5000/teacher/${loggedTeacher._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedTeacher),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data); // Handle success or error
-        setIsEditing(false);
-      });
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setUpdatedTeacher({
-      ...updatedTeacher,
-      [name]: value,
-    });
-  };
 
   const handleNewProjectChange = (e) => {
     const { name, value } = e.target;
@@ -73,87 +48,96 @@ const TeacherProfile = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data); // Handle success or error
-        // Optionally, you can clear the form fields after successful creation
+        console.log(data);
         setNewProject({
           title: "",
           description: "",
           subject: "",
           batchName: "",
           yearOfStudy: "",
+          teacherEmail: userEmail,
         });
-      });
+      })
+      .catch((error) => console.error("Error creating project:", error));
   };
 
   return (
-    <div className="bg-white p-4 shadow rounded-lg">
+    <div className="bg-white px-24 p-7 shadow rounded-lg">
       <div className="text-center">
         <h2 className="text-3xl text-primary font-bold">
           {loggedTeacher?.name}
         </h2>
       </div>
 
-      <div className="flex">
-        <div className="lg:w-1/2 lg:pt-28 p-8">
-          <div className="card max-w-md bg-gradient-to-r from-neutral to-accent shadow-xl">
+      <div className="flex gap-10">
+        <div className="lg:w-full lg:pt-20 p-8">
+          <div className="card max-w-lg bg-gradient-to-r from-purple-200 to-blue-100 shadow-xl">
             <div className="card-body">
               <h1 className="text-center text-2xl text-primary font-extrabold mb-4">
                 Teacher Information
               </h1>
-              <ul className="mb-4">
-                <li className="mb-2">
-                  <span className="text-md font-medium text-primary">
-                    Email:
-                  </span>
-                  <span className="ml-4 font-bold">{loggedTeacher?.email}</span>
-                </li>
-                <li className="mb-2">
-                  <span className="text-md font-medium text-primary">
-                    Gender:
-                  </span>
-                  <span className="ml-4 font-bold capitalize">
-                    {loggedTeacher.gender}
-                  </span>
-                </li>
-                <li className="mb-2">
-                  <span className="text-md font-medium text-primary">
-                    Date of Birth:
-                  </span>
-                  <span className="ml-4 font-bold">{loggedTeacher.dob}</span>
-                </li>
-                <li className="mb-2">
-                  <span className="text-md font-medium text-primary">
-                    Subjects:
-                  </span>
-                  <span className="ml-4 font-bold">
-                    {loggedTeacher.subjects?.join(", ")}
-                  </span>
-                </li>
-                <li className="mb-2">
-                  <span className="text-md font-medium text-primary">
-                    Education Level:
-                  </span>
-                  <span className="ml-4 font-bold">
-                    {loggedTeacher.educationLevel}
-                  </span>
-                </li>
-                <li className="mb-2">
-                  <span className="text-md font-medium text-primary">
-                    Professional Title:
-                  </span>
-                  <span className="ml-4 font-bold">
-                    {loggedTeacher.professionalTitle}
-                  </span>
-                </li>
-              </ul>
+              <div className="flex">
+                <ul className="mb-4">
+                  <li className="mb-2">
+                    <span className="text-md font-medium text-primary">
+                      Email:
+                    </span>
+                    <span className="ml-4 font-bold">
+                      {loggedTeacher?.email}
+                    </span>
+                  </li>
+                  <li className="mb-2">
+                    <span className="text-md font-medium text-primary">
+                      Gender:
+                    </span>
+                    <span className="ml-4 capitalize font-bold ">
+                      {loggedTeacher.gender}
+                    </span>
+                  </li>
+                  <li className="mb-2">
+                    <span className="text-md font-medium text-primary">
+                      Date of Birth:
+                    </span>
+                    <span className="ml-4 font-bold">{loggedTeacher.dob}</span>
+                  </li>
+                  <li className="mb-2">
+                    <span className="text-md font-medium text-primary">
+                      Subjects:
+                    </span>
+                    <span className="ml-4 capitalize font-bold">
+                      {loggedTeacher.subjects?.join(", ")}
+                    </span>
+                  </li>
+                  <li className="mb-2">
+                    <span className="text-md font-medium text-primary">
+                      Education Level:
+                    </span>
+                    <span className="ml-4 capitalize font-bold">
+                      {loggedTeacher.educationLevel}
+                    </span>
+                  </li>
+                  <li className="mb-2">
+                    <span className="text-md font-medium text-primary">
+                      Professional Title:
+                    </span>
+                    <span className="ml-4 capitalize font-bold">
+                      {loggedTeacher.professionalTitle}
+                    </span>
+                  </li>
+                </ul>
+                <img
+                  src={loggedTeacher?.img}
+                  alt="user"
+                  className="w-32 h-32 rounded-full mb-4 mx-auto"
+                />
+              </div>
             </div>
           </div>
         </div>
 
         {/* Form for creating a new project */}
-
-        <div className="lg:w-full lg:pt-28 p-8">
-          <div className="card max-w-md  bg-gradient-to-r from-neutral to-accent shadow-xl">
+        <div className="lg:w-full lg:pt-20 p-8">
+          <div className="card max-w bg-gradient-to-r from-purple-200 to-blue-100 shadow-xl">
             <div className="card-body">
               <h1 className="text-center text-2xl text-primary font-extrabold mb-4">
                 Create Project
@@ -207,7 +191,11 @@ const TeacherProfile = () => {
                     className="select select-bordered select-sm"
                   >
                     <option value="">Select Subject</option>
-                    {/* Add options for subjects */}
+                    <option value="">Select Subject</option>
+                    <option value="physics">Physics</option>
+                    <option value="chemistry">Chemistry</option>
+                    <option value="biology">Biology</option>
+                    <option value="math">Math</option>
                   </select>
                 </div>
                 <div className="flex flex-col mb-4">
@@ -244,12 +232,11 @@ const TeacherProfile = () => {
                     className="input input-bordered input-sm"
                   />
                 </div>
-                <button
-                  onClick={handleCreateProject}
-                  className="bg-primary text-white font-semibold px-4 py-2 rounded-lg"
-                >
-                  Create
-                </button>
+                <div className="flex items-center justify-center mt-5">
+                  <button onClick={handleCreateProject} className="custom-btn">
+                    Create
+                  </button>
+                </div>
               </div>
             </div>
           </div>

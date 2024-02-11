@@ -8,6 +8,7 @@ import StudentRegistrationForm from "./Components/Login/StudentRegistrationForm"
 import Login from "./Components/Login/Login";
 import Error from "./Components/Error/Error";
 import TeacherProfile from "./Components/Teacher/TeacherProfile/TeacherProfile";
+import TeacherCourse from "./Components/Teacher/TeacherCourse/TeacherCourse";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           element={<TeacherRegistrationForm />}
         />
         <Route path="/teacherProfile" element={<TeacherProfile />} />
+        <Route path="/teacherCourse" element={<TeacherCourse />} />
         <Route
           path="/studentRegistrationForm"
           element={<StudentRegistrationForm />}
