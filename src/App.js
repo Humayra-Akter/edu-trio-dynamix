@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import StudentRegistrationForm from "./Components/Login/StudentRegistrationForm";
 import Login from "./Components/Login/Login";
 import Error from "./Components/Error/Error";
+import TeacherProfile from "./Components/Teacher/TeacherProfile/TeacherProfile";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           path="/teacherRegistrationForm"
           element={<TeacherRegistrationForm />}
         />
+        <Route path="/teacherProfile" element={<TeacherProfile />} />
         <Route
           path="/studentRegistrationForm"
           element={<StudentRegistrationForm />}
