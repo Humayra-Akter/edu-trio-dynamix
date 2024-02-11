@@ -71,7 +71,7 @@ const TeacherProfile = () => {
             </h2>
           </div>
 
-          <div className="lg:w-full lg:pt-20 gap-7 p-8 flex">
+          <div className="lg:w-full lg:pt-20 gap-7 p-8 lg:flex">
             <div className="card max-w-2xl flex items-center justify-center bg-gradient-to-t from-yellow-600 to-yellow-300 shadow-xl">
               <div className="card-body">
                 <h1 className="text-center text-2xl text-primary font-extrabold mb-4">

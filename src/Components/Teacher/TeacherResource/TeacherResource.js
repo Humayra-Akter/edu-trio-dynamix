@@ -1,72 +1,110 @@
 import React, { useState, useEffect } from "react";
 import "../../Home/Landing.css";
+import { useForm } from "react-hook-form";
 
 const TeacherResource = () => {
   const [posts, setPosts] = useState([]);
-  const [title, setTitle] = useState("");
-  const [url, setUrl] = useState("");
-  const [loading, setLoading] = useState(true);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   useEffect(() => {
     fetchPosts();
   }, []);
+  const userRole = localStorage.getItem("userRole");
+  const userEmail = localStorage.getItem("userEmail");
+  const [loggedTeacher, setLoggedTeacher] = useState({});
+
+  useEffect(() => {
+    if (userRole === "teacher" && userEmail) {
+      fetch(`http://localhost:5000/teacher?email=${userEmail}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.length > 0) {
+            const matchingUser = data.find(
+              (userData) => userData.email === userEmail
+            );
+            if (matchingUser) {
+              setLoggedTeacher(matchingUser);
+            }
+          }
+        });
+    }
+  }, []);
+  console.log(loggedTeacher.name);
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch("/teacher/resource");
+      const response = await fetch("http://localhost:5000/teacher/resource");
       if (!response.ok) {
         throw new Error("Failed to fetch posts");
       }
       const data = await response.json();
       setPosts(data);
-      setLoading(false);
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
   };
+  const handleAddResource = async (formData) => {
+      const { name, email } = loggedTeacher;
+      const resourceData = {
+        ...formData,
+        teacherName: name,
+        teacherEmail: email,
+      };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch("/teacher/resource", {
+      const response = await fetch("http://localhost:5000/teacher/resource", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ title, url }),
-      });
-      if (!response.ok) {
-        throw new Error("Failed to add post");
-      }
-      const data = await response.json();
-      setPosts([...posts, data]);
-      setTitle("");
-      setUrl("");
-    } catch (error) {
-      console.error("Error adding post:", error);
-    }
+        body: JSON.stringify(resourceData),
+      })
+            .then((res) => res.json())
+            .then((result) => {
+             console.log(result)})       
   };
+  console.log(posts);
 
   return (
     <div>
-      <div className="text-center p-4">
-        <p>No previous posts.</p>
-        <form onSubmit={handleSubmit} className="mt-4">
-          <input
-            type="text"
-            placeholder="Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className="mb-2 p-2 w-full border border-gray-300 rounded"
-          />
-          <input
-            type="text"
-            placeholder="YouTube URL"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            className="mb-2 p-2 w-full border border-gray-300 rounded"
-          />
+      <div className="flex justify-center items-center p-4">
+        <form onSubmit={handleSubmit(handleAddResource)} className="mt-4">
+          {/* Title field */}
+          <div className="form-control w-full">
+            <input
+              type="text"
+              placeholder="Title"
+              {...register("title", {
+                required: "Title is required",
+              })}
+              className="mb-2 p-2 w-full border border-gray-300 rounded"
+            />
+            {errors.title && (
+              <span className="text-red-500 text-xs mt-1">
+                {errors.title.message}
+              </span>
+            )}
+          </div>
 
+          {/* URL field */}
+          <div className="form-control w-full">
+            <input
+              type="text"
+              placeholder="YouTube URL"
+              {...register("url", {
+                required: "URL is required",
+              })}
+              className="mb-2 p-2 w-full border border-gray-300 rounded"
+            />
+            {errors.url && (
+              <span className="text-red-500 text-xs mt-1">
+                {errors.url.message}
+              </span>
+            )}
+          </div>
           <button
             type="submit"
             style={{
@@ -98,7 +136,7 @@ const TeacherResource = () => {
                 textShadow: "0 0 4px white",
               }}
             >
-              SUBMIT
+              ADD RESOURCE
             </strong>
             <div
               id="container-stars"
@@ -157,25 +195,31 @@ const TeacherResource = () => {
         </form>
       </div>
       <div className="flex flex-wrap p-4">
-        {posts.map((post, index) => (
-          <div
-            key={index}
-            className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 mb-4 px-4"
-          >
-            <div className="border border-gray-300 rounded p-4">
-              <h3 className="mb-2">{post.title}</h3>
-              <iframe
-                width="100%"
-                height="auto"
-                src={post.url}
-                frameBorder="0"
-                allowFullScreen
-                title={post.title}
-                className="border-none"
-              ></iframe>
+        {!posts ? (
+          <p className="text-center font-bold text-red-600 text-2xl">
+            No previous posts.
+          </p>
+        ) : (
+          posts.map((post, index) => (
+            <div
+              key={index}
+              className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 mb-4 px-4"
+            >
+              <div className="border bg-gradient-to-b from-neutral to-accent  border-gray-300 rounded p-4">
+                <h3 className="mb-2 text-center font-bold text-xl text-primary">{post.title}</h3>
+                <iframe
+                  width="100%"
+                  height="auto"
+                  src={post.url}
+                  frameBorder="0"
+                  allowFullScreen
+                  title={post.title}
+                  className="border-none"
+                ></iframe>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );
