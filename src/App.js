@@ -12,6 +12,7 @@ import TeacherCourse from "./Components/Teacher/TeacherCourse/TeacherCourse";
 import TeacherProject from "./Components/Teacher/TeacherProject/TeacherProject";
 import TeacherAssignment from "./Components/Teacher/TeacherAssignment/TeacherAssignment";
 import TeacherResource from "./Components/Teacher/TeacherResource/TeacherResource";
+import Container from "./Components/WhiteBoard/Container/Container";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/board" element={<Container />} />
         <Route
           path="/teacherRegistrationForm"
           element={<TeacherRegistrationForm />}
