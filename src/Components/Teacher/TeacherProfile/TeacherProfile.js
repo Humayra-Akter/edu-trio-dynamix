@@ -62,7 +62,7 @@ const TeacherProfile = () => {
   };
 
   return (
-    <div className="bg-gradient-to-t from-secondary to-neutral">
+    <div className="bg-gradient-to-r from-neutral via-blue-100 to-neutral">
       <div className="flex justify-center items-center h-screen">
         <div className="bg-white px-24 p-7">
           <div className="text-center">

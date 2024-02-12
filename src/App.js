@@ -13,6 +13,11 @@ import TeacherProject from "./Components/Teacher/TeacherProject/TeacherProject";
 import TeacherAssignment from "./Components/Teacher/TeacherAssignment/TeacherAssignment";
 import TeacherResource from "./Components/Teacher/TeacherResource/TeacherResource";
 import Container from "./Components/WhiteBoard/Container/Container";
+import StudentCourse from "./Components/Student/StudentCourse/StudentCourse";
+import StudentProfile from "./Components/Student/StudentProfile/StudentProfile";
+import StudentAssignment from "./Components/Student/StudentAssignment/StudentAssignment";
+import StudentResource from "./Components/Student/StudentResource/StudentResource";
+import StudentProject from "./Components/Student/StudentProject/StudentProject";
 
 function App() {
   return (
@@ -22,6 +27,8 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/board" element={<Container />} />
+
+        {/* teacher  */}
         <Route
           path="/teacherRegistrationForm"
           element={<TeacherRegistrationForm />}
@@ -31,10 +38,18 @@ function App() {
         <Route path="/teacherAssignment" element={<TeacherAssignment />} />
         <Route path="/teacherResource" element={<TeacherResource />} />
         <Route path="/teacherProject" element={<TeacherProject />} />
+
+        {/* student  */}
         <Route
           path="/studentRegistrationForm"
           element={<StudentRegistrationForm />}
         />
+        <Route path="/studentProfile" element={<StudentProfile />} />
+        <Route path="/studentCourse" element={<StudentCourse />} />
+        <Route path="/studentAssignment" element={<StudentAssignment />} />
+        <Route path="/studentResource" element={<StudentResource />} />
+        <Route path="/studentProject" element={<StudentProject />} />
+
         <Route path="*" element={<Error />} />
       </Routes>
       <ToastContainer />

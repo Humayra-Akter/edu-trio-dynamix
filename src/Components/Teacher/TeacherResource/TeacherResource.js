@@ -48,28 +48,29 @@ const TeacherResource = () => {
     }
   };
   const handleAddResource = async (formData) => {
-      const { name, email } = loggedTeacher;
-      const resourceData = {
-        ...formData,
-        teacherName: name,
-        teacherEmail: email,
-      };
+    const { name, email } = loggedTeacher;
+    const resourceData = {
+      ...formData,
+      teacherName: name,
+      teacherEmail: email,
+    };
 
-      const response = await fetch("http://localhost:5000/teacher/resource", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(resourceData),
-      })
-            .then((res) => res.json())
-            .then((result) => {
-             console.log(result)})       
+    const response = await fetch("http://localhost:5000/teacher/resource", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(resourceData),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
   };
   console.log(posts);
 
   return (
-    <div>
+    <div className="bg-gradient-to-r from-neutral via-blue-100 to-neutral">
       <div className="flex justify-center items-center p-4">
         <form onSubmit={handleSubmit(handleAddResource)} className="mt-4">
           {/* Title field */}
@@ -206,7 +207,9 @@ const TeacherResource = () => {
               className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 mb-4 px-4"
             >
               <div className="border bg-gradient-to-b from-neutral to-accent  border-gray-300 rounded p-4">
-                <h3 className="mb-2 text-center font-bold text-xl text-primary">{post.title}</h3>
+                <h3 className="mb-2 text-center font-bold text-xl text-primary">
+                  {post.title}
+                </h3>
                 <iframe
                   width="100%"
                   height="auto"
