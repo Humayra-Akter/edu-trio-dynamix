@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const userRole = localStorage.getItem("userRole");
+  const userEmail = localStorage.getItem("userEmail");
+  const [selectedRoute, setSelectedRoute] = useState("");
   const navigate = useNavigate();
 
   const toggleDropdown = () => {
@@ -12,7 +14,12 @@ const Navbar = () => {
 
   const logout = () => {
     localStorage.removeItem("userRole");
+    localStorage.removeItem("userEmail");
     navigate("/");
+  };
+
+  const handleRouteClick = (route) => {
+    setSelectedRoute(route);
   };
 
   return (
@@ -53,13 +60,18 @@ const Navbar = () => {
                 tabIndex={0}
                 className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
               >
-                {/* Navigation links */}
+                {/* Navigation links for small */}
                 {userRole === "teacher" && (
                   <>
                     <li>
                       <Link
                         to="/teacherProfile"
-                        className="text-black text-lg font-bold hover:text-neutral"
+                        className={`text-lg font-bold hover:text-neutral ${
+                          selectedRoute === "/teacherProfile"
+                            ? "text-yellow-400"
+                            : "text-black"
+                        }`}
+                        onClick={() => handleRouteClick("/teacherProfile")}
                       >
                         Profile
                       </Link>
@@ -186,7 +198,12 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/teacherProfile"
-                      className="text-black text-lg font-bold hover:text-neutral"
+                      className={`text-lg font-bold hover:text-neutral ${
+                        selectedRoute === "/teacherProfile"
+                          ? "text-yellow-900"
+                          : "text-black"
+                      }`}
+                      onClick={() => handleRouteClick("/teacherProfile")}
                     >
                       Profile
                     </Link>
@@ -194,7 +211,12 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/teacherCourse"
-                      className="text-black text-lg font-bold hover:text-neutral"
+                      className={`text-lg font-bold hover:text-neutral ${
+                        selectedRoute === "/teacherCourse"
+                          ? "text-yellow-900"
+                          : "text-black"
+                      }`}
+                      onClick={() => handleRouteClick("/teacherCourse")}
                     >
                       Course
                     </Link>
@@ -202,7 +224,12 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/teacherProject"
-                      className="text-black text-lg font-bold hover:text-neutral"
+                      className={`text-lg font-bold hover:text-neutral ${
+                        selectedRoute === "/teacherProject"
+                          ? "text-yellow-900"
+                          : "text-black"
+                      }`}
+                      onClick={() => handleRouteClick("/teacherProject")}
                     >
                       Project
                     </Link>
@@ -210,7 +237,12 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/teacherAssignment"
-                      className="text-black text-lg font-bold hover:text-neutral"
+                      className={`text-lg font-bold hover:text-neutral ${
+                        selectedRoute === "/teacherAssignment"
+                          ? "text-yellow-900"
+                          : "text-black"
+                      }`}
+                      onClick={() => handleRouteClick("/teacherAssignment")}
                     >
                       Assignment
                     </Link>
@@ -218,7 +250,12 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/teacherResource"
-                      className="text-black text-lg font-bold hover:text-neutral"
+                      className={`text-lg font-bold hover:text-neutral ${
+                        selectedRoute === "/teacherResource"
+                          ? "text-yellow-900"
+                          : "text-black"
+                      }`}
+                      onClick={() => handleRouteClick("/teacherResource")}
                     >
                       Resource
                     </Link>
@@ -226,7 +263,12 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/teacherAnalytics"
-                      className="text-black text-lg font-bold hover:text-neutral"
+                      className={`text-lg font-bold hover:text-neutral ${
+                        selectedRoute === "/teacherAnalytics"
+                          ? "text-yellow-900"
+                          : "text-black"
+                      }`}
+                      onClick={() => handleRouteClick("/teacherAnalytics")}
                     >
                       Analytics
                     </Link>
@@ -238,7 +280,12 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/studentProfile"
-                      className="text-black text-lg font-bold hover:text-neutral"
+                      className={`text-lg font-bold hover:text-neutral ${
+                        selectedRoute === "/studentProfile"
+                          ? "text-yellow-900"
+                          : "text-black"
+                      }`}
+                      onClick={() => handleRouteClick("/studentProfile")}
                     >
                       Profile
                     </Link>
@@ -246,7 +293,12 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/studentCourse"
-                      className="text-black text-lg font-bold hover:text-neutral"
+                      className={`text-lg font-bold hover:text-neutral ${
+                        selectedRoute === "/studentCourse"
+                          ? "text-yellow-900"
+                          : "text-black"
+                      }`}
+                      onClick={() => handleRouteClick("/studentCourse")}
                     >
                       Course
                     </Link>
@@ -254,7 +306,12 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/studentProject"
-                      className="text-black text-lg font-bold hover:text-neutral"
+                      className={`text-lg font-bold hover:text-neutral ${
+                        selectedRoute === "/studentProject"
+                          ? "text-yellow-900"
+                          : "text-black"
+                      }`}
+                      onClick={() => handleRouteClick("/studentProject")}
                     >
                       Project
                     </Link>
@@ -262,7 +319,12 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/studentAssignment"
-                      className="text-black text-lg font-bold hover:text-neutral"
+                      className={`text-lg font-bold hover:text-neutral ${
+                        selectedRoute === "/studentAssignment"
+                          ? "text-yellow-900"
+                          : "text-black"
+                      }`}
+                      onClick={() => handleRouteClick("/studentAssignment")}
                     >
                       Assignment
                     </Link>
@@ -270,7 +332,12 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/studentResource"
-                      className="text-black text-lg font-bold hover:text-neutral"
+                      className={`text-lg font-bold hover:text-neutral ${
+                        selectedRoute === "/studentResource"
+                          ? "text-yellow-900"
+                          : "text-black"
+                      }`}
+                      onClick={() => handleRouteClick("/studentResource")}
                     >
                       Resource
                     </Link>
@@ -278,7 +345,12 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/studentAnalytics"
-                      className="text-black text-lg font-bold hover:text-neutral"
+                      className={`text-lg font-bold hover:text-neutral ${
+                        selectedRoute === "/studentAnalytics"
+                          ? "text-yellow-900"
+                          : "text-black"
+                      }`}
+                      onClick={() => handleRouteClick("/studentAnalytics")}
                     >
                       Analytics
                     </Link>
