@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const StudentCourse = () => {
   const {
@@ -14,7 +14,8 @@ const StudentCourse = () => {
   const [courses, setCourses] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
-  const [details, setDetails] = useState("");
+  const [selectedCourse, setSelectedCourse] = useState(null);
+  const [hasApplied, setHasApplied] = useState(false);
 
   useEffect(() => {
     if (userRole === "student" && userEmail) {
@@ -40,6 +41,7 @@ const StudentCourse = () => {
   const handleApply = (course) => {
     const modal = document.getElementById("my_modal_stu_course");
     modal.showModal();
+    setSelectedCourse(course);
     if (loggedStudent.gradeYear === course.grade) {
       setShowModal(true);
       setModalMessage(`
@@ -62,9 +64,45 @@ const StudentCourse = () => {
     setShowModal(false);
   };
 
+  // const ensureCourse = () => {
+  //   const student = {
+  //     student: loggedStudent,
+  //     course: courses,
+  //   };
+  //   console.log(student);
+
+  // };
+
   const ensureCourse = () => {
-    // Handle ensuring the course here
-    console.log("Ensure course clicked");
+    if (!hasApplied) {
+      if (courses) {
+        const isCourseApplied = courses.includes(
+          (course) => course.id === selectedCourse.id
+        );
+        if (!isCourseApplied) {
+          const student = {
+            student: loggedStudent,
+            course: selectedCourse,
+          };
+          console.log(student);
+          setHasApplied(true);
+          // Call your API
+          fetch("http://localhost:5000/student/course", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(student),
+          })
+            .then((res) => res.json())
+            .then((result) => {
+              console.log(result);
+            });
+        } else {
+          toast.warning("Course has already been applied.");
+        }
+      }
+    }
   };
 
   const cancelCourse = () => {
@@ -192,6 +230,19 @@ const StudentCourse = () => {
                       }}
                     ></div>
                   </div>
+                </button>
+                <button
+                  className={`bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mr-4 rounded ${
+                    loggedStudent.gradeYear !== course.grade || hasApplied
+                      ? "opacity-50 cursor-not-allowed"
+                      : ""
+                  }`}
+                  onClick={() => handleApply(course)}
+                  disabled={
+                    loggedStudent.gradeYear !== course.grade || hasApplied
+                  }
+                >
+                  APPLY
                 </button>
               </div>
             </div>
