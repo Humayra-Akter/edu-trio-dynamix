@@ -9,7 +9,6 @@ import { TypeAnimation } from "react-type-animation";
 
 const Landing = () => {
   const handleSignup = () => {
-    // Open the modal using vanilla JavaScript
     const modal = document.getElementById("my_modal_5");
     modal.showModal();
   };

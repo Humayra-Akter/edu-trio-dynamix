@@ -12,6 +12,9 @@ const StudentCourse = () => {
   const userEmail = localStorage.getItem("userEmail");
   const [loggedStudent, setLoggedStudent] = useState({});
   const [courses, setCourses] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [details, setDetails] = useState("");
 
   useEffect(() => {
     if (userRole === "student" && userEmail) {
@@ -34,6 +37,41 @@ const StudentCourse = () => {
       .then((data) => setCourses(data));
   }, []);
 
+  const handleApply = (course) => {
+    const modal = document.getElementById("my_modal_stu_course");
+    modal.showModal();
+    if (loggedStudent.gradeYear === course.grade) {
+      setShowModal(true);
+      setModalMessage(`
+      Course: ${course.course}
+      Batch: ${course.batch}
+      Class: ${course.grade}
+      Time: ${course.time}
+      Teacher Name: ${course.teacherName}
+      Teacher Email: ${course.teacherEmail}
+    `);
+    } else {
+      setShowModal(true);
+      setModalMessage("Your class doesn't match.");
+    }
+  };
+
+  const closeModal = () => {
+    const modal = document.getElementById("my_modal_stu_course");
+    modal.close();
+    setShowModal(false);
+  };
+
+  const ensureCourse = () => {
+    // Handle ensuring the course here
+    console.log("Ensure course clicked");
+  };
+
+  const cancelCourse = () => {
+    // Handle canceling the course here
+    console.log("Cancel course clicked");
+  };
+
   return (
     <div className="bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50 h-screen">
       <div className="p-4 mx-10">
@@ -44,26 +82,32 @@ const StudentCourse = () => {
           {courses.map((course) => (
             <div
               key={course.id}
-              className="bg-gradient-to-l from-neutral to-accent border border-gray-300 rounded-lg p-4 m-4 w-96 shadow-md"
+              className="bg-gradient-to-t from-blue-300 to-sky-100 border border-gray-300 rounded-lg p-4 m-4 w-96 shadow-md"
             >
               <h2 className="text-lg font-semibold mb-2">{course.course}</h2>
               <p>
-                <strong>Batch:</strong> {course.batch}
+                <strong className="text-black font-bold">Batch:</strong>{" "}
+                {course.batch}
               </p>
               <p>
-                <strong>Class:</strong> {course.grade}
+                <strong className="text-black font-bold">Class:</strong>{" "}
+                {course.grade}
               </p>
               <p>
-                <strong>Time:</strong> {course.time}
+                <strong className="text-black font-bold">Time:</strong>{" "}
+                {course.time}
               </p>
               <p>
-                <strong>Teacher Name:</strong> {course.teacherName}
-              </p>{" "}
+                <strong className="text-black font-bold">Teacher Name:</strong>{" "}
+                {course.teacherName}
+              </p>
               <p>
-                <strong>Teacher Email:</strong> {course.teacherEmail}
+                <strong className="text-black font-bold">Teacher Email:</strong>{" "}
+                {course.teacherEmail}
               </p>
               <div className="flex justify-center items-center mt-4">
                 <button
+                  onClick={() => handleApply(course)}
                   style={{
                     display: "flex",
                     justifyContent: "center",
@@ -154,6 +198,36 @@ const StudentCourse = () => {
           ))}
         </div>
       </div>
+
+      <dialog
+        id="my_modal_stu_course"
+        className="modal modal-bottom sm:modal-middle"
+      >
+        <div className="modal-box">
+          <span className="close" onClick={closeModal}>
+            &times;
+          </span>
+          <div className="modal-action">
+            <form method="dialog">
+              <p className="text-center font-bold text-xl">{modalMessage}</p>
+              <div className="flex justify-center mt-4">
+                <button
+                  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mr-4 rounded"
+                  onClick={ensureCourse}
+                >
+                  Ensure
+                </button>
+                <button
+                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                  onClick={cancelCourse}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 };
