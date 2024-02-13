@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
 
 const StudentProject = () => {
   const {
-    handleSubmit,
     formState: { errors },
   } = useForm();
   const userRole = localStorage.getItem("userRole");
@@ -14,9 +12,11 @@ const StudentProject = () => {
   const [pdfData, setPdfData] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchCategory, setSearchCategory] = useState("project");
+  const [selectedProject, setSelectedProject] = useState(null);
 
-  const handleSignup = () => {
-    const modal = document.getElementById("my_modal_5");
+  const handleSignup = (project) => {
+    setSelectedProject(project);
+    const modal = document.getElementById("student_project");
     modal.showModal();
   };
 
@@ -56,6 +56,8 @@ const StudentProject = () => {
     return false;
   });
 
+  console.log(projects);
+
   return (
     <div>
       <div className="flex flex-wrap bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50 ">
@@ -94,6 +96,22 @@ const StudentProject = () => {
                   {project.time}
                 </p>
                 <p>
+                  <strong className="text-black font-bold">Type:</strong>{" "}
+                  {project.type}
+                </p>{" "}
+                <p>
+                  <strong className="text-black font-bold">
+                    Expected Outcome:
+                  </strong>{" "}
+                  {project.expectedOutcome}
+                </p>
+                <p>
+                  <strong className="text-black font-bold">
+                    Last day of Submit:
+                  </strong>{" "}
+                  {project.submitLastDate}
+                </p>
+                <p>
                   <strong className="text-black font-bold">
                     Teacher Name:
                   </strong>{" "}
@@ -107,7 +125,7 @@ const StudentProject = () => {
                 </p>
                 <div className="flex items-center justify-center mt-4">
                   <button
-                    onClick={handleSignup}
+                    onClick={() => handleSignup(project)}
                     style={{
                       display: "flex",
                       justifyContent: "center",
@@ -225,6 +243,22 @@ const StudentProject = () => {
                   {project.time}
                 </p>
                 <p>
+                  <strong className="text-black font-bold">Type:</strong>{" "}
+                  {project.type}
+                </p>
+                <p>
+                  <strong className="text-black font-bold">
+                    Expected Outcome:
+                  </strong>{" "}
+                  {project.expectedOutcome}
+                </p>
+                <p>
+                  <strong className="text-black font-bold">
+                    Last day of Submit:
+                  </strong>{" "}
+                  {project.submitLastDate}
+                </p>
+                <p>
                   <strong className="text-black font-bold">
                     Teacher Name:
                   </strong>{" "}
@@ -238,7 +272,7 @@ const StudentProject = () => {
                 </p>
                 <div className="flex items-center justify-center mt-4">
                   <button
-                    onClick={handleSignup}
+                    onClick={() => handleSignup(project)}
                     style={{
                       display: "flex",
                       justifyContent: "center",
@@ -332,103 +366,161 @@ const StudentProject = () => {
       </div>
 
       {/* Modal */}
-      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+      <dialog
+        id="student_project"
+        className="modal modal-bottom sm:modal-middle"
+      >
         <div className="modal-box">
-          <h3 className="font-bold text-primary text-center text-lg">
-            Choose Your Role
-          </h3>
-
           <div className="modal-action">
             <form method="dialog">
               <div className="flex items-center justify-center gap-11">
-               
-                <button
-                  onClick={() => document.getElementById("my_modal_5").close()}
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    width: "13rem",
-                    overflow: "hidden",
-                    height: "3rem",
-                    backgroundSize: "300% 300%",
-                    backdropFilter: "blur(1rem)",
-                    borderRadius: "5rem",
-                    transition: "0.5s",
-                    border: "double 4px transparent",
-                    backgroundImage:
-                      "linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%, #FE53BB 45%, #8F51EA 67%, #0044ff 87%)",
-                    backgroundOrigin: "border-box",
-                    backgroundClip: "content-box, border-box",
-                    animation: "gradient_301 5s ease infinite",
-                  }}
-                >
-                  <strong
-                    style={{
-                      zIndex: 2,
-                      fontFamily: "Avalors Personal Use",
-                      fontSize: "12px",
-                      letterSpacing: "5px",
-                      color: "#FFFFFF",
-                      textShadow: "0 0 4px white",
-                    }}
-                  >
-                    TEACHER
-                  </strong>
+                {selectedProject && (
                   <div
-                    id="container-stars"
-                    style={{
-                      position: "absolute",
-                      zIndex: -1,
-                      width: "100%",
-                      height: "100%",
-                      overflow: "hidden",
-                      transition: "0.5s",
-                      backdropFilter: "blur(1rem)",
-                      borderRadius: "5rem",
-                    }}
+                    key={selectedProject.id}
+                    className="bg-gradient-to-b from-slate-100 to-blue-300  border-gray-300 rounded-lg p-4 m-6 w-96 shadow-md"
                   >
-                    <div
-                      id="stars"
-                      style={{
-                        position: "relative",
-                        background: "transparent",
-                        width: "200rem",
-                        height: "200rem",
-                        animation: "animStarRotate 90s linear infinite",
-                      }}
-                    ></div>
+                    <h2 className="text-lg font-semibold mb-2">
+                      {selectedProject.project}
+                    </h2>
+                    <p>
+                      <strong className="text-black font-bold">Batch:</strong>{" "}
+                      {selectedProject.batch}
+                    </p>
+                    <p>
+                      <strong className="text-black font-bold">Class:</strong>{" "}
+                      {selectedProject.grade}
+                    </p>
+                    <p>
+                      <strong className="text-black font-bold">Subject:</strong>{" "}
+                      {selectedProject.time}
+                    </p>
+                    <p>
+                      <strong className="text-black font-bold">Type:</strong>{" "}
+                      {selectedProject.type}
+                    </p>
+                    <p>
+                      <strong className="text-black font-bold">
+                        Expected Outcome:
+                      </strong>{" "}
+                      {selectedProject.expectedOutcome}
+                    </p>
+                    <p>
+                      <strong className="text-black font-bold">
+                        Last day of Submit:
+                      </strong>{" "}
+                      {selectedProject.submitLastDate}
+                    </p>
+                    <p>
+                      <strong className="text-black font-bold">
+                        Teacher Name:
+                      </strong>{" "}
+                      {selectedProject.teacherName}
+                    </p>{" "}
+                    <p>
+                      <strong className="text-black font-bold">
+                        Teacher Email:
+                      </strong>{" "}
+                      {selectedProject.teacherEmail}
+                    </p>{" "}
+                    <p>
+                      <strong className="text-black font-bold">
+                        Requirement:
+                      </strong>{" "}
+                      {selectedProject.requirement}
+                    </p>
+                    <div className="flex items-center justify-center mt-4">
+                      <button
+                        onClick={() =>
+                          document.getElementById("student_project").close()
+                        }
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          width: "13rem",
+                          overflow: "hidden",
+                          height: "3rem",
+                          backgroundSize: "300% 300%",
+                          backdropFilter: "blur(1rem)",
+                          borderRadius: "5rem",
+                          transition: "0.5s",
+                          border: "double 4px transparent",
+                          backgroundImage:
+                            "linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%, #FE53BB 45%, #8F51EA 67%, #0044ff 87%)",
+                          backgroundOrigin: "border-box",
+                          backgroundClip: "content-box, border-box",
+                          animation: "gradient_301 5s ease infinite",
+                        }}
+                      >
+                        <strong
+                          style={{
+                            zIndex: 2,
+                            fontFamily: "Avalors Personal Use",
+                            fontSize: "12px",
+                            letterSpacing: "5px",
+                            color: "#FFFFFF",
+                            textShadow: "0 0 4px white",
+                          }}
+                        >
+                          CLOSE
+                        </strong>
+                        <div
+                          id="container-stars"
+                          style={{
+                            position: "absolute",
+                            zIndex: -1,
+                            width: "100%",
+                            height: "100%",
+                            overflow: "hidden",
+                            transition: "0.5s",
+                            backdropFilter: "blur(1rem)",
+                            borderRadius: "5rem",
+                          }}
+                        >
+                          <div
+                            id="stars"
+                            style={{
+                              position: "relative",
+                              background: "transparent",
+                              width: "200rem",
+                              height: "200rem",
+                              animation: "animStarRotate 90s linear infinite",
+                            }}
+                          ></div>
+                        </div>
+                        <div
+                          id="glow"
+                          style={{
+                            position: "absolute",
+                            display: "flex",
+                            width: "12rem",
+                          }}
+                        >
+                          <div
+                            className="circle"
+                            style={{
+                              width: "100%",
+                              height: "30px",
+                              filter: "blur(2rem)",
+                              animation: "pulse_3011 4s infinite",
+                              zIndex: -1,
+                            }}
+                          ></div>
+                          <div
+                            className="circle"
+                            style={{
+                              width: "100%",
+                              height: "30px",
+                              filter: "blur(2rem)",
+                              animation: "pulse_3011 4s infinite",
+                              zIndex: -1,
+                            }}
+                          ></div>
+                        </div>
+                      </button>
+                    </div>
                   </div>
-                  <div
-                    id="glow"
-                    style={{
-                      position: "absolute",
-                      display: "flex",
-                      width: "12rem",
-                    }}
-                  >
-                    <div
-                      className="circle"
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        filter: "blur(2rem)",
-                        animation: "pulse_3011 4s infinite",
-                        zIndex: -1,
-                      }}
-                    ></div>
-                    <div
-                      className="circle"
-                      style={{
-                        width: "100%",
-                        height: "30px",
-                        filter: "blur(2rem)",
-                        animation: "pulse_3011 4s infinite",
-                        zIndex: -1,
-                      }}
-                    ></div>
-                  </div>
-                </button>
+                )}
               </div>
             </form>
           </div>
