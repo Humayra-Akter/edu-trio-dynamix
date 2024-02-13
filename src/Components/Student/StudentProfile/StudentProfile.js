@@ -33,7 +33,7 @@ const StudentProfile = () => {
           </div>
 
           <div className="lg:w-full lg:pt-12 gap-7 p-8 lg:flex">
-            <div className="card max-w-2xl flex items-center justify-center bg-gradient-to-t from-blue-300 to-sky-100 shadow-xl">
+            <div className="card max-w-2xl flex items-center justify-center bg-gradient-to-b from-yellow-50 to-blue-300 shadow-xl">
               <div className="card-body">
                 <h1 className="text-center text-2xl text-primary font-extrabold mb-4">
                   Student Information

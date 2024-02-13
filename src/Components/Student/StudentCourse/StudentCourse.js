@@ -118,7 +118,7 @@ const StudentCourse = () => {
           {courses.map((course) => (
             <div
               key={course.id}
-              className="bg-gradient-to-t from-blue-300 to-sky-100 border border-gray-300 rounded-lg p-4 m-4 w-96 shadow-md"
+              className="bg-gradient-to-t from-blue-300 to-blue-100 border border-gray-300 rounded-lg p-4 m-4 w-96 shadow-md"
             >
               <h2 className="text-lg font-semibold mb-2">{course.course}</h2>
               <p>

@@ -13,9 +13,9 @@ const TeacherProject = () => {
   const userEmail = localStorage.getItem("userEmail");
   const [loggedTeacher, setLoggedTeacher] = useState({});
   const [projects, setProjects] = useState([]);
-  const [file, setFile] = useState();
-  const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
+  const [pdfData, setPdfData] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchCategory, setSearchCategory] = useState("project");
 
   useEffect(() => {
     if (userRole === "teacher" && userEmail) {
@@ -35,90 +35,228 @@ const TeacherProject = () => {
 
     fetch("http://localhost:5000/teacher/project")
       .then((res) => res.json())
-      .then((data) => data);
+      .then((data) => setProjects(data));
   }, []);
 
-  function handleFile(event) {
-    setFile(event.target.files[0]);
-  }
+  const handleFile = (event) => {
+    const file = event.target.files[0];
+    setPdfData(file);
+  };
 
   const handleAddProject = async (data) => {
     const { name, email } = loggedTeacher;
-    const formData = new FormData();
-    formData.append("file", file);
 
-    fetch("http://localhost:5000/teacher/project", {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((imgData) => {
-        if (imgData.success) {
-          const project = {
-            ...data,
-            teacherName: name,
-            teacherEmail: email,
-            fileUrl: imgData.data.url,
-          };
-          fetch("http://localhost:5000/teacher/project", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(project),
-          })
-            .then((res) => res.json())
-            .then((result) => {
-              toast.success(`${data.project} welcome to EdiTrio Dynamos`);
-              setProjects([...projects, result]);
-            })
-            .catch((error) => {
-              console.error("Error adding project:", error);
-              toast.error("Error adding project");
-            });
-        } else {
-          toast.error("Failed to upload file");
-        }
-      })
-      .catch((error) => {
-        console.error("Error uploading file:", error);
-        toast.error("Error uploading file");
-      });
+    const project = {
+      ...data,
+      teacherName: name,
+      teacherEmail: email,
+    };
+    const projectResponse = await fetch(
+      "http://localhost:5000/teacher/project",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(project),
+      }
+    );
+    const result = await projectResponse.json();
+    setProjects([...projects, result]);
+    toast.success(`${data.project} welcome to EdiTrio Dynamos`);
   };
 
-  console.log(projects);
+  // Filter projects based on search term and category
+  const filteredProjects = projects.filter((project) => {
+    if (searchTerm && searchCategory && project[searchCategory]) {
+      return project[searchCategory]
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
+    }
+    return false;
+  });
 
   return (
     <div className="flex flex-wrap bg-gradient-to-r from-neutral via-blue-100 to-neutral">
-      {/* Left half of the screen */}
-      <div className="w-1/2 p-4 my-10 mx-10">
+      <div className="p-4 my-10 mx-10">
         <h1 className="text-2xl font-bold text-center uppercase text-primary mb-4">
-          Project
+          ALL Projects
         </h1>
         <div className="flex flex-wrap justify-center">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-gradient-to-l from-neutral to-accent border border-gray-300 rounded-lg p-4 m-4 w-80 shadow-md"
+              className="bg-gradient-to-b from-yellow-50 to-blue-300  border-gray-300 rounded-lg p-4 m-6 w-96 shadow-md"
             >
               <h2 className="text-lg font-semibold mb-2">{project.project}</h2>
               <p>
-                <strong>Batch:</strong> {project.batch}
+                <strong className="text-black font-bold">Batch:</strong>{" "}
+                {project.batch}
               </p>
               <p>
-                <strong>Class:</strong> {project.grade}
+                <strong className="text-black font-bold">Class:</strong>{" "}
+                {project.grade}
               </p>
               <p>
-                <strong>Time:</strong> {project.time}
+                <strong className="text-black font-bold">Subject:</strong>{" "}
+                {project.time}
               </p>
               <p>
-                <strong>Teacher Name:</strong> {project.teacherName}
+                <strong className="text-black font-bold">Teacher Name:</strong>{" "}
+                {project.teacherName}
               </p>{" "}
               <p>
-                <strong>Teacher Email:</strong> {project.teacherEmail}
+                <strong className="text-black font-bold">Teacher Email:</strong>{" "}
+                {project.teacherEmail}
               </p>
               {userEmail === project.teacherEmail && (
-                <div className="flex mt-4">
+                <div className="flex items-center justify-center mt-4">
+                  <button
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      width: "13rem",
+                      overflow: "hidden",
+                      height: "3rem",
+                      backgroundSize: "300% 300%",
+                      backdropFilter: "blur(1rem)",
+                      borderRadius: "5rem",
+                      transition: "0.5s",
+                      border: "double 4px transparent",
+                      backgroundImage:
+                        "linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%, #FE53BB 45%, #8F51EA 67%, #0044ff 87%)",
+                      backgroundOrigin: "border-box",
+                      backgroundClip: "content-box, border-box",
+                      animation: "gradient_301 5s ease infinite",
+                    }}
+                  >
+                    <strong
+                      style={{
+                        zIndex: 2,
+                        fontFamily: "Avalors Personal Use",
+                        fontSize: "12px",
+                        letterSpacing: "5px",
+                        color: "#FFFFFF",
+                        textShadow: "0 0 4px white",
+                      }}
+                    >
+                      VIEW STUDENTS
+                    </strong>
+                    <div
+                      id="container-stars"
+                      style={{
+                        position: "absolute",
+                        zIndex: -1,
+                        width: "100%",
+                        height: "100%",
+                        overflow: "hidden",
+                        transition: "0.5s",
+                        backdropFilter: "blur(1rem)",
+                        borderRadius: "5rem",
+                      }}
+                    >
+                      <div
+                        id="stars"
+                        style={{
+                          position: "relative",
+                          background: "transparent",
+                          width: "200rem",
+                          height: "200rem",
+                          animation: "animStarRotate 90s linear infinite",
+                        }}
+                      ></div>
+                    </div>
+                    <div
+                      id="glow"
+                      style={{
+                        position: "absolute",
+                        display: "flex",
+                        width: "12rem",
+                      }}
+                    >
+                      <div
+                        className="circle"
+                        style={{
+                          width: "100%",
+                          height: "30px",
+                          filter: "blur(2rem)",
+                          animation: "pulse_3011 4s infinite",
+                          zIndex: -1,
+                        }}
+                      ></div>
+                      <div
+                        className="circle"
+                        style={{
+                          width: "100%",
+                          height: "30px",
+                          filter: "blur(2rem)",
+                          animation: "pulse_3011 4s infinite",
+                          zIndex: -1,
+                        }}
+                      ></div>
+                    </div>
+                  </button>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Left half of the screen */}
+      <div className="w-1/2 p-4 my-10 mx-10">
+        <h1 className="text-2xl font-bold text-center uppercase text-primary mb-4">
+          Search for Project by name
+        </h1>
+        <div className="flex flex-wrap justify-center">
+          <div className="flex flex-col w-full mb-4">
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="border border-gray-300 rounded p-2 mb-2"
+            />
+            {/* <select
+              value={searchCategory}
+              onChange={(e) => setSearchCategory(e.target.value)}
+              className="border border-gray-300 rounded p-2"
+            >
+              <option value="physics">Physics</option>
+              <option value="chemistry">Chemistry</option>
+              <option value="math">Math</option>
+              <option value="biology">Biology</option>
+            </select> */}
+          </div>
+          {filteredProjects.map((project) => (
+            <div
+              key={project.id}
+              className="bg-gradient-to-b from-yellow-50 to-blue-300  border-gray-300 rounded-lg p-4 m-4 w-80 shadow-md"
+            >
+              <h2 className="text-lg font-semibold mb-2">{project.project}</h2>
+              <p>
+                <strong className="text-black font-bold">Batch:</strong>{" "}
+                {project.batch}
+              </p>
+              <p>
+                <strong className="text-black font-bold">Class:</strong>{" "}
+                {project.grade}
+              </p>
+              <p>
+                <strong className="text-black font-bold">Subject:</strong>{" "}
+                {project.time}
+              </p>
+              <p>
+                <strong className="text-black font-bold">Teacher Name:</strong>{" "}
+                {project.teacherName}
+              </p>{" "}
+              <p>
+                <strong className="text-black font-bold">Teacher Email:</strong>{" "}
+                {project.teacherEmail}
+              </p>
+              {userEmail === project.teacherEmail && (
+                <div className="flex items-center justify-center mt-4">
                   <button
                     style={{
                       display: "flex",
@@ -240,18 +378,7 @@ const TeacherProject = () => {
                 <span className="text-red-500">This field is required</span>
               )}
             </div>
-            {/* <div>
-              <label className="block mb-1">Upload file:</label>
-              <input
-                type="file"
-                onChange={handleFile}
-                {...register("file", { required: true })}
-                className="mb-2 p-2 w-full border border-gray-300 rounded"
-              />
-              {errors.file && (
-                <span className="text-red-500">This field is required</span>
-              )}
-            </div> */}
+
             <div>
               <label className="block mb-1">Class:</label>
               <select
@@ -282,150 +409,65 @@ const TeacherProject = () => {
                 <span className="text-red-500">This field is required</span>
               )}
             </div>
-            <div className="flex items-center justify-center">
-              <button
-                type="submit"
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width: "13rem",
-                  overflow: "hidden",
-                  height: "3rem",
-                  backgroundSize: "300% 300%",
-                  backdropFilter: "blur(1rem)",
-                  borderRadius: "5rem",
-                  transition: "0.5s",
-                  border: "double 4px transparent",
-                  backgroundImage:
-                    "linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%, #FE53BB 45%, #8F51EA 67%, #0044ff 87%)",
-                  backgroundOrigin: "border-box",
-                  backgroundClip: "content-box, border-box",
-                  animation: "gradient_301 5s ease infinite",
-                }}
+            {/* Additional fields */}
+            <div>
+              <label className="block mb-1">Submit Last Date:</label>
+              <input
+                type="date"
+                {...register("submitLastDate", { required: true })}
+                className="mb-2 p-2 w-full border border-gray-300 rounded"
+              />
+              {errors.submitLastDate && (
+                <span className="text-red-500">This field is required</span>
+              )}
+            </div>
+            <div>
+              <label className="block mb-1">Type:</label>
+              <select
+                {...register("type", { required: true })}
+                className="mb-2 p-2 w-full border border-gray-300 rounded"
               >
-                <strong
-                  style={{
-                    zIndex: 2,
-                    fontFamily: "Avalors Personal Use",
-                    fontSize: "12px",
-                    letterSpacing: "5px",
-                    color: "#FFFFFF",
-                    textShadow: "0 0 4px white",
-                  }}
-                >
-                  ADD PROJECT MATERIAL
-                </strong>
-                <div
-                  id="container-stars"
-                  style={{
-                    position: "absolute",
-                    zIndex: -1,
-                    width: "100%",
-                    height: "100%",
-                    overflow: "hidden",
-                    transition: "0.5s",
-                    backdropFilter: "blur(1rem)",
-                    borderRadius: "5rem",
-                  }}
-                >
-                  <div
-                    id="stars"
-                    style={{
-                      position: "relative",
-                      background: "transparent",
-                      width: "200rem",
-                      height: "200rem",
-                      animation: "animStarRotate 90s linear infinite",
-                    }}
-                  ></div>
-                </div>
-                <div
-                  id="glow"
-                  style={{
-                    position: "absolute",
-                    display: "flex",
-                    width: "12rem",
-                  }}
-                >
-                  <div
-                    className="circle"
-                    style={{
-                      width: "100%",
-                      height: "30px",
-                      filter: "blur(2rem)",
-                      animation: "pulse_3011 4s infinite",
-                      zIndex: -1,
-                    }}
-                  ></div>
-                  <div
-                    className="circle"
-                    style={{
-                      width: "100%",
-                      height: "30px",
-                      filter: "blur(2rem)",
-                      animation: "pulse_3011 4s infinite",
-                      zIndex: -1,
-                    }}
-                  ></div>
-                </div>
-              </button>
+                <option value="group">Group</option>
+                <option value="individual">Individual</option>
+              </select>
+              {errors.type && (
+                <span className="text-red-500">This field is required</span>
+              )}
+            </div>
+            <div>
+              <label className="block mb-1">Requirement:</label>
+              <input
+                type="text"
+                {...register("requirement", { required: true })}
+                className="mb-2 p-2 w-full border border-gray-300 rounded"
+              />
+              {errors.requirement && (
+                <span className="text-red-500">This field is required</span>
+              )}
+            </div>
+            <div>
+              <label className="block mb-1">Expected Outcome:</label>
+              <select
+                {...register("expectedOutcome", { required: true })}
+                className="mb-2 p-2 w-full border border-gray-300 rounded"
+              >
+                <option value="OBE1">OBE1</option>
+                <option value="co1">CO1</option>
+                <option value="co2">CO2</option>
+                <option value="erc">ERC</option>
+              </select>
+              {errors.expectedOutcome && (
+                <span className="text-red-500">This field is required</span>
+              )}
+            </div>
+            <div className="flex items-center justify-center">
+              <button type="submit">Add Project Material</button>
             </div>
           </form>
-        </div>
-
-        <div className="w-full p-6 bg-gradient-to-t from-yellow-500 to-yellow-100 my-20">
-          <h1 className="text-2xl font-semibold text-center uppercase text-primary mb-4">
-            View PDF
-          </h1>
-          <PDFViewer />
         </div>
       </div>
     </div>
   );
 };
-
-class PDFViewer extends React.Component {
-  state = {
-    selectedFile: null,
-    numPages: null,
-    pageNumber: 1,
-    pdfData: null,
-  };
-
-  onFileLoad = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      this.setState({ pdfData: e.target.result });
-    };
-    reader.readAsArrayBuffer(file);
-  };
-
-  onDocumentLoadSuccess = ({ numPages }) => {
-    this.setState({ numPages });
-  };
-
-  render() {
-    const { pageNumber, numPages, pdfData } = this.state;
-    return (
-      <>
-        <input type="file" accept=".pdf" onChange={this.onFileLoad} />
-
-        {pdfData && (
-          <Document file={pdfData} onLoadSuccess={this.onDocumentLoadSuccess}>
-            <Page pageNumber={pageNumber} />
-          </Document>
-        )}
-
-        {pdfData && (
-          <p>
-            Page {pageNumber} of {numPages}
-          </p>
-        )}
-      </>
-    );
-  }
-}
 
 export default TeacherProject;
