@@ -19,6 +19,7 @@ import StudentAssignment from "./Components/Student/StudentAssignment/StudentAss
 import StudentResource from "./Components/Student/StudentResource/StudentResource";
 import StudentProject from "./Components/Student/StudentProject/StudentProject";
 import ViewStudents from "./Components/Teacher/TeacherProject/ViewStudents";
+import ViewAllAssignment from "./Components/Teacher/TeacherAssignment/ViewAllAssignment";
 
 function App() {
   return (
@@ -37,6 +38,10 @@ function App() {
         <Route path="/teacherProfile" element={<TeacherProfile />} />
         <Route path="/teacherCourse" element={<TeacherCourse />} />
         <Route path="/teacherAssignment" element={<TeacherAssignment />} />
+        <Route
+          path="/teacherViewAllAssignment"
+          element={<ViewAllAssignment />}
+        />
         <Route path="/teacherResource" element={<TeacherResource />} />
         <Route path="/teacherProject" element={<TeacherProject />} />
         <Route

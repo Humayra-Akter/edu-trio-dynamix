@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { Document, Page } from "react-pdf";
-import { Link } from "react-router-dom";
 
 const TeacherProject = () => {
   const {
@@ -10,6 +9,7 @@ const TeacherProject = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
   const userRole = localStorage.getItem("userRole");
   const userEmail = localStorage.getItem("userEmail");
   const [loggedTeacher, setLoggedTeacher] = useState({});
@@ -86,17 +86,17 @@ const TeacherProject = () => {
 
   console.log(stuProjects._id);
 
-  const redirectToStudentProject = (projectId) => {
-    const foundProject = stuProjects.find(
-      (project) => project.project._id === projectId
-    );
-    if (foundProject) {
-      // Redirect to student project page with the project ID
-      window.location.href = `http://localhost:5000/student/project/${foundProject._id}`;
-    } else {
-      console.log("Project not found in student projects.");
-    }
-  };
+  // const redirectToStudentProject = (projectId) => {
+  //   const foundProject = stuProjects.find(
+  //     (project) => project.project._id === projectId
+  //   );
+  //   if (foundProject) {
+  //     // Redirect to student project page with the project ID
+  //     window.location.href = `http://localhost:5000/student/project/${foundProject._id}`;
+  //   } else {
+  //     console.log("Project not found in student projects.");
+  //   }
+  // };
 
   return (
     <div className="flex flex-wrap bg-gradient-to-r from-neutral via-blue-100 to-neutral">
@@ -134,7 +134,6 @@ const TeacherProject = () => {
               {userEmail === project.teacherEmail && (
                 <div className="flex items-center justify-center mt-4">
                   <button
-                    onClick={() => redirectToStudentProject(project._id)}
                     style={{
                       display: "flex",
                       justifyContent: "center",
