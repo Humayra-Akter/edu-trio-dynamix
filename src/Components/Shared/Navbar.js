@@ -190,7 +190,7 @@ const Navbar = () => {
                   className="text-blue-900 text-lg font-bold hover:text-neutral"
                   to="/"
                 >
-                  EdiTrio-Dynamos
+                  EdiTrio-Dynamix
                 </Link>
               </li>
               {userRole === "teacher" && (

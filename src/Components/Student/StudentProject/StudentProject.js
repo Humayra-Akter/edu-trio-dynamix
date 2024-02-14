@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const StudentProject = () => {
   const {
@@ -13,12 +14,6 @@ const StudentProject = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchCategory, setSearchCategory] = useState("project");
   const [selectedProject, setSelectedProject] = useState(null);
-
-  const handleSignup = (project) => {
-    setSelectedProject(project);
-    const modal = document.getElementById("student_project");
-    modal.showModal();
-  };
 
   useEffect(() => {
     if (userRole === "student" && userEmail) {
@@ -41,6 +36,43 @@ const StudentProject = () => {
       .then((data) => setProjects(data));
   }, []);
 
+  const handleModal = (project) => {
+    setSelectedProject(project);
+    const modal = document.getElementById("student_project");
+    modal.showModal();
+  };
+
+  const handleSignup = (project) => {
+    // Check if logged user's grade matches the project's grade
+    if (loggedStudent.gradeYear !== project.grade) {
+      alert("You are not eligible for this project.");
+      return;
+    }
+
+    const applicationData = {
+      student: loggedStudent,
+      project: selectedProject,
+    };
+    console.log(applicationData);
+
+    fetch("http://localhost:5000/student/project", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(applicationData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Application successful", data);
+        setSelectedProject(project);
+      })
+      .catch((error) => {
+        console.error("Error applying to project:", error);
+        alert("Failed to apply to project. Please try again later.");
+      });
+  };
+
   const handleFile = (event) => {
     const file = event.target.files[0];
     setPdfData(file);
@@ -55,8 +87,6 @@ const StudentProject = () => {
     }
     return false;
   });
-
-  console.log(projects);
 
   return (
     <div>
@@ -125,7 +155,7 @@ const StudentProject = () => {
                 </p>
                 <div className="flex items-center justify-center mt-4">
                   <button
-                    onClick={() => handleSignup(project)}
+                    onClick={() => handleModal(project)}
                     style={{
                       display: "flex",
                       justifyContent: "center",
@@ -155,7 +185,7 @@ const StudentProject = () => {
                         textShadow: "0 0 4px white",
                       }}
                     >
-                      APPLY
+                      DETAILS
                     </strong>
                     <div
                       id="container-stars"
@@ -271,6 +301,93 @@ const StudentProject = () => {
                   {project.teacherEmail}
                 </p>
                 <div className="flex items-center justify-center mt-4">
+                  <button
+                    onClick={() => handleModal(project)}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      width: "13rem",
+                      overflow: "hidden",
+                      height: "3rem",
+                      backgroundSize: "300% 300%",
+                      backdropFilter: "blur(1rem)",
+                      borderRadius: "5rem",
+                      transition: "0.5s",
+                      border: "double 4px transparent",
+                      backgroundImage:
+                        "linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%, #FE53BB 45%, #8F51EA 67%, #0044ff 87%)",
+                      backgroundOrigin: "border-box",
+                      backgroundClip: "content-box, border-box",
+                      animation: "gradient_301 5s ease infinite",
+                    }}
+                  >
+                    <strong
+                      style={{
+                        zIndex: 2,
+                        fontFamily: "Avalors Personal Use",
+                        fontSize: "12px",
+                        letterSpacing: "5px",
+                        color: "#FFFFFF",
+                        textShadow: "0 0 4px white",
+                      }}
+                    >
+                      DETAILS
+                    </strong>
+                    <div
+                      id="container-stars"
+                      style={{
+                        position: "absolute",
+                        zIndex: -1,
+                        width: "100%",
+                        height: "100%",
+                        overflow: "hidden",
+                        transition: "0.5s",
+                        backdropFilter: "blur(1rem)",
+                        borderRadius: "5rem",
+                      }}
+                    >
+                      <div
+                        id="stars"
+                        style={{
+                          position: "relative",
+                          background: "transparent",
+                          width: "200rem",
+                          height: "200rem",
+                          animation: "animStarRotate 90s linear infinite",
+                        }}
+                      ></div>
+                    </div>
+                    <div
+                      id="glow"
+                      style={{
+                        position: "absolute",
+                        display: "flex",
+                        width: "12rem",
+                      }}
+                    >
+                      <div
+                        className="circle"
+                        style={{
+                          width: "100%",
+                          height: "30px",
+                          filter: "blur(2rem)",
+                          animation: "pulse_3011 4s infinite",
+                          zIndex: -1,
+                        }}
+                      ></div>
+                      <div
+                        className="circle"
+                        style={{
+                          width: "100%",
+                          height: "30px",
+                          filter: "blur(2rem)",
+                          animation: "pulse_3011 4s infinite",
+                          zIndex: -1,
+                        }}
+                      ></div>
+                    </div>
+                  </button>
                   <button
                     onClick={() => handleSignup(project)}
                     style={{
