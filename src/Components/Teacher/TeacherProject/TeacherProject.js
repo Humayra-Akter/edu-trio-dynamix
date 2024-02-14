@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { Document, Page } from "react-pdf";
+import { Link } from "react-router-dom";
 
 const TeacherProject = () => {
   const {
@@ -13,6 +14,7 @@ const TeacherProject = () => {
   const userEmail = localStorage.getItem("userEmail");
   const [loggedTeacher, setLoggedTeacher] = useState({});
   const [projects, setProjects] = useState([]);
+  const [stuProjects, setStuProjects] = useState([]);
   const [pdfData, setPdfData] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchCategory, setSearchCategory] = useState("project");
@@ -36,6 +38,12 @@ const TeacherProject = () => {
     fetch("http://localhost:5000/teacher/project")
       .then((res) => res.json())
       .then((data) => setProjects(data));
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/student/project")
+      .then((res) => res.json())
+      .then((data) => setStuProjects(data));
   }, []);
 
   const handleFile = (event) => {
@@ -76,6 +84,20 @@ const TeacherProject = () => {
     return false;
   });
 
+  console.log(stuProjects._id);
+
+  const redirectToStudentProject = (projectId) => {
+    const foundProject = stuProjects.find(
+      (project) => project.project._id === projectId
+    );
+    if (foundProject) {
+      // Redirect to student project page with the project ID
+      window.location.href = `http://localhost:5000/student/project/${foundProject._id}`;
+    } else {
+      console.log("Project not found in student projects.");
+    }
+  };
+
   return (
     <div className="flex flex-wrap bg-gradient-to-r from-neutral via-blue-100 to-neutral">
       <div className="p-4 my-10 mx-10">
@@ -85,7 +107,7 @@ const TeacherProject = () => {
         <div className="flex flex-wrap justify-center">
           {projects.map((project) => (
             <div
-              key={project.id}
+              key={project._id}
               className="bg-gradient-to-b from-yellow-50 to-blue-300  border-gray-300 rounded-lg p-4 m-6 w-96 shadow-md"
             >
               <h2 className="text-lg font-semibold mb-2">{project.project}</h2>
@@ -112,6 +134,7 @@ const TeacherProject = () => {
               {userEmail === project.teacherEmail && (
                 <div className="flex items-center justify-center mt-4">
                   <button
+                    onClick={() => redirectToStudentProject(project._id)}
                     style={{
                       display: "flex",
                       justifyContent: "center",
@@ -442,6 +465,21 @@ const TeacherProject = () => {
                 className="mb-2 p-2 w-full border border-gray-300 rounded"
               />
               {errors.requirement && (
+                <span className="text-red-500">This field is required</span>
+              )}
+            </div>
+            <div>
+              <label className="block mb-1">Skills:</label>
+              <select
+                {...register("skills", { required: true })}
+                className="mb-2 p-2 w-full border border-gray-300 rounded"
+              >
+                <option value="modelling">Project Modelling</option>
+                <option value="debate">Debate</option>
+                <option value="presentation">Presentation</option>
+                <option value="documentation">Documentation</option>
+              </select>
+              {errors.skills && (
                 <span className="text-red-500">This field is required</span>
               )}
             </div>

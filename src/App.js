@@ -18,6 +18,7 @@ import StudentProfile from "./Components/Student/StudentProfile/StudentProfile";
 import StudentAssignment from "./Components/Student/StudentAssignment/StudentAssignment";
 import StudentResource from "./Components/Student/StudentResource/StudentResource";
 import StudentProject from "./Components/Student/StudentProject/StudentProject";
+import ViewStudents from "./Components/Teacher/TeacherProject/ViewStudents";
 
 function App() {
   return (
@@ -38,6 +39,10 @@ function App() {
         <Route path="/teacherAssignment" element={<TeacherAssignment />} />
         <Route path="/teacherResource" element={<TeacherResource />} />
         <Route path="/teacherProject" element={<TeacherProject />} />
+        <Route
+          path="/teacherProjectViewStudent/:id"
+          element={<ViewStudents />}
+        />
 
         {/* student  */}
         <Route
