@@ -20,6 +20,7 @@ import StudentResource from "./Components/Student/StudentResource/StudentResourc
 import StudentProject from "./Components/Student/StudentProject/StudentProject";
 import ViewStudents from "./Components/Teacher/TeacherProject/ViewStudents";
 import ViewAllAssignment from "./Components/Teacher/TeacherAssignment/ViewAllAssignment";
+import UploadFile from "./Components/Student/StudentAssignment/UploadFile";
 
 function App() {
   return (
@@ -57,6 +58,7 @@ function App() {
         <Route path="/studentProfile" element={<StudentProfile />} />
         <Route path="/studentCourse" element={<StudentCourse />} />
         <Route path="/studentAssignment" element={<StudentAssignment />} />
+        <Route path="/uploadFile" element={<UploadFile />} />
         <Route path="/studentResource" element={<StudentResource />} />
         <Route path="/studentProject" element={<StudentProject />} />
 

@@ -49,12 +49,16 @@ const StudentProject = () => {
       return;
     }
 
+    if (!project) {
+      alert("Project data is invalid.");
+      return;
+    }
+
     const applicationData = {
       student: loggedStudent,
       project: selectedProject,
     };
-    console.log(applicationData);
-
+    
     fetch("http://localhost:5000/student/project", {
       method: "POST",
       headers: {
@@ -62,17 +66,16 @@ const StudentProject = () => {
       },
       body: JSON.stringify(applicationData),
     })
-      .then((res) => res.json())
+    .then((res) => {
+        return res.json();
+      })
       .then((data) => {
         toast.success("Application successful", data);
         setSelectedProject(project);
-      })
-      .catch((error) => {
-        console.error("Error applying to project:", error);
-        alert("Failed to apply to project. Please try again later.");
       });
-  };
-
+    };
+    console.log(selectedProject);
+    
   const handleFile = (event) => {
     const file = event.target.files[0];
     setPdfData(file);
