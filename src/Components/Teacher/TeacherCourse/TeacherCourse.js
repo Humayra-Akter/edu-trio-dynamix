@@ -205,7 +205,7 @@ const TeacherCourse = () => {
                         textShadow: "0 0 4px white",
                       }}
                     >
-                      VIEW STUDENTS
+                      <Link to="/teacherCourseViewStudent"> VIEW STUDENTS</Link>
                     </strong>
                     <div
                       id="container-stars"

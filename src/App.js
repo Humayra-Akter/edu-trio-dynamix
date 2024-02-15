@@ -24,6 +24,7 @@ import UploadFile from "./Components/Student/StudentAssignment/UploadFile";
 import StudentAnalytics from "./Components/Student/StudentAnalytics/StudentAnalytics";
 import MyCourses from "./Components/Student/StudentCourse/MyCourses";
 import StudentFeedback from "./Components/Student/StudentAnalytics/StudentFeedback";
+import CourseViewStudent from "./Components/Teacher/TeacherCourse/CourseViewStudent";
 
 function App() {
   return (
@@ -41,6 +42,10 @@ function App() {
         />
         <Route path="/teacherProfile" element={<TeacherProfile />} />
         <Route path="/teacherCourse" element={<TeacherCourse />} />
+        <Route
+          path="/teacherCourseViewStudent"
+          element={<CourseViewStudent />}
+        />
         <Route path="/teacherAssignment" element={<TeacherAssignment />} />
         <Route
           path="/teacherViewAllAssignment"
