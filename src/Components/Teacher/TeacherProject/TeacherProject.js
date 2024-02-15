@@ -71,7 +71,7 @@ const TeacherProject = () => {
     );
     const result = await projectResponse.json();
     setProjects([...projects, result]);
-    toast.success(`${data.project} welcome to EdiTrio Dynamos`);
+    toast.success(`${data.project} project created`);
   };
 
   // Filter projects based on search term and category

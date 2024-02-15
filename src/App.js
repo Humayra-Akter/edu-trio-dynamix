@@ -21,6 +21,7 @@ import StudentProject from "./Components/Student/StudentProject/StudentProject";
 import ViewStudents from "./Components/Teacher/TeacherProject/ViewStudents";
 import ViewAllAssignment from "./Components/Teacher/TeacherAssignment/ViewAllAssignment";
 import UploadFile from "./Components/Student/StudentAssignment/UploadFile";
+import StudentAnalytics from "./Components/Student/StudentAnalytics/StudentAnalytics";
 
 function App() {
   return (
@@ -61,6 +62,7 @@ function App() {
         <Route path="/uploadFile" element={<UploadFile />} />
         <Route path="/studentResource" element={<StudentResource />} />
         <Route path="/studentProject" element={<StudentProject />} />
+        <Route path="/studentAnalytics" element={<StudentAnalytics />} />
 
         <Route path="*" element={<Error />} />
       </Routes>

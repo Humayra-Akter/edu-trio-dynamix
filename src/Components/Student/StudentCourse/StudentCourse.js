@@ -114,6 +114,9 @@ const StudentCourse = () => {
         <h1 className="text-2xl font-bold text-center uppercase text-primary my-10">
           Courses
         </h1>
+        <h1 className="text-xl font-bold text-center text-yellow-600 my-6">
+          Develop Your Skills
+        </h1>
         <div className="flex flex-wrap justify-center">
           {courses.map((course) => (
             <div
@@ -142,7 +145,6 @@ const StudentCourse = () => {
                 {course.teacherEmail}
               </p>
               <div className="flex justify-center items-center mt-4">
-                
                 <button
                   className={`bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mr-4 rounded ${
                     loggedStudent.gradeYear !== course.grade || hasApplied

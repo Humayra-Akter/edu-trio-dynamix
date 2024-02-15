@@ -43,7 +43,6 @@ const StudentProject = () => {
   };
 
   const handleSignup = (project) => {
-    // Check if logged user's grade matches the project's grade
     if (loggedStudent.gradeYear !== project.grade) {
       alert("You are not eligible for this project.");
       return;
@@ -53,12 +52,12 @@ const StudentProject = () => {
       alert("Project data is invalid.");
       return;
     }
-
+    console.log(project);
     const applicationData = {
       student: loggedStudent,
       project: selectedProject,
     };
-    
+
     fetch("http://localhost:5000/student/project", {
       method: "POST",
       headers: {
@@ -66,16 +65,14 @@ const StudentProject = () => {
       },
       body: JSON.stringify(applicationData),
     })
-    .then((res) => {
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data) => {
         toast.success("Application successful", data);
         setSelectedProject(project);
+        document.getElementById("student_project").close();
       });
-    };
-    console.log(selectedProject);
-    
+  };
+
   const handleFile = (event) => {
     const file = event.target.files[0];
     setPdfData(file);
