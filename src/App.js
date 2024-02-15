@@ -12,7 +12,7 @@ import TeacherCourse from "./Components/Teacher/TeacherCourse/TeacherCourse";
 import TeacherProject from "./Components/Teacher/TeacherProject/TeacherProject";
 import TeacherAssignment from "./Components/Teacher/TeacherAssignment/TeacherAssignment";
 import TeacherResource from "./Components/Teacher/TeacherResource/TeacherResource";
-import Container from "./Components/WhiteBoard/Container/Container";
+import Container from "./Components/WhiteBoard/Container";
 import StudentCourse from "./Components/Student/StudentCourse/StudentCourse";
 import StudentProfile from "./Components/Student/StudentProfile/StudentProfile";
 import StudentAssignment from "./Components/Student/StudentAssignment/StudentAssignment";
@@ -23,6 +23,7 @@ import ViewAllAssignment from "./Components/Teacher/TeacherAssignment/ViewAllAss
 import UploadFile from "./Components/Student/StudentAssignment/UploadFile";
 import StudentAnalytics from "./Components/Student/StudentAnalytics/StudentAnalytics";
 import MyCourses from "./Components/Student/StudentCourse/MyCourses";
+import StudentFeedback from "./Components/Student/StudentAnalytics/StudentFeedback";
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
         <Route path="/studentResource" element={<StudentResource />} />
         <Route path="/studentProject" element={<StudentProject />} />
         <Route path="/studentAnalytics" element={<StudentAnalytics />} />
+        <Route path="/studentFeedback" element={<StudentFeedback />} />
 
         <Route path="*" element={<Error />} />
       </Routes>
