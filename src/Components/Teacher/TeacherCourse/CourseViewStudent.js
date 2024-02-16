@@ -8,10 +8,13 @@ const CourseViewStudent = () => {
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     studentName: "",
+    studentEmail: "",
+    teacherEmail: "",
     rewardTitle: "",
     description: "",
     points: 0,
   });
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -37,6 +40,15 @@ const CourseViewStudent = () => {
 
   const handleOpenModal = (student) => {
     setSelectedStudent(student);
+    setFormData({
+      ...formData,
+      studentName: student.name,
+      studentEmail: student.email,
+      teacherEmail: userEmail,
+      rewardTitle: "", // Reset other reward fields
+      description: "",
+      points: 0,
+    });
     setShowModal(true);
   };
 
@@ -104,7 +116,14 @@ const CourseViewStudent = () => {
                   <ul>
                     {enrolledStudents
                       .filter(
-                        (student) => student.course.course === course.course
+                        (student) =>
+                          student.course.course === course.course &&
+                          enrolledStudents.findIndex(
+                            (s) => s.student.email === student.student.email
+                          ) ===
+                            enrolledStudents.findIndex(
+                              (s) => s.student.email === student.student.email
+                            )
                       )
                       .map((student) => (
                         <li key={student._id}>
