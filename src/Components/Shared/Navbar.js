@@ -328,6 +328,19 @@ const Navbar = () => {
                     >
                       Assignment
                     </Link>
+                  </li>{" "}
+                  <li>
+                    <Link
+                      to="/studentCollaboration"
+                      className={`text-lg font-bold hover:text-neutral ${
+                        selectedRoute === "/studentCollaboration"
+                          ? "text-yellow-900"
+                          : "text-black"
+                      }`}
+                      onClick={() => handleRouteClick("/studentCollaboration")}
+                    >
+                      Collaborate
+                    </Link>
                   </li>
                   <li>
                     <Link
@@ -365,11 +378,11 @@ const Navbar = () => {
                   Logout
                 </button>
               </li>{" "}
-            <li className="text-black text-xs font-semibold hover:text-neutral justify-end">
-              {userEmail}
-              <br />
-              {userRole}
-            </li>
+              <li className="text-black text-xs font-semibold hover:text-neutral justify-end">
+                {userEmail}
+                <br />
+                {userRole}
+              </li>
             </ul>
           </div>
         </div>

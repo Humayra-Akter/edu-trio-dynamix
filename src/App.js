@@ -26,6 +26,7 @@ import MyCourses from "./Components/Student/StudentCourse/MyCourses";
 import StudentFeedback from "./Components/Student/StudentAnalytics/StudentFeedback";
 import CourseViewStudent from "./Components/Teacher/TeacherCourse/CourseViewStudent";
 import StudentReward from "./Components/Student/StudentAnalytics/StudentReward";
+import StudentCollaboration from "./Components/Student/StudentCollaboration/StudentCollaboration";
 
 function App() {
   return (
@@ -68,6 +69,10 @@ function App() {
         <Route path="/studentCourse" element={<StudentCourse />} />
         <Route path="/myCourse" element={<MyCourses />} />
         <Route path="/studentAssignment" element={<StudentAssignment />} />
+        <Route
+          path="/studentCollaboration"
+          element={<StudentCollaboration />}
+        />
         <Route path="/uploadFile" element={<UploadFile />} />
         <Route path="/studentResource" element={<StudentResource />} />
         <Route path="/studentProject" element={<StudentProject />} />
