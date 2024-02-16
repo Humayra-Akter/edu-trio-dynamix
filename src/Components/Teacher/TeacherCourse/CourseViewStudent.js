@@ -4,6 +4,17 @@ const CourseViewStudent = () => {
   const userEmail = localStorage.getItem("userEmail");
   const [coursesTaken, setCoursesTaken] = useState([]);
   const [enrolledStudents, setEnrolledStudents] = useState([]);
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+    studentName: "",
+    rewardTitle: "",
+    description: "",
+    points: 0,
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:5000/teacher/course")
@@ -23,7 +34,50 @@ const CourseViewStudent = () => {
         setEnrolledStudents(data);
       });
   }, [userEmail]);
-  console.log(enrolledStudents);
+
+  const handleOpenModal = (student) => {
+    setSelectedStudent(student);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedStudent(null);
+  };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setSuccessMessage("");
+
+    try {
+      const response = await fetch("http://localhost:5000/student/rewards", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        setSuccessMessage("Reward added successfully.");
+      } else {
+        setError("Failed to add reward. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error adding reward:", error);
+      setError("Failed to add reward. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50">
@@ -84,6 +138,96 @@ const CourseViewStudent = () => {
                             </span>{" "}
                             {student.student.communicationChannel}
                           </p>
+                          <div className="flex items-center justify-center mt-5">
+                            <button
+                              onClick={() => handleOpenModal(student.student)}
+                              style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                width: "13rem",
+                                overflow: "hidden",
+                                height: "3rem",
+                                backgroundSize: "300% 300%",
+                                backdropFilter: "blur(1rem)",
+                                borderRadius: "5rem",
+                                transition: "0.5s",
+                                border: "double 4px transparent",
+                                backgroundImage:
+                                  "linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%, #FE53BB 45%, #8F51EA 67%, #0044ff 87%)",
+                                backgroundOrigin: "border-box",
+                                backgroundClip: "content-box, border-box",
+                                animation: "gradient_301 5s ease infinite",
+                              }}
+                            >
+                              <strong
+                                style={{
+                                  zIndex: 2,
+                                  fontFamily: "Avalors Personal Use",
+                                  fontSize: "12px",
+                                  letterSpacing: "5px",
+                                  color: "#FFFFFF",
+                                  textShadow: "0 0 4px white",
+                                }}
+                              >
+                                GIVE REWARDS
+                              </strong>
+                              <div
+                                id="container-stars"
+                                style={{
+                                  position: "absolute",
+                                  zIndex: -1,
+                                  width: "100%",
+                                  height: "100%",
+                                  overflow: "hidden",
+                                  transition: "0.5s",
+                                  backdropFilter: "blur(1rem)",
+                                  borderRadius: "5rem",
+                                }}
+                              >
+                                <div
+                                  id="stars"
+                                  style={{
+                                    position: "relative",
+                                    background: "transparent",
+                                    width: "200rem",
+                                    height: "200rem",
+                                    animation:
+                                      "animStarRotate 90s linear infinite",
+                                  }}
+                                ></div>
+                              </div>
+                              <div
+                                id="glow"
+                                style={{
+                                  position: "absolute",
+                                  display: "flex",
+                                  width: "12rem",
+                                }}
+                              >
+                                <div
+                                  className="circle"
+                                  style={{
+                                    width: "100%",
+                                    height: "30px",
+                                    filter: "blur(2rem)",
+                                    animation: "pulse_3011 4s infinite",
+                                    zIndex: -1,
+                                  }}
+                                ></div>
+                                <div
+                                  className="circle"
+                                  style={{
+                                    width: "100%",
+                                    height: "30px",
+                                    filter: "blur(2rem)",
+                                    animation: "pulse_3011 4s infinite",
+                                    zIndex: -1,
+                                  }}
+                                ></div>
+                              </div>
+                            </button>
+                          </div>
                         </li>
                       ))}
                   </ul>
@@ -94,6 +238,239 @@ const CourseViewStudent = () => {
           </div>
         </div>
       </div>
+      {showModal && (
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center">
+          <div className="bg-white p-8 rounded-md max-w-md">
+            <h2 className="text-2xl font-bold mb-4">
+              Give Reward to {selectedStudent?.name}
+            </h2>
+            {successMessage && (
+              <div className="text-green-600 mb-4">{successMessage}</div>
+            )}
+            <form onSubmit={handleSubmit}>
+              <div className="mb-4">
+                <label htmlFor="rewardTitle" className="block font-medium mb-1">
+                  Reward Title
+                </label>
+                <input
+                  type="text"
+                  id="rewardTitle"
+                  name="rewardTitle"
+                  value={formData.rewardTitle}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="description" className="block font-medium mb-1">
+                  Description
+                </label>
+                <textarea
+                  id="description"
+                  name="description"
+                  value={formData.description}
+                  onChange={handleChange}
+                  rows={3}
+                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                  required
+                ></textarea>
+              </div>
+              <div className="mb-4">
+                <label htmlFor="points" className="block font-medium mb-1">
+                  Points
+                </label>
+                <input
+                  type="number"
+                  id="points"
+                  name="points"
+                  value={formData.points}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                  required
+                />
+              </div>
+              <div className="flex items-center justify-center gap-5">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "13rem",
+                    overflow: "hidden",
+                    height: "3rem",
+                    backgroundSize: "300% 300%",
+                    backdropFilter: "blur(1rem)",
+                    borderRadius: "5rem",
+                    transition: "0.5s",
+                    border: "double 4px transparent",
+                    backgroundImage:
+                      "linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%, #FE53BB 45%, #8F51EA 67%, #0044ff 87%)",
+                    backgroundOrigin: "border-box",
+                    backgroundClip: "content-box, border-box",
+                    animation: "gradient_301 5s ease infinite",
+                  }}
+                >
+                  <strong
+                    style={{
+                      zIndex: 2,
+                      fontFamily: "Avalors Personal Use",
+                      fontSize: "12px",
+                      letterSpacing: "5px",
+                      color: "#FFFFFF",
+                      textShadow: "0 0 4px white",
+                    }}
+                  >
+                    {loading ? "ADDING REWARD..." : "ADD REWARD"}
+                  </strong>
+                  <div
+                    id="container-stars"
+                    style={{
+                      position: "absolute",
+                      zIndex: -1,
+                      width: "100%",
+                      height: "100%",
+                      overflow: "hidden",
+                      transition: "0.5s",
+                      backdropFilter: "blur(1rem)",
+                      borderRadius: "5rem",
+                    }}
+                  >
+                    <div
+                      id="stars"
+                      style={{
+                        position: "relative",
+                        background: "transparent",
+                        width: "200rem",
+                        height: "200rem",
+                        animation: "animStarRotate 90s linear infinite",
+                      }}
+                    ></div>
+                  </div>
+                  <div
+                    id="glow"
+                    style={{
+                      position: "absolute",
+                      display: "flex",
+                      width: "12rem",
+                    }}
+                  >
+                    <div
+                      className="circle"
+                      style={{
+                        width: "100%",
+                        height: "30px",
+                        filter: "blur(2rem)",
+                        animation: "pulse_3011 4s infinite",
+                        zIndex: -1,
+                      }}
+                    ></div>
+                    <div
+                      className="circle"
+                      style={{
+                        width: "100%",
+                        height: "30px",
+                        filter: "blur(2rem)",
+                        animation: "pulse_3011 4s infinite",
+                        zIndex: -1,
+                      }}
+                    ></div>
+                  </div>
+                </button>
+                <button
+                  onClick={handleCloseModal}
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "13rem",
+                    overflow: "hidden",
+                    height: "3rem",
+                    backgroundSize: "300% 300%",
+                    backdropFilter: "blur(1rem)",
+                    borderRadius: "5rem",
+                    transition: "0.5s",
+                    border: "double 4px transparent",
+                    backgroundImage:
+                      "linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%, #FE53BB 45%, #8F51EA 67%, #0044ff 87%)",
+                    backgroundOrigin: "border-box",
+                    backgroundClip: "content-box, border-box",
+                    animation: "gradient_301 5s ease infinite",
+                  }}
+                >
+                  <strong
+                    style={{
+                      zIndex: 2,
+                      fontFamily: "Avalors Personal Use",
+                      fontSize: "12px",
+                      letterSpacing: "5px",
+                      color: "#FFFFFF",
+                      textShadow: "0 0 4px white",
+                    }}
+                  >
+                    CLOSE
+                  </strong>
+                  <div
+                    id="container-stars"
+                    style={{
+                      position: "absolute",
+                      zIndex: -1,
+                      width: "100%",
+                      height: "100%",
+                      overflow: "hidden",
+                      transition: "0.5s",
+                      backdropFilter: "blur(1rem)",
+                      borderRadius: "5rem",
+                    }}
+                  >
+                    <div
+                      id="stars"
+                      style={{
+                        position: "relative",
+                        background: "transparent",
+                        width: "200rem",
+                        height: "200rem",
+                        animation: "animStarRotate 90s linear infinite",
+                      }}
+                    ></div>
+                  </div>
+                  <div
+                    id="glow"
+                    style={{
+                      position: "absolute",
+                      display: "flex",
+                      width: "12rem",
+                    }}
+                  >
+                    <div
+                      className="circle"
+                      style={{
+                        width: "100%",
+                        height: "30px",
+                        filter: "blur(2rem)",
+                        animation: "pulse_3011 4s infinite",
+                        zIndex: -1,
+                      }}
+                    ></div>
+                    <div
+                      className="circle"
+                      style={{
+                        width: "100%",
+                        height: "30px",
+                        filter: "blur(2rem)",
+                        animation: "pulse_3011 4s infinite",
+                        zIndex: -1,
+                      }}
+                    ></div>
+                  </div>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -11,6 +11,7 @@ const StudentCollaboration = () => {
   const [loggedStudent, setLoggedStudent] = useState({});
   const [projects, setGroupProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [collabProject, setCollabProject] = useState(null);
 
   useEffect(() => {
     if (userRole === "student" && userEmail) {
@@ -30,13 +31,29 @@ const StudentCollaboration = () => {
 
     fetch("http://localhost:5000/teacher/project")
       .then((res) => res.json())
-      .then((data) => {
-        const groupProjects = data.filter(
+      .then((teacherProjects) => {
+        const groupProjects = teacherProjects.filter(
           (project) => project.type === "group"
         );
         setGroupProjects(groupProjects);
+
+        // Fetch student collaborations
+        fetch("http://localhost:5000/student/collaborate")
+          .then((res) => res.json())
+          .then((collaborations) => {
+            const matchingCollaborations = collaborations.filter((collab) =>
+              teacherProjects.some(
+                (project) => project._id === collab.project._id
+              )
+            );
+            if (matchingCollaborations.length > 0) {
+              setCollabProject(matchingCollaborations);
+            }
+          });
       });
   }, []);
+
+  console.log(collabProject);
 
   const handleSignup = (project) => {
     if (!project) {
@@ -55,7 +72,7 @@ const StudentCollaboration = () => {
     };
     console.log(applicationData);
 
-    fetch("http://localhost:5000/student/project", {
+    fetch("http://localhost:5000/student/collaborate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,9 +92,11 @@ const StudentCollaboration = () => {
 
   const handleModal = (project) => {
     setSelectedProject(project);
-    const modal = document.getElementById("student_project");
+    const modal = document.getElementById("studentCollaboration");
     modal.showModal();
   };
+
+  const uniqueCollaborators = new Set();
 
   return (
     <div>
@@ -132,13 +151,36 @@ const StudentCollaboration = () => {
                     Teacher Name:
                   </strong>{" "}
                   {project.teacherName}
-                </p>{" "}
+                </p>
                 <p>
                   <strong className="text-black font-bold">
                     Teacher Email:
                   </strong>{" "}
                   {project.teacherEmail}
                 </p>
+                {project.type === "group" &&
+                  collabProject &&
+                  collabProject.length > 0 &&
+                  collabProject.map((collab) => {
+                    if (
+                      collab.project._id === project._id &&
+                      !uniqueCollaborators.has(collab.student._id)
+                    ) {
+                      uniqueCollaborators.add(collab.student._id);
+                      return (
+                        <div key={collab._id}>
+                          <p>
+                            <strong className="text-black font-bold">
+                              Collaborator:
+                            </strong>{" "}
+                            {collab.student.name}
+                          </p>
+                        </div>
+                      );
+                    }
+                    return null;
+                  })}
+
                 <div className="flex items-center justify-center gap-5 mt-4">
                   <button
                     onClick={() => handleModal(project)}
@@ -323,7 +365,7 @@ const StudentCollaboration = () => {
 
       {/* Modal */}
       <dialog
-        id="student_project"
+        id="studentCollaboration"
         className="modal modal-bottom sm:modal-middle"
       >
         <div className="modal-box">
@@ -391,7 +433,9 @@ const StudentCollaboration = () => {
                     <div className="flex items-center justify-center mt-4">
                       <button
                         onClick={() =>
-                          document.getElementById("student_project").close()
+                          document
+                            .getElementById("studentCollaboration")
+                            .close()
                         }
                         style={{
                           display: "flex",
@@ -422,7 +466,7 @@ const StudentCollaboration = () => {
                             textShadow: "0 0 4px white",
                           }}
                         >
-                          Close
+                          CLOSE
                         </strong>
                         <div
                           id="container-stars"
