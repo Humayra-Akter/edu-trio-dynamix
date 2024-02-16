@@ -269,7 +269,7 @@ const TeacherCourse = () => {
       </div>
       {/* Right half of the screen */}
       <div className="w-1/3">
-        <div className="w-full p-6 bg-gradient-to-t from-yellow-500 to-yellow-100 my-20">
+        <div className="w-full p-6 bg-gradient-to-r from-neutral via-yellow-50 to-blue-50 border-2 border-accent my-32">
           <h1 className="text-2xl font-semibold text-center uppercase text-primary mb-4">
             Add Course
           </h1>

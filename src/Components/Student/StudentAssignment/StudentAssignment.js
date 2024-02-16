@@ -12,12 +12,12 @@ const StudentAssignment = () => {
     fetch(`http://localhost:5000/student/project?email=${userEmail}`)
       .then((res) => res.json())
       .then((data) => {
-        const userProjects = data.filter(
+        const userProjects = data?.filter(
           (project) => project.student.email === userEmail
         );
-        const uniqueProjects = userProjects.reduce((acc, current) => {
+        const uniqueProjects = userProjects?.reduce((acc, current) => {
           const x = acc.find(
-            (item) => item.project._id === current.project._id
+            (item) => item.project?._id === current.project?._id
           );
           if (!x) {
             return acc.concat([current]);
@@ -50,6 +50,7 @@ const StudentAssignment = () => {
     const formData = new FormData();
     formData.append("pdfFile", selectedFile);
     formData.append("projectId", projectId);
+    formData.append("userEmail", userEmail);
 
     try {
       const response = await fetch("http://localhost:5000/uploadFile", {
@@ -73,7 +74,12 @@ const StudentAssignment = () => {
       const response = await fetch("http://localhost:5000/uploadFile");
       if (response.ok) {
         const files = await response.json();
-        setUploadedFiles(files);
+        const userFiles = files.filter(
+          (file) => file.userEmail.userEmail === userEmail
+        );
+
+        console.log(userFiles);
+        setUploadedFiles(userFiles);
       }
     } catch (error) {
       console.error("Failed to fetch uploaded files:", error);
@@ -90,11 +96,11 @@ const StudentAssignment = () => {
         Your Applied Projects
       </h1>
       <div className="grid grid-cols-1 ml-80">
-        {appliedProjects.map(
+        {appliedProjects?.map(
           (appliedProject) =>
             appliedProjects && (
               <div
-                key={appliedProject._id}
+                key={appliedProject?._id}
                 className="bg-gradient-to-b from-slate-100 to-blue-300 border-gray-300 rounded-lg p-4 m-6 w-2/3 shadow-md"
               >
                 <div>
@@ -152,11 +158,15 @@ const StudentAssignment = () => {
                 <div className="flex flex-col items-center justify-center mt-8">
                   {/* Check if any file is uploaded for this project */}
                   {uploadedFiles.some(
-                    (file) => file.projectId === appliedProject.project._id
+                    (file) =>
+                      file.projectId === appliedProject.project._id &&
+                      file.userEmail.userEmail === userEmail
                   ) ? (
                     uploadedFiles
                       .filter(
-                        (file) => file.projectId === appliedProject.project._id
+                        (file) =>
+                          file.projectId === appliedProject.project._id &&
+                          file.userEmail.userEmail === userEmail
                       )
                       .map((file) => (
                         <div key={file._id}>
@@ -175,7 +185,7 @@ const StudentAssignment = () => {
                         </div>
                       ))
                   ) : (
-                    // If no file is uploaded, show the upload section
+                    // If no file is uploaded by the current user for the project, show the upload section
                     <div>
                       <h1 className="text-xl font-bold mb-2">Upload PDF</h1>
                       <input

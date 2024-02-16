@@ -39,6 +39,41 @@ const StudentProject = () => {
       .then((data) => setProjects(data));
   }, []);
 
+  const handleSignup = (project) => {
+    if (!project) {
+      alert("Project data is invalid.");
+      return;
+    }
+
+    if (loggedStudent.gradeYear !== project.grade) {
+      alert("You are not eligible for this project.");
+      return;
+    }
+
+    const applicationData = {
+      student: loggedStudent,
+      project: project,
+    };
+    console.log(applicationData);
+
+    fetch("http://localhost:5000/student/project", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(applicationData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Application successful", data);
+        setSelectedProject(project);
+      })
+      .catch((error) => {
+        console.error("Error while signing up for project:", error);
+        toast.error("Failed to sign up for project. Please try again.");
+      });
+  };
+
   // Filter projects based on search criteria
   const filteredProjects = projects.filter((project) => {
     if (
@@ -65,42 +100,6 @@ const StudentProject = () => {
     setSelectedProject(project);
     const modal = document.getElementById("student_project");
     modal.showModal();
-  };
-
-  const handleSignup = (project) => {
-    if (loggedStudent.gradeYear !== project.grade) {
-      alert("You are not eligible for this project.");
-      return;
-    }
-
-    if (!project) {
-      alert("Project data is invalid.");
-      return;
-    }
-    console.log(project);
-    const applicationData = {
-      student: loggedStudent,
-      project: selectedProject,
-    };
-
-    fetch("http://localhost:5000/student/project", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(applicationData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        toast.success("Application successful", data);
-        setSelectedProject(project);
-        document.getElementById("student_project").close();
-      });
-  };
-
-  const handleFile = (event) => {
-    const file = event.target.files[0];
-    setPdfData(file);
   };
 
   return (

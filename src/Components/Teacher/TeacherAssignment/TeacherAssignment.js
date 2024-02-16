@@ -90,7 +90,7 @@ const TeacherAssignment = () => {
         <Slider
           className="carousel border-blue-400 rounded-3xl relative"
           autoplay={true}
-          autoplaySpeed={1500}
+          autoplaySpeed={2200}
           infinite={true}
           arrows={false}
         >
@@ -339,7 +339,7 @@ const TeacherAssignment = () => {
                     className="text-md font-medium text-primary mb-2"
                     htmlFor="expertise"
                   >
-                    Expertise
+                    Class/Grade
                   </label>
                   <select
                     id="expertise"

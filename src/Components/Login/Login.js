@@ -58,7 +58,7 @@ const Login = () => {
         <img src={login} className="w-full p-20 h-auto" alt="Login" />
       </div>
       <div className="lg:w-1/2 lg:pt-28 p-8">
-        <div className="card max-w-md bg-gradient-to-r from-neutral via-yellow-50 to-blue-50  shadow-xl">
+        <div className="card max-w-md bg-gradient-to-r from-neutral via-yellow-50 to-blue-50 shadow-xl">
           <div className="card-body">
             <h1 className="text-center text-2xl text-primary font-extrabold mb-4">
               LOGIN

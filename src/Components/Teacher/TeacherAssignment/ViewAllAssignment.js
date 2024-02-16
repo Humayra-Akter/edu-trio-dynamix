@@ -108,7 +108,7 @@ const ViewAllassignment = () => {
                   <strong className="text-black font-bold">
                     Last day of Submit:
                   </strong>{" "}
-                  {assignment.submitLastDate}
+                  {assignment.deadline}
                 </p>
                 <p>
                   <strong className="text-black font-bold">
@@ -249,7 +249,7 @@ const ViewAllassignment = () => {
                   <strong className="text-black font-bold">
                     Last day of Submit:
                   </strong>{" "}
-                  {assignment.submitLastDate}
+                  {assignment.deadline}
                 </p>
                 <p>
                   <strong className="text-black font-bold">
