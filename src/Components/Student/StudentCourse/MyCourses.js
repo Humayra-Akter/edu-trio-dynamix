@@ -41,6 +41,8 @@ const MyCourses = () => {
       });
   }, [userEmail]);
 
+  console.log(coursesTaken);
+
   return (
     <div className="bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50">
       <div className="flex justify-center items-center pt-14">
@@ -104,11 +106,11 @@ const MyCourses = () => {
                           {course.course.teacherEmail}
                         </span>
                       </li>
+
                       <div className="flex justify-center items-center mt-3">
                         <Link
                           to={{
                             pathname: "/studentAnalytics",
-                            state: { course: course },
                           }}
                           style={{
                             display: "flex",
