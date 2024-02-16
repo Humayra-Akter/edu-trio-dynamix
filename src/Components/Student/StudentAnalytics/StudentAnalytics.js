@@ -11,10 +11,11 @@ const StudentAnalytics = () => {
   };
 
   return (
-    <div>
-      <div className="flex items-center justify-center mt-1">
-        <Link to="/studentFeedback">
+    <div className=" bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50">
+      <div>
+        <div className="flex items-center justify-center pt-3 gap-7">
           <button
+            onClick={() => handleButtonClick("feedback", "/studentAnalytics")}
             style={{
               display: "flex",
               justifyContent: "center",
@@ -100,9 +101,10 @@ const StudentAnalytics = () => {
               ></div>
             </div>
           </button>
-        </Link>
-        <Link to="/studentRewards">
           <button
+            onClick={() =>
+              handleButtonClick("reward", "/studentAnalytics/studentReward")
+            }
             style={{
               display: "flex",
               justifyContent: "center",
@@ -188,11 +190,11 @@ const StudentAnalytics = () => {
               ></div>
             </div>
           </button>
-        </Link>
-      </div>
+        </div>
 
-      <div>
-        <Outlet />
+        <div>
+          <Outlet />
+        </div>
       </div>
     </div>
   );

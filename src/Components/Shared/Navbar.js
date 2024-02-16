@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
@@ -364,7 +364,12 @@ const Navbar = () => {
                 >
                   Logout
                 </button>
-              </li>
+              </li>{" "}
+            <li className="text-black text-xs font-semibold hover:text-neutral justify-end">
+              {userEmail}
+              <br />
+              {userRole}
+            </li>
             </ul>
           </div>
         </div>

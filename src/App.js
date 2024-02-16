@@ -25,6 +25,7 @@ import StudentAnalytics from "./Components/Student/StudentAnalytics/StudentAnaly
 import MyCourses from "./Components/Student/StudentCourse/MyCourses";
 import StudentFeedback from "./Components/Student/StudentAnalytics/StudentFeedback";
 import CourseViewStudent from "./Components/Teacher/TeacherCourse/CourseViewStudent";
+import StudentReward from "./Components/Student/StudentAnalytics/StudentReward";
 
 function App() {
   return (
@@ -70,8 +71,10 @@ function App() {
         <Route path="/uploadFile" element={<UploadFile />} />
         <Route path="/studentResource" element={<StudentResource />} />
         <Route path="/studentProject" element={<StudentProject />} />
-        <Route path="/studentAnalytics" element={<StudentAnalytics />} />
-        <Route path="/studentFeedback" element={<StudentFeedback />} />
+        <Route path="/studentAnalytics" element={<StudentAnalytics />}>
+          <Route index element={<StudentFeedback />}></Route>
+          <Route path="studentReward" element={<StudentReward />}></Route>
+        </Route>
 
         <Route path="*" element={<Error />} />
       </Routes>
