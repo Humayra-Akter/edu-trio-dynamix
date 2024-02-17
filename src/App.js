@@ -10,7 +10,6 @@ import Error from "./Components/Error/Error";
 import TeacherProfile from "./Components/Teacher/TeacherProfile/TeacherProfile";
 import TeacherCourse from "./Components/Teacher/TeacherCourse/TeacherCourse";
 import TeacherProject from "./Components/Teacher/TeacherProject/TeacherProject";
-import TeacherAssignment from "./Components/Teacher/TeacherAssignment/TeacherAssignment";
 import TeacherResource from "./Components/Teacher/TeacherResource/TeacherResource";
 import Container from "./Components/WhiteBoard/Container";
 import StudentCourse from "./Components/Student/StudentCourse/StudentCourse";
@@ -19,7 +18,6 @@ import StudentAssignment from "./Components/Student/StudentAssignment/StudentAss
 import StudentResource from "./Components/Student/StudentResource/StudentResource";
 import StudentProject from "./Components/Student/StudentProject/StudentProject";
 import ViewStudents from "./Components/Teacher/TeacherProject/ViewStudents";
-import ViewAllAssignment from "./Components/Teacher/TeacherAssignment/ViewAllAssignment";
 import UploadFile from "./Components/Student/StudentAssignment/UploadFile";
 import StudentAnalytics from "./Components/Student/StudentAnalytics/StudentAnalytics";
 import MyCourses from "./Components/Student/StudentCourse/MyCourses";
@@ -48,11 +46,7 @@ function App() {
           path="/teacherCourseViewStudent"
           element={<CourseViewStudent />}
         />
-        <Route path="/teacherAssignment" element={<TeacherAssignment />} />
-        <Route
-          path="/teacherViewAllAssignment"
-          element={<ViewAllAssignment />}
-        />
+
         <Route path="/teacherResource" element={<TeacherResource />} />
         <Route path="/teacherProject" element={<TeacherProject />} />
         <Route path="/teacherProjectViewStudent" element={<ViewStudents />} />

@@ -263,7 +263,7 @@ const TeacherCourse = () => {
                       ></div>
                     </div>
                   </button>
-                  <button
+                  {/* <button
                     style={{
                       display: "flex",
                       justifyContent: "center",
@@ -293,7 +293,9 @@ const TeacherCourse = () => {
                         textShadow: "0 0 4px white",
                       }}
                     >
-                      <Link to="/teacherAssignment">CREATE ASSIGNMENT</Link>
+                      <Link to="/teacherProjectViewStudent">
+                        CREATE ASSIGNMENT
+                      </Link>
                     </strong>
                     <div
                       id="container-stars"
@@ -348,7 +350,7 @@ const TeacherCourse = () => {
                         }}
                       ></div>
                     </div>
-                  </button>
+                  </button> */}
                 </div>
               )}
             </div>
