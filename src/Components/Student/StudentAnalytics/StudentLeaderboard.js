@@ -67,13 +67,13 @@ const StudentLeaderboard = () => {
                       (reward) => reward.studentEmail === student.email
                     ) ? (
                       <ul>
-                        {student.rewards.map((reward, idx) => {
+                        {student.rewards.reduce((totalPoints, reward) => {
                           if (reward.studentEmail === student.email) {
-                            return <li key={idx}>{reward.points}</li>;
+                            return totalPoints + parseInt(reward.points);
                           } else {
-                            return null;
+                            return totalPoints;
                           }
-                        })}
+                        }, 0)}
                       </ul>
                     ) : (
                       <span>No rewards</span>

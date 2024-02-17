@@ -55,6 +55,7 @@ function App() {
         />
         <Route path="/teacherResource" element={<TeacherResource />} />
         <Route path="/teacherProject" element={<TeacherProject />} />
+        <Route path="/teacherProjectViewStudent" element={<ViewStudents />} />
         <Route
           path="/teacherProjectViewStudent/:id"
           element={<ViewStudents />}

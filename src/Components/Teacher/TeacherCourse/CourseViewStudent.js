@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const CourseViewStudent = () => {
   const userEmail = localStorage.getItem("userEmail");
@@ -71,6 +72,12 @@ const CourseViewStudent = () => {
     setSuccessMessage("");
 
     try {
+      if (formData.points < 0 || formData.points > 5) {
+        toast.error("Points must be between 0 and 5.");
+        setLoading(false);
+        return;
+      }
+
       const response = await fetch("http://localhost:5000/student/rewards", {
         method: "POST",
         headers: {
