@@ -25,6 +25,7 @@ import StudentFeedback from "./Components/Student/StudentAnalytics/StudentFeedba
 import CourseViewStudent from "./Components/Teacher/TeacherCourse/CourseViewStudent";
 import StudentReward from "./Components/Student/StudentAnalytics/StudentReward";
 import StudentCollaboration from "./Components/Student/StudentCollaboration/StudentCollaboration";
+import AddProjects from "./Components/Teacher/TeacherProject/AddProjects";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
 
         <Route path="/teacherResource" element={<TeacherResource />} />
         <Route path="/teacherProject" element={<TeacherProject />} />
+        <Route path="/teacherAddProject" element={<AddProjects />} />
         <Route path="/teacherProjectViewStudent" element={<ViewStudents />} />
         <Route
           path="/teacherProjectViewStudent/:id"

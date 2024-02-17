@@ -248,19 +248,6 @@ const Navbar = () => {
                       Resource
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      to="/teacherAnalytics"
-                      className={`text-lg font-bold hover:text-neutral ${
-                        selectedRoute === "/teacherAnalytics"
-                          ? "text-yellow-900"
-                          : "text-black"
-                      }`}
-                      onClick={() => handleRouteClick("/teacherAnalytics")}
-                    >
-                      Analytics
-                    </Link>
-                  </li>
                 </>
               )}
               {userRole === "student" && (
