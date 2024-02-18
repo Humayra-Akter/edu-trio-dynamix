@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import MyCollaboration from "./MyCollaboration";
 
 const StudentCollaboration = () => {
   const {
@@ -53,8 +54,6 @@ const StudentCollaboration = () => {
       });
   }, []);
 
-  console.log(collabProject);
-
   const handleSignup = (project) => {
     if (!project) {
       alert("Project data is invalid.");
@@ -62,7 +61,7 @@ const StudentCollaboration = () => {
     }
 
     if (loggedStudent.gradeYear !== project.grade) {
-      alert("You are not eligible for this project.");
+      toast.warning("You are not eligible for this project.");
       return;
     }
 
@@ -100,6 +99,7 @@ const StudentCollaboration = () => {
 
   return (
     <div>
+      <MyCollaboration />
       <div className="flex flex-wrap bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50 ">
         <div className="p-4 my-10 mx-auto">
           <h1 className="text-2xl font-bold text-center uppercase text-primary mb-4">
