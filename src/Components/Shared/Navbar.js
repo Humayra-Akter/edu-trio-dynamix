@@ -234,7 +234,19 @@ const Navbar = () => {
                       Project
                     </Link>
                   </li>
-
+                  <li>
+                    <Link
+                      to="/teacherViewProject"
+                      className={`text-lg font-bold hover:text-neutral ${
+                        selectedRoute === "/teacherViewProject"
+                          ? "text-yellow-900"
+                          : "text-black"
+                      }`}
+                      onClick={() => handleRouteClick("/teacherViewProject")}
+                    >
+                      View-Submission
+                    </Link>
+                  </li>
                   <li>
                     <Link
                       to="/teacherResource"

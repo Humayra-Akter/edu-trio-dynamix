@@ -118,47 +118,55 @@ const StudentCollaboration = () => {
                   {project.project}
                 </h2>
                 <p>
-                  <strong className="text-black font-bold">Batch:</strong>{" "}
+                  <span className="text-md font-bold text-blue-700">
+                    Batch:
+                  </span>{" "}
                   {project.batch}
                 </p>
                 <p>
-                  <strong className="text-black font-bold">Class:</strong>{" "}
+                  <span className="text-md font-bold text-blue-700">
+                    Class:
+                  </span>{" "}
                   {project.grade}
                 </p>
                 <p>
-                  <strong className="text-black font-bold">Subject:</strong>{" "}
+                  <span className="text-md font-bold text-blue-700">
+                    Subject:
+                  </span>{" "}
                   {project.time}
                 </p>
                 <p className="capitalize font-bold">
-                  <strong className="text-black font-bold">Type:</strong>{" "}
+                  <span className="text-md font-bold text-blue-700">Type:</span>{" "}
                   {project.type}
                 </p>
                 <p>
-                  <strong className="text-black font-bold">
+                  <span className="text-md font-bold text-blue-700">
                     Expected Outcome:
-                  </strong>{" "}
+                  </span>{" "}
                   {project.expectedOutcome}
                 </p>
                 <p>
-                  <strong className="text-black font-bold">Skills:</strong>{" "}
+                  <span className="text-md font-bold text-blue-700">
+                    Skills:
+                  </span>{" "}
                   {selectedProject?.skills ? selectedProject.skills : "n/a"}
                 </p>
                 <p>
-                  <strong className="text-black font-bold">
+                  <span className="text-md font-bold text-blue-700">
                     Last day of Submit:
-                  </strong>{" "}
+                  </span>{" "}
                   {project.submitLastDate}
                 </p>
                 <p>
-                  <strong className="text-black font-bold">
+                  <span className="text-md font-bold text-blue-700">
                     Teacher Name:
-                  </strong>{" "}
+                  </span>{" "}
                   {project.teacherName}
                 </p>
                 <p>
-                  <strong className="text-black font-bold">
+                  <span className="text-md font-bold text-blue-700">
                     Teacher Email:
-                  </strong>{" "}
+                  </span>{" "}
                   {project.teacherEmail}
                 </p>
                 {project.type === "group" &&
@@ -173,9 +181,9 @@ const StudentCollaboration = () => {
                       return (
                         <div key={collab._id}>
                           <p>
-                            <strong className="text-black font-bold">
+                            <span className="text-md font-bold text-blue-700">
                               Collaborator:
-                            </strong>{" "}
+                            </span>{" "}
                             {collab.student.name}
                           </p>
                         </div>
@@ -206,7 +214,7 @@ const StudentCollaboration = () => {
                       animation: "gradient_301 5s ease infinite",
                     }}
                   >
-                    <strong
+                    <span
                       style={{
                         zIndex: 2,
                         fontFamily: "Avalors Personal Use",
@@ -217,7 +225,7 @@ const StudentCollaboration = () => {
                       }}
                     >
                       DETAILS
-                    </strong>
+                    </span>
                     <div
                       id="container-stars"
                       style={{
@@ -293,7 +301,7 @@ const StudentCollaboration = () => {
                       animation: "gradient_301 5s ease infinite",
                     }}
                   >
-                    <strong
+                    <span
                       style={{
                         zIndex: 2,
                         fontFamily: "Avalors Personal Use",
@@ -304,7 +312,7 @@ const StudentCollaboration = () => {
                       }}
                     >
                       COLLABORATE
-                    </strong>
+                    </span>
                     <div
                       id="container-stars"
                       style={{
@@ -384,53 +392,63 @@ const StudentCollaboration = () => {
                       {selectedProject.project}
                     </h2>
                     <p>
-                      <strong className="text-black font-bold">Batch:</strong>{" "}
+                      <span className="text-md font-bold text-blue-700">
+                        Batch:
+                      </span>{" "}
                       {selectedProject.batch}
                     </p>
                     <p>
-                      <strong className="text-black font-bold">Class:</strong>{" "}
+                      <span className="text-md font-bold text-blue-700">
+                        Class:
+                      </span>{" "}
                       {selectedProject.grade}
                     </p>
                     <p>
-                      <strong className="text-black font-bold">Subject:</strong>{" "}
+                      <span className="text-md font-bold text-blue-700">
+                        Subject:
+                      </span>{" "}
                       {selectedProject.time}
                     </p>{" "}
                     <p>
-                      <strong className="text-black font-bold">Skills:</strong>{" "}
+                      <span className="text-md font-bold text-blue-700">
+                        Skills:
+                      </span>{" "}
                       {selectedProject?.skills ? selectedProject.skills : "n/a"}
                     </p>
                     <p className="capitalize font-bold">
-                      <strong className="text-black font-bold">Type:</strong>{" "}
+                      <span className="text-md font-bold text-blue-700">
+                        Type:
+                      </span>{" "}
                       {selectedProject.type}
                     </p>
                     <p>
-                      <strong className="text-black font-bold">
+                      <span className="text-md font-bold text-blue-700">
                         Expected Outcome:
-                      </strong>{" "}
+                      </span>{" "}
                       {selectedProject.expectedOutcome}
                     </p>
                     <p>
-                      <strong className="text-black font-bold">
+                      <span className="text-md font-bold text-blue-700">
                         Last day of Submit:
-                      </strong>{" "}
+                      </span>{" "}
                       {selectedProject.submitLastDate}
                     </p>
                     <p>
-                      <strong className="text-black font-bold">
+                      <span className="text-md font-bold text-blue-700">
                         Teacher Name:
-                      </strong>{" "}
+                      </span>{" "}
                       {selectedProject.teacherName}
                     </p>{" "}
                     <p>
-                      <strong className="text-black font-bold">
+                      <span className="text-md font-bold text-blue-700">
                         Teacher Email:
-                      </strong>{" "}
+                      </span>{" "}
                       {selectedProject.teacherEmail}
                     </p>{" "}
                     <p>
-                      <strong className="text-black font-bold">
+                      <span className="text-md font-bold text-blue-700">
                         Requirement:
-                      </strong>{" "}
+                      </span>{" "}
                       {selectedProject.requirement}
                     </p>
                     <div className="flex items-center justify-center mt-4">
@@ -459,7 +477,7 @@ const StudentCollaboration = () => {
                           animation: "gradient_301 5s ease infinite",
                         }}
                       >
-                        <strong
+                        <span
                           style={{
                             zIndex: 2,
                             fontFamily: "Avalors Personal Use",
@@ -470,7 +488,7 @@ const StudentCollaboration = () => {
                           }}
                         >
                           CLOSE
-                        </strong>
+                        </span>
                         <div
                           id="container-stars"
                           style={{

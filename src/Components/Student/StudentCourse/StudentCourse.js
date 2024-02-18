@@ -118,11 +118,10 @@ const StudentCourse = () => {
   return (
     <div className="bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50">
       <div className="p-4 mx-10">
-        <h1 className="text-2xl font-bold text-center uppercase text-primary my-10">
+        <h1 className="text-2xl font-bold text-center uppercase text-blue-700 my-10">
           Courses
         </h1>
         <div className="flex items-center justify-center">
-          {" "}
           <Link to="/myCourse">
             <button
               style={{
@@ -219,27 +218,30 @@ const StudentCourse = () => {
           {courses.map((course) => (
             <div
               key={course.id}
-              className="bg-gradient-to-t from-blue-300 to-blue-100 border border-gray-300 rounded-lg p-4 m-4 w-96 shadow-md"
+              className="bg-gradient-to-t from-blue-200 to-blue-50 border border-gray-300 rounded-lg p-4 m-4 w-96 shadow-md"
             >
               <h2 className="text-lg font-semibold mb-2">{course.course}</h2>
               <p>
-                <strong className="text-black font-bold">Batch:</strong>{" "}
+                <span className="text-md font-medium text-blue-700">Batch:</span>{" "}
                 {course.batch}
               </p>
               <p>
-                <strong className="text-black font-bold">Class:</strong>{" "}
+                {" "}
+                <span className="text-md font-medium text-blue-700">
+                  Class:
+                </span>{" "}
                 {course.grade}
               </p>
               <p>
-                <strong className="text-black font-bold">Time:</strong>{" "}
+                <span className="text-md font-medium text-blue-700">Time:</span>{" "}
                 {course.time}
               </p>
               <p>
-                <strong className="text-black font-bold">Teacher Name:</strong>{" "}
+                 <span className="text-md font-medium text-blue-700">Teacher Name:</span>{" "}
                 {course.teacherName}
               </p>
               <p>
-                <strong className="text-black font-bold">Teacher Email:</strong>{" "}
+                 <span className="text-md font-medium text-blue-700">Teacher Email:</span>{" "}
                 {course.teacherEmail}
               </p>
               <div className="flex justify-center items-center mt-4">

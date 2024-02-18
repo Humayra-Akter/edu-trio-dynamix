@@ -61,43 +61,43 @@ const MyCollaboration = () => {
                   {collab.project.project}
                 </h2>
                 <p>
-                  <strong className="text-black font-bold">Batch:</strong>{" "}
+                  <span className="text-md font-bold text-blue-700">Batch:</span>{" "}
                   {collab.project.batch}
                 </p>
                 <p>
-                  <strong className="text-black font-bold">Class:</strong>{" "}
+                  <span className="text-md font-bold text-blue-700">Class:</span>{" "}
                   {collab.project.grade}
                 </p>
                 <p>
-                  <strong className="text-black font-bold">Subject:</strong>{" "}
+                  <span className="text-md font-bold text-blue-700">Subject:</span>{" "}
                   {collab.project.time}
                 </p>
                 <p className="capitalize font-bold">
-                  <strong className="text-black font-bold">Type:</strong>{" "}
+                  <span className="text-md font-bold text-blue-700">Type:</span>{" "}
                   {collab.project.type}
                 </p>
                 <p>
-                  <strong className="text-black font-bold">
+                  <span className="text-md font-bold text-blue-700">
                     Expected Outcome:
-                  </strong>{" "}
+                  </span>{" "}
                   {collab.project.expectedOutcome}
                 </p>
                 <p>
-                  <strong className="text-black font-bold">
+                  <span className="text-md font-bold text-blue-700">
                     Last day of Submit:
-                  </strong>{" "}
+                  </span>{" "}
                   {collab.project.submitLastDate}
                 </p>
                 <p>
-                  <strong className="text-black font-bold">
+                  <span className="text-md font-bold text-blue-700">
                     Teacher Name:
-                  </strong>{" "}
+                  </span>{" "}
                   {collab.project.teacherName}
                 </p>
                 <p>
-                  <strong className="text-black font-bold">
+                  <span className="text-md font-bold text-blue-700">
                     Teacher Email:
-                  </strong>{" "}
+                  </span>{" "}
                   {collab.project.teacherEmail}
                 </p>
               </div>

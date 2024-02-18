@@ -50,21 +50,32 @@ const StudentReward = () => {
                 key={reward._id}
                 className="bg-white shadow-md p-4 rounded-md mb-4"
               >
-                <h2 className="text-lg font-semibold">{reward.rewardTitle}</h2>
+                <h2 className="text-lg text-md font-bold text-blue-700">
+                  {reward.rewardTitle}
+                </h2>
                 <p className="text-gray-600 mt-2">
-                  <span className="font-semibold">Student:</span>{" "}
+                  <span className="text-md font-bold text-blue-700">
+                    Student:
+                  </span>{" "}
                   {reward.studentName}
                 </p>
                 <p className="text-gray-600">
-                  <span className="font-semibold">Teacher:</span>{" "}
+                  <span className="text-md font-bold text-blue-700">
+                    Teacher:
+                  </span>{" "}
                   {reward.teacherEmail}
                 </p>
                 <p className="text-gray-600">
-                  <span className="font-semibold">Description:</span>{" "}
+                  <span className="text-md font-bold text-blue-700">
+                    Description:
+                  </span>{" "}
                   {reward.description}
                 </p>
                 <p className="text-gray-600">
-                  <span className="font-semibold">Points:</span> {reward.points}
+                  <span className="text-md font-bold text-blue-700">
+                    Points:
+                  </span>{" "}
+                  {reward.points}
                 </p>
               </div>
             ))}

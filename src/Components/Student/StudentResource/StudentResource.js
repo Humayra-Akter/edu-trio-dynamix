@@ -23,19 +23,19 @@ const StudentResource = () => {
           >
             <h2 className="text-lg font-semibold mb-2">{resource.title}</h2>
             <p>
-              <strong className="text-black font-bold">Teacher Name:</strong>
+              <span className="text-md font-bold text-blue-700">Teacher Name:</span>
               {resource.teacherName}
             </p>
             <p className="text-primary font-bold">
-              <strong className="text-primary font-bold">Grade:</strong>
+              <span className="text-primary font-bold">Grade:</span>
               {resource.grade}
             </p>
             <p>
-              <strong className="text-black font-bold">Subject:</strong>
+              <span className="text-md font-bold text-blue-700">Subject:</span>
               {resource.subject}
             </p>
             <p className="mb-5">
-              <strong className="text-black font-bold">Teacher Email:</strong>
+              <span className="text-md font-bold text-blue-700">Teacher Email:</span>
               {resource.teacherEmail}
             </p>
             <iframe

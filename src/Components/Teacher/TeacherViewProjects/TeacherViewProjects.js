@@ -20,7 +20,9 @@ const TeacherViewProjects = () => {
 
   return (
     <div className="p-6 bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50">
-      <h1 className="text-3xl text-center font-bold mb-6">Uploaded Files</h1>
+      <h1 className="text-3xl text-center text-primary font-bold mb-7">
+        Uploaded Files
+      </h1>
       {uploadedFiles.length > 0 ? (
         <div className="flex flex-wrap gap-4 mx-40 md:grid-cols-2 lg:grid-cols-3 ">
           {uploadedFiles.map((file) => (
@@ -56,9 +58,7 @@ const TeacherViewProjects = () => {
               <p>
                 <strong>Requirement:</strong> {file.userEmail.requirement}
               </p>
-              <div
-                className="flex my-7 items-center justify-center"
-              >
+              <div className="flex my-7 items-center justify-center">
                 <a
                   href={file.cloudinaryUrl}
                   target="_blank"

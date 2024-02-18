@@ -130,50 +130,50 @@ const StudentAssignment = () => {
                     {appliedProject.project.project}
                   </h2>
                   <p className="capitalize">
-                    <strong className="text-black font-bold">Batch:</strong>{" "}
+                    <span className="text-md font-bold text-blue-700">Batch:</span>{" "}
                     {appliedProject.project.batch}
                   </p>
                   <p className="capitalize">
-                    <strong className="text-black font-bold">Class:</strong>{" "}
+                    <span className="text-md font-bold text-blue-700">Class:</span>{" "}
                     {appliedProject.project.grade}
                   </p>
                   <p className="capitalize">
-                    <strong className="text-black font-bold">Subject:</strong>{" "}
+                    <span className="text-md font-bold text-blue-700">Subject:</span>{" "}
                     {appliedProject.project.time}
                   </p>
                   <p className="capitalize">
-                    <strong className="text-black font-bold">Type:</strong>{" "}
+                    <span className="text-md font-bold text-blue-700">Type:</span>{" "}
                     {appliedProject.project.type}
                   </p>
                   <p className="capitalize">
-                    <strong className="text-black font-bold">
+                    <span className="text-md font-bold text-blue-700">
                       Expected Outcome:
-                    </strong>{" "}
+                    </span>{" "}
                     {appliedProject.project.expectedOutcome}
                   </p>
                   <p className="text-red-600">
-                    <strong className="text-black font-bold">
+                    <span className="text-md font-bold text-blue-700">
                       Remaining Days to Submit:
-                    </strong>{" "}
+                    </span>{" "}
                     {getRemainingDays(appliedProject.project.submitLastDate)}{" "}
                     days
                   </p>
                   <p className="capitalize">
-                    <strong className="text-black font-bold">
+                    <span className="text-md font-bold text-blue-700">
                       Teacher Name:
-                    </strong>{" "}
+                    </span>{" "}
                     {appliedProject.project.teacherName}
                   </p>
                   <p>
-                    <strong className="text-black font-bold">
+                    <span className="text-md font-bold text-blue-700">
                       Teacher Email:
-                    </strong>{" "}
+                    </span>{" "}
                     {appliedProject.project.teacherEmail}
                   </p>
                   <p className="capitalize">
-                    <strong className="text-black font-bold">
+                    <span className="text-md font-bold text-blue-700">
                       Requirement:
-                    </strong>{" "}
+                    </span>{" "}
                     {appliedProject.project.requirement}
                   </p>
                 </div>
@@ -193,9 +193,9 @@ const StudentAssignment = () => {
                       .map((file) => (
                         <div key={file._id}>
                           <p>
-                            <strong className="text-black font-bold">
+                            <span className="text-md font-bold text-blue-700">
                               Uploaded File:
-                            </strong>{" "}
+                            </span>{" "}
                             <a
                               href={file.cloudinaryUrl}
                               target="_blank"
@@ -240,7 +240,7 @@ const StudentAssignment = () => {
                           animation: "gradient_301 5s ease infinite",
                         }}
                       >
-                        <strong
+                        <span
                           style={{
                             zIndex: 2,
                             fontFamily: "Avalors Personal Use",
@@ -251,7 +251,7 @@ const StudentAssignment = () => {
                           }}
                         >
                           UPLOAD
-                        </strong>
+                        </span>
                         <div
                           id="container-stars"
                           style={{
