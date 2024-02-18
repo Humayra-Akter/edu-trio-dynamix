@@ -61,7 +61,7 @@ const StudentLeaderboard = () => {
               {students.map((student, index) => (
                 <tr key={student._id} className="border-b">
                   <td className="py-2 px-4">{index + 1}</td>
-                  <td className="py-2 px-4">{student.name}</td>
+                  <td className="py-2 px-4 capitalize">{student.name}</td>
                   <td className="py-2 px-4">
                     {student.rewards.some(
                       (reward) => reward.studentEmail === student.email

@@ -37,19 +37,26 @@ const MyCollaboration = () => {
       });
   }, []);
 
+  //   const handleSubmission = (projectId) => {
+  //     alert(`Submitting project with ID ${projectId}`);
+  //   };
+
   return (
     <div>
       {collabProjects && collabProjects.length > 0 && (
         <div className="p-4 my-10 mx-auto">
-          <h1 className="text-2xl font-bold text-center uppercase text-primary mb-4">
-            Collaborated Projects
+          <h1 className="text-2xl font-bold text-center text-primary mb-4">
+            Your Collaborated Projects
           </h1>
           <div className="flex flex-wrap justify-center">
             {collabProjects.map((collab) => (
               <div
                 key={collab._id}
-                className="bg-gradient-to-b from-slate-100 to-blue-300  border-gray-300 rounded-lg p-4 m-6 shadow-md"
+                className="bg-gradient-to-b from-slate-100 to-blue-300  border-gray-300 rounded-lg p-4 m-6 shadow-md relative"
               >
+                <button className="absolute top-2 right-2 bg-blue-700 text-white py-1 px-2 rounded">
+                  {collab.project.submitLastDate}
+                </button>
                 <h2 className="text-lg font-semibold mb-2">
                   {collab.project.project}
                 </h2>

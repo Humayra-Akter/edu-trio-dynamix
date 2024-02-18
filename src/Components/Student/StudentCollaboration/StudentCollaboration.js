@@ -13,6 +13,7 @@ const StudentCollaboration = () => {
   const [projects, setGroupProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
   const [collabProject, setCollabProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     if (userRole === "student" && userEmail) {
@@ -99,9 +100,11 @@ const StudentCollaboration = () => {
 
   return (
     <div>
-      <MyCollaboration />
       <div className="flex flex-wrap bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50 ">
-        <div className="p-4 my-10 mx-auto">
+        <div className="p-4 mx-auto">
+          <div className="flex items-center justify-center">
+            <MyCollaboration />
+          </div>{" "}
           <h1 className="text-2xl font-bold text-center uppercase text-primary mb-4">
             ALL Projects
           </h1>
