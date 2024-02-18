@@ -107,161 +107,167 @@ const CourseViewStudent = () => {
               Student List
             </h2>
           </div>
-          <div className="lg:w-full lg:pt-12 gap-7 p-8 lg:flex flex-wrap justify-center">
-            {coursesTaken.map((course) => (
-              <div
-                key={course._id}
-                className="card max-w-2xl bg-gradient-to-b from-yellow-50 to-blue-300 shadow-xl m-4 p-4"
-              >
-                <h2 className="text-lg font-bold">{course.course}</h2>
-                <p>
-                  <span className="font-semibold">Teacher Name:</span>{" "}
-                  {course.teacherName}
-                </p>
-                <div className="mt-2">
-                  <h3 className="text-md font-semibold">Enrolled Students:</h3>
-                  <ul>
-                    {enrolledStudents
-                      .filter(
-                        (student) =>
-                          student.course.course === course.course &&
-                          enrolledStudents.findIndex(
-                            (s) => s.student.email === student.student.email
-                          ) ===
+          {coursesTaken.length > 0 && (
+            <div className="lg:w-full lg:pt-12 gap-7 p-8 lg:flex flex-wrap justify-center">
+              {coursesTaken.map((course) => (
+                <div
+                  key={course._id}
+                  className="card max-w-2xl bg-gradient-to-b from-yellow-50 to-blue-300 shadow-xl m-4 p-4"
+                >
+                  <h2 className="text-lg font-bold">{course.course}</h2>
+                  <p>
+                    <span className="font-semibold">Teacher Name:</span>{" "}
+                    {course.teacherName}
+                  </p>
+                  <div className="mt-2">
+                    <h3 className="text-md font-semibold">
+                      Enrolled Students:
+                    </h3>
+                    <ul>
+                      {enrolledStudents
+                        .filter(
+                          (student) =>
+                            student.course.course === course.course &&
                             enrolledStudents.findIndex(
                               (s) => s.student.email === student.student.email
-                            )
-                      )
-                      .map((student) => (
-                        <li key={student._id}>
-                          <p>
-                            <span className="font-semibold">Name:</span>{" "}
-                            {student.student.name}
-                          </p>
-                          <p>
-                            <span className="font-semibold">Email:</span>{" "}
-                            {student.student.email}
-                          </p>
-                          <p>
-                            <span className="font-semibold">Grade:</span>{" "}
-                            {student.student.gradeYear}
-                          </p>{" "}
-                          <p>
-                            <span className="font-semibold">Batch:</span>{" "}
-                            {student.course.batch}
-                          </p>{" "}
-                          <p>
-                            <span className="font-semibold">Time:</span>{" "}
-                            {student.course.time}
-                          </p>
-                          <p>
-                            <span className="font-semibold">Institution:</span>{" "}
-                            {student.student.institution}
-                          </p>
-                          <p>
-                            <span className="font-semibold">
-                              Preferred Communication Channel:
-                            </span>{" "}
-                            {student.student.communicationChannel}
-                          </p>
-                          <div className="flex items-center justify-center mt-5">
-                            <button
-                              onClick={() => handleOpenModal(student.student)}
-                              style={{
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                width: "13rem",
-                                overflow: "hidden",
-                                height: "3rem",
-                                backgroundSize: "300% 300%",
-                                backdropFilter: "blur(1rem)",
-                                borderRadius: "5rem",
-                                transition: "0.5s",
-                                border: "double 4px transparent",
-                                backgroundImage:
-                                  "linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%, #FE53BB 45%, #8F51EA 67%, #0044ff 87%)",
-                                backgroundOrigin: "border-box",
-                                backgroundClip: "content-box, border-box",
-                                animation: "gradient_301 5s ease infinite",
-                              }}
-                            >
-                              <strong
+                            ) ===
+                              enrolledStudents.findIndex(
+                                (s) => s.student.email === student.student.email
+                              )
+                        )
+                        .map((student) => (
+                          <li key={student._id}>
+                            <p>
+                              <span className="font-semibold">Name:</span>{" "}
+                              {student.student.name}
+                            </p>
+                            <p>
+                              <span className="font-semibold">Email:</span>{" "}
+                              {student.student.email}
+                            </p>
+                            <p>
+                              <span className="font-semibold">Grade:</span>{" "}
+                              {student.student.gradeYear}
+                            </p>{" "}
+                            <p>
+                              <span className="font-semibold">Batch:</span>{" "}
+                              {student.course.batch}
+                            </p>{" "}
+                            <p>
+                              <span className="font-semibold">Time:</span>{" "}
+                              {student.course.time}
+                            </p>
+                            <p>
+                              <span className="font-semibold">
+                                Institution:
+                              </span>{" "}
+                              {student.student.institution}
+                            </p>
+                            <p>
+                              <span className="font-semibold">
+                                Preferred Communication Channel:
+                              </span>{" "}
+                              {student.student.communicationChannel}
+                            </p>
+                            <div className="flex items-center justify-center mt-5">
+                              <button
+                                onClick={() => handleOpenModal(student.student)}
                                 style={{
-                                  zIndex: 2,
-                                  fontFamily: "Avalors Personal Use",
-                                  fontSize: "12px",
-                                  letterSpacing: "5px",
-                                  color: "#FFFFFF",
-                                  textShadow: "0 0 4px white",
-                                }}
-                              >
-                                GIVE REWARDS
-                              </strong>
-                              <div
-                                id="container-stars"
-                                style={{
-                                  position: "absolute",
-                                  zIndex: -1,
-                                  width: "100%",
-                                  height: "100%",
+                                  display: "flex",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  width: "13rem",
                                   overflow: "hidden",
-                                  transition: "0.5s",
+                                  height: "3rem",
+                                  backgroundSize: "300% 300%",
                                   backdropFilter: "blur(1rem)",
                                   borderRadius: "5rem",
+                                  transition: "0.5s",
+                                  border: "double 4px transparent",
+                                  backgroundImage:
+                                    "linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%, #FE53BB 45%, #8F51EA 67%, #0044ff 87%)",
+                                  backgroundOrigin: "border-box",
+                                  backgroundClip: "content-box, border-box",
+                                  animation: "gradient_301 5s ease infinite",
                                 }}
                               >
-                                <div
-                                  id="stars"
+                                <strong
                                   style={{
-                                    position: "relative",
-                                    background: "transparent",
-                                    width: "200rem",
-                                    height: "200rem",
-                                    animation:
-                                      "animStarRotate 90s linear infinite",
+                                    zIndex: 2,
+                                    fontFamily: "Avalors Personal Use",
+                                    fontSize: "12px",
+                                    letterSpacing: "5px",
+                                    color: "#FFFFFF",
+                                    textShadow: "0 0 4px white",
                                   }}
-                                ></div>
-                              </div>
-                              <div
-                                id="glow"
-                                style={{
-                                  position: "absolute",
-                                  display: "flex",
-                                  width: "12rem",
-                                }}
-                              >
+                                >
+                                  GIVE REWARDS
+                                </strong>
                                 <div
-                                  className="circle"
+                                  id="container-stars"
                                   style={{
-                                    width: "100%",
-                                    height: "30px",
-                                    filter: "blur(2rem)",
-                                    animation: "pulse_3011 4s infinite",
+                                    position: "absolute",
                                     zIndex: -1,
-                                  }}
-                                ></div>
-                                <div
-                                  className="circle"
-                                  style={{
                                     width: "100%",
-                                    height: "30px",
-                                    filter: "blur(2rem)",
-                                    animation: "pulse_3011 4s infinite",
-                                    zIndex: -1,
+                                    height: "100%",
+                                    overflow: "hidden",
+                                    transition: "0.5s",
+                                    backdropFilter: "blur(1rem)",
+                                    borderRadius: "5rem",
                                   }}
-                                ></div>
-                              </div>
-                            </button>
-                          </div>
-                        </li>
-                      ))}
-                  </ul>
+                                >
+                                  <div
+                                    id="stars"
+                                    style={{
+                                      position: "relative",
+                                      background: "transparent",
+                                      width: "200rem",
+                                      height: "200rem",
+                                      animation:
+                                        "animStarRotate 90s linear infinite",
+                                    }}
+                                  ></div>
+                                </div>
+                                <div
+                                  id="glow"
+                                  style={{
+                                    position: "absolute",
+                                    display: "flex",
+                                    width: "12rem",
+                                  }}
+                                >
+                                  <div
+                                    className="circle"
+                                    style={{
+                                      width: "100%",
+                                      height: "30px",
+                                      filter: "blur(2rem)",
+                                      animation: "pulse_3011 4s infinite",
+                                      zIndex: -1,
+                                    }}
+                                  ></div>
+                                  <div
+                                    className="circle"
+                                    style={{
+                                      width: "100%",
+                                      height: "30px",
+                                      filter: "blur(2rem)",
+                                      animation: "pulse_3011 4s infinite",
+                                      zIndex: -1,
+                                    }}
+                                  ></div>
+                                </div>
+                              </button>
+                            </div>
+                          </li>
+                        ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            ))}
-            {coursesTaken.length === 0 && <p>No courses taken yet.</p>}
-          </div>
+              ))}
+              {coursesTaken.length === 0 && <p>No courses taken yet.</p>}
+            </div>
+          )}
         </div>
       </div>
       {showModal && (

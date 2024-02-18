@@ -68,3 +68,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+1. who you are inside
+   2)being fearless
+   3)have never arrived enough to explore new opportunities
+2. be greedy for your ambitions
+   5)do not compromise
+   6)fail fail fail again and then arise like a pheonix
+3. be bold and take these risks
+4. surround yourself with the right people
+5. never please everyone all the time
+6. don't take yourself too seriously
+   11)give back
+7. don't ever forget your roots and where you came from

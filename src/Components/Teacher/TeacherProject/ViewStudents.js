@@ -241,7 +241,7 @@ const ViewStudents = () => {
             <h2 className="text-2xl text-primary font-bold mb-4">
               Collaborators for {selectedProject.project}
             </h2>
-            <ul className="text-center">
+            {/* <ul className="text-center">
               {getCollaboratorsForProject(selectedProject._id).map(
                 (collaborator) => (
                   <li key={collaborator.student._id}>
@@ -249,8 +249,23 @@ const ViewStudents = () => {
                   </li>
                 )
               )}
-            </ul>
-            <div className="flex justify-center items-center mt-2">
+            </ul> */}
+            {getCollaboratorsForProject(selectedProject._id).length > 0 ? (
+              <ul className="text-center">
+                {getCollaboratorsForProject(selectedProject._id).map(
+                  (collaborator) => (
+                    <li key={collaborator.student._id}>
+                      {collaborator.student.name}
+                    </li>
+                  )
+                )}
+              </ul>
+            ) : (
+              <p className="text-center text-red-600 font-semibold">
+                No collaboration so far.
+              </p>
+            )}
+            <div className="flex justify-center items-center mt-4">
               <button
                 onClick={handleCloseModal}
                 style={{
