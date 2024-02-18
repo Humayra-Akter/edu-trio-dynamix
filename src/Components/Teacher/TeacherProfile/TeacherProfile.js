@@ -80,7 +80,7 @@ const TeacherProfile = () => {
                 <div className="flex w-96">
                   <ul className="mb-4">
                     <li className="mb-2">
-                      <span className="text-md font-medium text-primary">
+                      <span className="text-md font-bold text-blue-700">
                         Email:
                       </span>
                       <span className="ml-4 font-bold">
@@ -88,7 +88,7 @@ const TeacherProfile = () => {
                       </span>
                     </li>
                     <li className="mb-2">
-                      <span className="text-md font-medium text-primary">
+                      <span className="text-md font-bold text-blue-700">
                         Gender:
                       </span>
                       <span className="ml-4 capitalize font-bold ">
@@ -96,7 +96,7 @@ const TeacherProfile = () => {
                       </span>
                     </li>
                     <li className="mb-2">
-                      <span className="text-md font-medium text-primary">
+                      <span className="text-md font-bold text-blue-700">
                         Date of Birth:
                       </span>
                       <span className="ml-4 font-bold">
@@ -104,7 +104,7 @@ const TeacherProfile = () => {
                       </span>
                     </li>
                     <li className="mb-2">
-                      <span className="text-md font-medium text-primary">
+                      <span className="text-md font-bold text-blue-700">
                         Subjects:
                       </span>
                       <span className="ml-4 capitalize font-bold">
@@ -112,7 +112,7 @@ const TeacherProfile = () => {
                       </span>
                     </li>
                     <li className="mb-2">
-                      <span className="text-md font-medium text-primary">
+                      <span className="text-md font-bold text-blue-700">
                         Education Level:
                       </span>
                       <span className="ml-4 capitalize font-bold">
@@ -120,7 +120,7 @@ const TeacherProfile = () => {
                       </span>
                     </li>
                     <li className="mb-2">
-                      <span className="text-md font-medium text-primary">
+                      <span className="text-md font-bold text-blue-700">
                         Professional Title:
                       </span>
                       <span className="ml-4 capitalize font-bold">

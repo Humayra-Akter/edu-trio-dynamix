@@ -100,32 +100,37 @@ const AddProjects = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               className="border border-gray-300 rounded p-2 mb-2"
             />
-            
           </div>
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="bg-gradient-to-b from-yellow-50 to-blue-300  border-gray-300 rounded-lg p-4 m-4 w-80 shadow-md"
+              className="bg-gradient-to-b from-yellow-50 to-blue-200  border-gray-300 rounded-lg p-4 m-4 w-80 shadow-md"
             >
               <h2 className="text-lg font-semibold mb-2">{project.project}</h2>
               <p>
-                <strong className="text-black font-bold">Batch:</strong>{" "}
+                <span className="text-md font-bold text-blue-700">Batch:</span>{" "}
                 {project.batch}
               </p>
               <p>
-                <strong className="text-black font-bold">Class:</strong>{" "}
+                <span className="text-md font-bold text-blue-700">Class:</span>{" "}
                 {project.grade}
               </p>
               <p>
-                <strong className="text-black font-bold">Subject:</strong>{" "}
+                <span className="text-md font-bold text-blue-700">
+                  Subject:
+                </span>{" "}
                 {project.time}
               </p>
               <p>
-                <strong className="text-black font-bold">Teacher Name:</strong>{" "}
+                <span className="text-md font-bold text-blue-700">
+                  Teacher Name:
+                </span>{" "}
                 {project.teacherName}
               </p>{" "}
               <p>
-                <strong className="text-black font-bold">Teacher Email:</strong>{" "}
+                <span className="text-md font-bold text-blue-700">
+                  Teacher Email:
+                </span>{" "}
                 {project.teacherEmail}
               </p>
               {userEmail === project.teacherEmail && (
@@ -150,7 +155,7 @@ const AddProjects = () => {
                       animation: "gradient_301 5s ease infinite",
                     }}
                   >
-                    <strong
+                    <span
                       style={{
                         zIndex: 2,
                         fontFamily: "Avalors Personal Use",
@@ -161,7 +166,7 @@ const AddProjects = () => {
                       }}
                     >
                       VIEW STUDENTS
-                    </strong>
+                    </span>
                     <div
                       id="container-stars"
                       style={{
@@ -224,7 +229,7 @@ const AddProjects = () => {
       </div>
       {/* Right half of the screen */}
       <div className="w-1/3">
-        <div className="max-w-2xl p-6 bg-gradient-to-t from-yellow-500 to-yellow-100 my-20">
+        <div className="max-w-2xl p-6 bg-gradient-to-t from-blue-100 to-yellow-50 border-2 border-accent my-20">
           <h1 className="text-2xl font-semibold text-center uppercase text-primary mb-4">
             Add Project
           </h1>
@@ -370,7 +375,7 @@ const AddProjects = () => {
                   animation: "gradient_301 5s ease infinite",
                 }}
               >
-                <strong
+                <span
                   style={{
                     zIndex: 2,
                     fontFamily: "Avalors Personal Use",
@@ -380,8 +385,8 @@ const AddProjects = () => {
                     textShadow: "0 0 4px white",
                   }}
                 >
-                  ADD PROJECT MATERIAL
-                </strong>
+                  ADD PROJECT
+                </span>
                 <div
                   id="container-stars"
                   style={{
@@ -440,7 +445,6 @@ const AddProjects = () => {
           </form>
         </div>
       </div>
-     
     </div>
   );
 };

@@ -113,7 +113,7 @@ const TeacherProject = () => {
                 animation: "gradient_301 5s ease infinite",
               }}
             >
-              <strong
+              <span
                 style={{
                   zIndex: 2,
                   fontFamily: "Avalors Personal Use",
@@ -124,7 +124,7 @@ const TeacherProject = () => {
                 }}
               >
                 ADD PROJECTS
-              </strong>
+              </span>
               <div
                 id="container-stars"
                 style={{
@@ -185,27 +185,27 @@ const TeacherProject = () => {
           {projects.map((project) => (
             <div
               key={project._id}
-              className="bg-gradient-to-b from-yellow-50 to-blue-300  border-gray-300 rounded-lg p-4 m-6 w-96 shadow-md"
+              className="bg-gradient-to-b from-yellow-50 to-blue-200  border-gray-300 rounded-lg p-4 m-6 w-96 shadow-md"
             >
               <h2 className="text-lg font-semibold mb-2">{project.project}</h2>
               <p>
-                <strong className="text-black font-bold">Batch:</strong>{" "}
+                <span className="text-md font-bold text-blue-700">Batch:</span>{" "}
                 {project.batch}
               </p>
               <p>
-                <strong className="text-black font-bold">Class:</strong>{" "}
+                <span className="text-md font-bold text-blue-700">Class:</span>{" "}
                 {project.grade}
               </p>
               <p>
-                <strong className="text-black font-bold">Subject:</strong>{" "}
+                <span className="text-md font-bold text-blue-700">Subject:</span>{" "}
                 {project.time}
               </p>
               <p>
-                <strong className="text-black font-bold">Teacher Name:</strong>{" "}
+                <span className="text-md font-bold text-blue-700">Teacher Name:</span>{" "}
                 {project.teacherName}
               </p>{" "}
               <p>
-                <strong className="text-black font-bold">Teacher Email:</strong>{" "}
+                <span className="text-md font-bold text-blue-700">Teacher Email:</span>{" "}
                 {project.teacherEmail}
               </p>
               {userEmail === project.teacherEmail && (
@@ -230,7 +230,7 @@ const TeacherProject = () => {
                       animation: "gradient_301 5s ease infinite",
                     }}
                   >
-                    <strong
+                    <span
                       style={{
                         zIndex: 2,
                         fontFamily: "Avalors Personal Use",
@@ -244,7 +244,7 @@ const TeacherProject = () => {
                         {" "}
                         VIEW STUDENTS
                       </Link>
-                    </strong>
+                    </span>
                     <div
                       id="container-stars"
                       style={{

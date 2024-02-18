@@ -120,20 +120,20 @@ const ViewStudents = () => {
               >
                 <h2 className="text-lg font-bold">{project.project}</h2>
                 <p>
-                  <span className="font-semibold">Teacher Name:</span>{" "}
+                  <span className="text-md font-bold text-blue-700">Teacher Name:</span>{" "}
                   {project.teacherName}
                 </p>
                 <p>
-                  <span className="font-semibold">Batch:</span> {project.batch}
+                  <span className="text-md font-bold text-blue-700">Batch:</span> {project.batch}
                 </p>
                 <p>
-                  <span className="font-semibold">Grade:</span> {project.grade}
+                  <span className="text-md font-bold text-blue-700">Grade:</span> {project.grade}
                 </p>
                 <p>
-                  <span className="font-semibold">Type:</span> {project.type}
+                  <span className="text-md font-bold text-blue-700">Type:</span> {project.type}
                 </p>
                 <p>
-                  <span className="font-semibold">Submit Last Date:</span>{" "}
+                  <span className="text-md font-bold text-blue-700">Submit Last Date:</span>{" "}
                   {project.submitLastDate}
                 </p>
                 <div className="flex justify-center items-center mt-2">
@@ -261,7 +261,7 @@ const ViewStudents = () => {
                 )}
               </ul>
             ) : (
-              <p className="text-center text-red-600 font-semibold">
+              <p className="text-center text-red-600 text-md font-bold text-blue-700">
                 No collaboration so far.
               </p>
             )}

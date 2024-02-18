@@ -68,23 +68,32 @@ const TeacherCourse = () => {
           {courses.map((course) => (
             <div
               key={course.id}
-              className="bg-gradient-to-b from-yellow-50 to-blue-300  border-gray-300 rounded-lg p-4 m-4 w-80 shadow-md"
+              className="bg-gradient-to-b from-yellow-50 to-blue-200  border-gray-300 rounded-lg p-4 m-4 w-80 shadow-md"
             >
               <h2 className="text-lg font-semibold mb-2">{course.course}</h2>
               <p>
-                <strong>Batch:</strong> {course.batch}
+                <span className="text-md font-bold text-blue-700">Batch:</span>{" "}
+                {course.batch}
               </p>
               <p>
-                <strong>Class:</strong> {course.grade}
+                <span className="text-md font-bold text-blue-700">Class:</span>{" "}
+                {course.grade}
               </p>
               <p>
-                <strong>Time:</strong> {course.time}
+                <span className="text-md font-bold text-blue-700">Time:</span>{" "}
+                {course.time}
               </p>
               <p>
-                <strong>Teacher Name:</strong> {course.teacherName}
+                <span className="text-md font-bold text-blue-700">
+                  Teacher Name:
+                </span>{" "}
+                {course.teacherName}
               </p>{" "}
               <p>
-                <strong>Teacher Email:</strong> {course.teacherEmail}
+                <span className="text-md font-bold text-blue-700">
+                  Teacher Email:
+                </span>{" "}
+                {course.teacherEmail}
               </p>
               {userEmail === course.teacherEmail && (
                 <div className="flex flex-wrap ml-10 mt-4">
@@ -109,7 +118,7 @@ const TeacherCourse = () => {
                       animation: "gradient_301 5s ease infinite",
                     }}
                   >
-                    <strong
+                    <span
                       style={{
                         zIndex: 2,
                         fontFamily: "Avalors Personal Use",
@@ -120,7 +129,7 @@ const TeacherCourse = () => {
                       }}
                     >
                       <Link to="/board">TAKE CLASS</Link>
-                    </strong>
+                    </span>
                     <div
                       id="container-stars"
                       style={{
@@ -197,7 +206,7 @@ const TeacherCourse = () => {
                       animation: "gradient_301 5s ease infinite",
                     }}
                   >
-                    <strong
+                    <span
                       style={{
                         zIndex: 2,
                         fontFamily: "Avalors Personal Use",
@@ -208,7 +217,7 @@ const TeacherCourse = () => {
                       }}
                     >
                       <Link to="/teacherCourseViewStudent"> VIEW STUDENTS</Link>
-                    </strong>
+                    </span>
                     <div
                       id="container-stars"
                       style={{
@@ -283,7 +292,7 @@ const TeacherCourse = () => {
                       animation: "gradient_301 5s ease infinite",
                     }}
                   >
-                    <strong
+                    <span
                       style={{
                         zIndex: 2,
                         fontFamily: "Avalors Personal Use",
@@ -296,7 +305,7 @@ const TeacherCourse = () => {
                       <Link to="/teacherProjectViewStudent">
                         CREATE ASSIGNMENT
                       </Link>
-                    </strong>
+                    </span>
                     <div
                       id="container-stars"
                       style={{
@@ -438,7 +447,7 @@ const TeacherCourse = () => {
                   animation: "gradient_301 5s ease infinite",
                 }}
               >
-                <strong
+                <span
                   style={{
                     zIndex: 2,
                     fontFamily: "Avalors Personal Use",
@@ -449,7 +458,7 @@ const TeacherCourse = () => {
                   }}
                 >
                   ADD COURSE
-                </strong>
+                </span>
                 <div
                   id="container-stars"
                   style={{

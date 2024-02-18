@@ -34,29 +34,46 @@ const TeacherViewProjects = () => {
                 {file.originalFileName}
               </h2>
               <p>
-                <strong>Batch:</strong> {file.userEmail.batch}
+                <span className="text-md font-bold text-blue-700">Batch:</span>{" "}
+                {file.userEmail.batch}
               </p>
               <p>
-                <strong>Grade:</strong> {file.userEmail.grade}
+                <span className="text-md font-bold text-blue-700">Grade:</span>{" "}
+                {file.userEmail.grade}
               </p>
               <p>
-                <strong>Subject:</strong> {file.userEmail.subject}
+                <span className="text-md font-bold text-blue-700">
+                  Subject:
+                </span>{" "}
+                {file.userEmail.subject}
               </p>
               <p>
-                <strong>Type:</strong> {file.userEmail.type}
+                <span className="text-md font-bold text-blue-700">Type:</span>{" "}
+                {file.userEmail.type}
               </p>
               <p>
-                <strong>Teacher Name:</strong> {file.userEmail.teacherName}
+                <span className="text-md font-bold text-blue-700">
+                  Teacher Name:
+                </span>{" "}
+                {file.userEmail.teacherName}
               </p>
               <p>
-                <strong>Teacher Email:</strong> {file.userEmail.teacherEmail}
+                <span className="text-md font-bold text-blue-700">
+                  Teacher Email:
+                </span>{" "}
+                {file.userEmail.teacherEmail}
               </p>
               <p>
-                <strong>Expected Outcome:</strong>{" "}
+                <span className="text-md font-bold text-blue-700">
+                  Expected Outcome:
+                </span>{" "}
                 {file.userEmail.expectedOutcome}
               </p>
               <p>
-                <strong>Requirement:</strong> {file.userEmail.requirement}
+                <span className="text-md font-bold text-blue-700">
+                  Requirement:
+                </span>{" "}
+                {file.userEmail.requirement}
               </p>
               <div className="flex my-7 items-center justify-center">
                 <a

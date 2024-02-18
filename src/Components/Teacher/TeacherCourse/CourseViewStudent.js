@@ -116,11 +116,11 @@ const CourseViewStudent = () => {
                 >
                   <h2 className="text-lg font-bold">{course.course}</h2>
                   <p>
-                    <span className="font-semibold">Teacher Name:</span>{" "}
+                    <span className="text-md font-bold text-blue-700">Teacher Name:</span>{" "}
                     {course.teacherName}
                   </p>
                   <div className="mt-2">
-                    <h3 className="text-md font-semibold">
+                    <h3 className="text-md text-md font-bold text-blue-700">
                       Enrolled Students:
                     </h3>
                     <ul>
@@ -138,33 +138,33 @@ const CourseViewStudent = () => {
                         .map((student) => (
                           <li key={student._id}>
                             <p>
-                              <span className="font-semibold">Name:</span>{" "}
+                              <span className="text-md font-bold text-blue-700">Name:</span>{" "}
                               {student.student.name}
                             </p>
                             <p>
-                              <span className="font-semibold">Email:</span>{" "}
+                              <span className="text-md font-bold text-blue-700">Email:</span>{" "}
                               {student.student.email}
                             </p>
                             <p>
-                              <span className="font-semibold">Grade:</span>{" "}
+                              <span className="text-md font-bold text-blue-700">Grade:</span>{" "}
                               {student.student.gradeYear}
                             </p>{" "}
                             <p>
-                              <span className="font-semibold">Batch:</span>{" "}
+                              <span className="text-md font-bold text-blue-700">Batch:</span>{" "}
                               {student.course.batch}
                             </p>{" "}
                             <p>
-                              <span className="font-semibold">Time:</span>{" "}
+                              <span className="text-md font-bold text-blue-700">Time:</span>{" "}
                               {student.course.time}
                             </p>
                             <p>
-                              <span className="font-semibold">
+                              <span className="text-md font-bold text-blue-700">
                                 Institution:
                               </span>{" "}
                               {student.student.institution}
                             </p>
                             <p>
-                              <span className="font-semibold">
+                              <span className="text-md font-bold text-blue-700">
                                 Preferred Communication Channel:
                               </span>{" "}
                               {student.student.communicationChannel}
