@@ -9,7 +9,9 @@ const StudentReward = () => {
 
   useEffect(() => {
     if (userRole === "student" && userEmail) {
-      fetch(`http://localhost:5000/student?email=${userEmail}`)
+      fetch(
+        `https://edu-trio-dynamix-server.onrender.com/student?email=${userEmail}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.length > 0) {
@@ -19,7 +21,7 @@ const StudentReward = () => {
             if (matchingUser) {
               setLoggedStudent(matchingUser);
               fetch(
-                `http://localhost:5000/student/rewards?studentEmail=${userEmail}`
+                `https://edu-trio-dynamix-server.onrender.com/student/rewards?studentEmail=${userEmail}`
               )
                 .then((response) => response.json())
                 .then((data) => {

@@ -7,7 +7,9 @@ const StudentProfile = () => {
 
   useEffect(() => {
     if (userRole === "student" && userEmail) {
-      fetch(`http://localhost:5000/student?email=${userEmail}`)
+      fetch(
+        `https://edu-trio-dynamix-server.onrender.com/student?email=${userEmail}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.length > 0) {

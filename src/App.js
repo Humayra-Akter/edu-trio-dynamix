@@ -38,13 +38,13 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/board" element={<Container />} />
+        <Route
+          path="/teacherRegistrationForm"
+          element={<TeacherRegistrationForm />}
+        />
         {userRole === "teacher" && (
           // teacher routes
           <>
-            <Route
-              path="/teacherRegistrationForm"
-              element={<TeacherRegistrationForm />}
-            />
             <Route path="/teacherProfile" element={<TeacherProfile />} />
             <Route path="/teacherCourse" element={<TeacherCourse />} />
             <Route
@@ -69,14 +69,14 @@ function App() {
           </>
         )}
 
+        <Route
+          path="/studentRegistrationForm"
+          element={<StudentRegistrationForm />}
+        />
         {userRole === "student" && (
           // student routes
           <>
             {" "}
-            <Route
-              path="/studentRegistrationForm"
-              element={<StudentRegistrationForm />}
-            />
             <Route path="/studentProfile" element={<StudentProfile />} />
             <Route path="/studentCourse" element={<StudentCourse />} />
             <Route path="/myCourse" element={<MyCourses />} />

@@ -19,7 +19,9 @@ const TeacherResource = () => {
 
   useEffect(() => {
     if (userRole === "teacher" && userEmail) {
-      fetch(`http://localhost:5000/teacher?email=${userEmail}`)
+      fetch(
+        `https://edu-trio-dynamix-server.onrender.com/teacher?email=${userEmail}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.length > 0) {
@@ -37,7 +39,9 @@ const TeacherResource = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/teacher/resource");
+      const response = await fetch(
+        "https://edu-trio-dynamix-server.onrender.com/teacher/resource"
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch posts");
       }
@@ -59,13 +63,16 @@ const TeacherResource = () => {
       teacherEmail: email,
     };
 
-    const response = await fetch("http://localhost:5000/teacher/resource", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(resourceData),
-    })
+    const response = await fetch(
+      "https://edu-trio-dynamix-server.onrender.com/teacher/resource",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(resourceData),
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
         console.log(result);

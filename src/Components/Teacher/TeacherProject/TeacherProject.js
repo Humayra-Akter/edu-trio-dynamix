@@ -21,7 +21,9 @@ const TeacherProject = () => {
 
   useEffect(() => {
     if (userRole === "teacher" && userEmail) {
-      fetch(`http://localhost:5000/teacher?email=${userEmail}`)
+      fetch(
+        `https://edu-trio-dynamix-server.onrender.com/teacher?email=${userEmail}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.length > 0) {
@@ -35,13 +37,13 @@ const TeacherProject = () => {
         });
     }
 
-    fetch("http://localhost:5000/teacher/project")
+    fetch("https://edu-trio-dynamix-server.onrender.com/teacher/project")
       .then((res) => res.json())
       .then((data) => setProjects(data));
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/student/project")
+    fetch("https://edu-trio-dynamix-server.onrender.com/student/project")
       .then((res) => res.json())
       .then((data) => setStuProjects(data));
   }, []);
@@ -60,7 +62,7 @@ const TeacherProject = () => {
       teacherEmail: email,
     };
     const projectResponse = await fetch(
-      "http://localhost:5000/teacher/project",
+      "https://edu-trio-dynamix-server.onrender.com/teacher/project",
       {
         method: "POST",
         headers: {
@@ -197,15 +199,21 @@ const TeacherProject = () => {
                 {project.grade}
               </p>
               <p>
-                <span className="text-md font-bold text-blue-700">Subject:</span>{" "}
+                <span className="text-md font-bold text-blue-700">
+                  Subject:
+                </span>{" "}
                 {project.time}
               </p>
               <p>
-                <span className="text-md font-bold text-blue-700">Teacher Name:</span>{" "}
+                <span className="text-md font-bold text-blue-700">
+                  Teacher Name:
+                </span>{" "}
                 {project.teacherName}
               </p>{" "}
               <p>
-                <span className="text-md font-bold text-blue-700">Teacher Email:</span>{" "}
+                <span className="text-md font-bold text-blue-700">
+                  Teacher Email:
+                </span>{" "}
                 {project.teacherEmail}
               </p>
               {userEmail === project.teacherEmail && (

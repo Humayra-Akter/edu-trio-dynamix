@@ -20,13 +20,13 @@ const ViewStudents = () => {
   const teacherEmail = localStorage.getItem("userEmail");
 
   useEffect(() => {
-    fetch("http://localhost:5000/teacher/project")
+    fetch("https://edu-trio-dynamix-server.onrender.com/teacher/project")
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);
       });
 
-    fetch("http://localhost:5000/student/collaborate")
+    fetch("https://edu-trio-dynamix-server.onrender.com/student/collaborate")
       .then((res) => res.json())
       .then((data) => {
         setCollaborators(data);
@@ -58,7 +58,9 @@ const ViewStudents = () => {
 
   useEffect(() => {
     if (userEmail) {
-      fetch(`http://localhost:5000/teacher/project?email=${userEmail}`)
+      fetch(
+        `https://edu-trio-dynamix-server.onrender.com/teacher/project?email=${userEmail}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setLoggedTeacherProjects(data);
@@ -75,7 +77,7 @@ const ViewStudents = () => {
         batch: selectedCourse.batch,
         grade: selectedCourse.grade,
       };
-      fetch("http://localhost:5000/teacher/assignment", {
+      fetch("https://edu-trio-dynamix-server.onrender.com/teacher/assignment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,20 +122,31 @@ const ViewStudents = () => {
               >
                 <h2 className="text-lg font-bold">{project.project}</h2>
                 <p>
-                  <span className="text-md font-bold text-blue-700">Teacher Name:</span>{" "}
+                  <span className="text-md font-bold text-blue-700">
+                    Teacher Name:
+                  </span>{" "}
                   {project.teacherName}
                 </p>
                 <p>
-                  <span className="text-md font-bold text-blue-700">Batch:</span> {project.batch}
+                  <span className="text-md font-bold text-blue-700">
+                    Batch:
+                  </span>{" "}
+                  {project.batch}
                 </p>
                 <p>
-                  <span className="text-md font-bold text-blue-700">Grade:</span> {project.grade}
+                  <span className="text-md font-bold text-blue-700">
+                    Grade:
+                  </span>{" "}
+                  {project.grade}
                 </p>
                 <p>
-                  <span className="text-md font-bold text-blue-700">Type:</span> {project.type}
+                  <span className="text-md font-bold text-blue-700">Type:</span>{" "}
+                  {project.type}
                 </p>
                 <p>
-                  <span className="text-md font-bold text-blue-700">Submit Last Date:</span>{" "}
+                  <span className="text-md font-bold text-blue-700">
+                    Submit Last Date:
+                  </span>{" "}
                   {project.submitLastDate}
                 </p>
                 <div className="flex justify-center items-center mt-2">

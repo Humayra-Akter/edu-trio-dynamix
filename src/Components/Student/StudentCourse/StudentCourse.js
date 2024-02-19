@@ -21,7 +21,9 @@ const StudentCourse = () => {
 
   useEffect(() => {
     if (userRole === "student" && userEmail) {
-      fetch(`http://localhost:5000/student?email=${userEmail}`)
+      fetch(
+        `https://edu-trio-dynamix-server.onrender.com/student?email=${userEmail}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.length > 0) {
@@ -35,7 +37,7 @@ const StudentCourse = () => {
         });
     }
 
-    fetch("http://localhost:5000/teacher/course")
+    fetch("https://edu-trio-dynamix-server.onrender.com/teacher/course")
       .then((res) => res.json())
       .then((data) => setCourses(data));
   }, []);
@@ -66,7 +68,9 @@ const StudentCourse = () => {
 
   const fetchUploadedFiles = async () => {
     try {
-      const response = await fetch("http://localhost:5000/student/course");
+      const response = await fetch(
+        "https://edu-trio-dynamix-server.onrender.com/student/course"
+      );
       if (response.ok) {
         const files = await response.json();
         setYourCourse(files);
@@ -93,7 +97,7 @@ const StudentCourse = () => {
             course: selectedCourse,
           };
           setHasApplied(true);
-          fetch("http://localhost:5000/student/course", {
+          fetch("https://edu-trio-dynamix-server.onrender.com/student/course", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -222,7 +226,9 @@ const StudentCourse = () => {
             >
               <h2 className="text-lg font-semibold mb-2">{course.course}</h2>
               <p>
-                <span className="text-md font-medium text-blue-700">Batch:</span>{" "}
+                <span className="text-md font-medium text-blue-700">
+                  Batch:
+                </span>{" "}
                 {course.batch}
               </p>
               <p>
@@ -237,11 +243,15 @@ const StudentCourse = () => {
                 {course.time}
               </p>
               <p>
-                 <span className="text-md font-medium text-blue-700">Teacher Name:</span>{" "}
+                <span className="text-md font-medium text-blue-700">
+                  Teacher Name:
+                </span>{" "}
                 {course.teacherName}
               </p>
               <p>
-                 <span className="text-md font-medium text-blue-700">Teacher Email:</span>{" "}
+                <span className="text-md font-medium text-blue-700">
+                  Teacher Email:
+                </span>{" "}
                 {course.teacherEmail}
               </p>
               <div className="flex justify-center items-center mt-4">

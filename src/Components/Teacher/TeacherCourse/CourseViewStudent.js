@@ -21,7 +21,7 @@ const CourseViewStudent = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/teacher/course")
+    fetch("https://edu-trio-dynamix-server.onrender.com/teacher/course")
       .then((res) => res.json())
       .then((data) => {
         const filteredCourses = data.filter(
@@ -32,7 +32,7 @@ const CourseViewStudent = () => {
   }, [userEmail]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/student/course")
+    fetch("https://edu-trio-dynamix-server.onrender.com/student/course")
       .then((res) => res.json())
       .then((data) => {
         setEnrolledStudents(data);
@@ -78,13 +78,16 @@ const CourseViewStudent = () => {
         return;
       }
 
-      const response = await fetch("http://localhost:5000/student/rewards", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://edu-trio-dynamix-server.onrender.com/student/rewards",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       if (response.ok) {
         setSuccessMessage("Reward added successfully.");
       } else {
@@ -116,7 +119,9 @@ const CourseViewStudent = () => {
                 >
                   <h2 className="text-lg font-bold">{course.course}</h2>
                   <p>
-                    <span className="text-md font-bold text-blue-700">Teacher Name:</span>{" "}
+                    <span className="text-md font-bold text-blue-700">
+                      Teacher Name:
+                    </span>{" "}
                     {course.teacherName}
                   </p>
                   <div className="mt-2">
@@ -138,23 +143,33 @@ const CourseViewStudent = () => {
                         .map((student) => (
                           <li key={student._id}>
                             <p>
-                              <span className="text-md font-bold text-blue-700">Name:</span>{" "}
+                              <span className="text-md font-bold text-blue-700">
+                                Name:
+                              </span>{" "}
                               {student.student.name}
                             </p>
                             <p>
-                              <span className="text-md font-bold text-blue-700">Email:</span>{" "}
+                              <span className="text-md font-bold text-blue-700">
+                                Email:
+                              </span>{" "}
                               {student.student.email}
                             </p>
                             <p>
-                              <span className="text-md font-bold text-blue-700">Grade:</span>{" "}
+                              <span className="text-md font-bold text-blue-700">
+                                Grade:
+                              </span>{" "}
                               {student.student.gradeYear}
                             </p>{" "}
                             <p>
-                              <span className="text-md font-bold text-blue-700">Batch:</span>{" "}
+                              <span className="text-md font-bold text-blue-700">
+                                Batch:
+                              </span>{" "}
                               {student.course.batch}
                             </p>{" "}
                             <p>
-                              <span className="text-md font-bold text-blue-700">Time:</span>{" "}
+                              <span className="text-md font-bold text-blue-700">
+                                Time:
+                              </span>{" "}
                               {student.course.time}
                             </p>
                             <p>

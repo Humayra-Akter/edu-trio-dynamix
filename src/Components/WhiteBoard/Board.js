@@ -17,7 +17,9 @@ const Board = ({ color, size }) => {
     ctx.strokeStyle = color;
     ctx.lineWidth = size;
 
-    socketRef.current = io.connect("http://localhost:5000");
+    socketRef.current = io.connect(
+      "https://edu-trio-dynamix-server.onrender.com"
+    );
     socketRef.current.on("canvas-data", (data) => {
       const image = new Image();
       image.onload = () => {
@@ -56,7 +58,6 @@ const Board = ({ color, size }) => {
       socketRef.current.emit("canvas-data", canvasData);
     }
   };
-
 
   const onMouseUp = () => {
     canvasRef.current.removeEventListener("mousemove", onMouseMove);

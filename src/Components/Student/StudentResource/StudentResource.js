@@ -5,7 +5,7 @@ const StudentResource = () => {
 
   useEffect(() => {
     // Fetch resources from the server
-    fetch("http://localhost:5000/teacher/resource")
+    fetch("https://edu-trio-dynamix-server.onrender.com/teacher/resource")
       .then((res) => res.json())
       .then((data) => setResources(data));
   }, []);
@@ -23,7 +23,9 @@ const StudentResource = () => {
           >
             <h2 className="text-lg font-semibold mb-2">{resource.title}</h2>
             <p>
-              <span className="text-md font-bold text-blue-700">Teacher Name:</span>
+              <span className="text-md font-bold text-blue-700">
+                Teacher Name:
+              </span>
               {resource.teacherName}
             </p>
             <p className="text-primary font-bold">
@@ -35,7 +37,9 @@ const StudentResource = () => {
               {resource.subject}
             </p>
             <p className="mb-5">
-              <span className="text-md font-bold text-blue-700">Teacher Email:</span>
+              <span className="text-md font-bold text-blue-700">
+                Teacher Email:
+              </span>
               {resource.teacherEmail}
             </p>
             <iframe
