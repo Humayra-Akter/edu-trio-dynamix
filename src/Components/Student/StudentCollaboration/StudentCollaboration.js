@@ -17,9 +17,7 @@ const StudentCollaboration = () => {
 
   useEffect(() => {
     if (userRole === "student" && userEmail) {
-      fetch(
-        `https://edu-trio-dynamix-server.onrender.com/student?email=${userEmail}`
-      )
+      fetch(`http://localhost:5000/student?email=${userEmail}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.length > 0) {
@@ -33,7 +31,7 @@ const StudentCollaboration = () => {
         });
     }
 
-    fetch("https://edu-trio-dynamix-server.onrender.com/teacher/project")
+    fetch("http://localhost:5000/teacher/project")
       .then((res) => res.json())
       .then((teacherProjects) => {
         const groupProjects = teacherProjects.filter(
@@ -42,9 +40,7 @@ const StudentCollaboration = () => {
         setGroupProjects(groupProjects);
 
         // Fetch student collaborations
-        fetch(
-          "https://edu-trio-dynamix-server.onrender.com/student/collaborate"
-        )
+        fetch("http://localhost:5000/student/collaborate")
           .then((res) => res.json())
           .then((collaborations) => {
             const matchingCollaborations = collaborations.filter((collab) =>
@@ -76,7 +72,7 @@ const StudentCollaboration = () => {
     };
     console.log(applicationData);
 
-    fetch("https://edu-trio-dynamix-server.onrender.com/student/collaborate", {
+    fetch("http://localhost:5000/student/collaborate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

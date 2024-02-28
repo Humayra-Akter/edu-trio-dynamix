@@ -20,9 +20,7 @@ const StudentProject = () => {
 
   useEffect(() => {
     if (userRole === "student" && userEmail) {
-      fetch(
-        `https://edu-trio-dynamix-server.onrender.com/student?email=${userEmail}`
-      )
+      fetch(`http://localhost:5000/student?email=${userEmail}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.length > 0) {
@@ -36,7 +34,7 @@ const StudentProject = () => {
         });
     }
 
-    fetch("https://edu-trio-dynamix-server.onrender.com/teacher/project")
+    fetch("http://localhost:5000/teacher/project")
       .then((res) => res.json())
       .then((data) => setProjects(data));
   }, []);
@@ -58,7 +56,7 @@ const StudentProject = () => {
     };
     console.log(applicationData);
 
-    fetch("https://edu-trio-dynamix-server.onrender.com/student/project", {
+    fetch("http://localhost:5000/student/project", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { filterSettings } from "react-slick/lib/utils/innerSliderUtils";
 import { toast } from "react-toastify";
 
 const CourseViewStudent = () => {
@@ -21,7 +22,7 @@ const CourseViewStudent = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
-    fetch("https://edu-trio-dynamix-server.onrender.com/teacher/course")
+    fetch("http://localhost:5000/teacher/course")
       .then((res) => res.json())
       .then((data) => {
         const filteredCourses = data.filter(
@@ -32,12 +33,13 @@ const CourseViewStudent = () => {
   }, [userEmail]);
 
   useEffect(() => {
-    fetch("https://edu-trio-dynamix-server.onrender.com/student/course")
+    fetch("http://localhost:5000/student/course")
       .then((res) => res.json())
       .then((data) => {
         setEnrolledStudents(data);
       });
   }, [userEmail]);
+  console.log(coursesTaken);
 
   const handleOpenModal = (student) => {
     setSelectedStudent(student);
@@ -78,16 +80,13 @@ const CourseViewStudent = () => {
         return;
       }
 
-      const response = await fetch(
-        "https://edu-trio-dynamix-server.onrender.com/student/rewards",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch("http://localhost:5000/student/rewards", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
       if (response.ok) {
         setSuccessMessage("Reward added successfully.");
       } else {
@@ -111,7 +110,7 @@ const CourseViewStudent = () => {
             </h2>
           </div>
           {coursesTaken.length > 0 && (
-            <div className="lg:w-full lg:pt-12 gap-7 p-8 lg:flex flex-wrap justify-center">
+            <div className="lg:w-full lg:pt-12 gap-7 p-8 ">
               {coursesTaken.map((course) => (
                 <div
                   key={course._id}
@@ -128,20 +127,16 @@ const CourseViewStudent = () => {
                     <h3 className="text-md text-md font-bold text-blue-700">
                       Enrolled Students:
                     </h3>
-                    <ul>
+
+                    <ul className="lg:flex flex-wrap justify-center">
                       {enrolledStudents
                         .filter(
                           (student) =>
                             student.course.course === course.course &&
-                            enrolledStudents.findIndex(
-                              (s) => s.student.email === student.student.email
-                            ) ===
-                              enrolledStudents.findIndex(
-                                (s) => s.student.email === student.student.email
-                              )
+                            student.course.teacherEmail === course.teacherEmail
                         )
                         .map((student) => (
-                          <li key={student._id}>
+                          <div key={student._id}>
                             <p>
                               <span className="text-md font-bold text-blue-700">
                                 Name:
@@ -274,7 +269,7 @@ const CourseViewStudent = () => {
                                 </div>
                               </button>
                             </div>
-                          </li>
+                          </div>
                         ))}
                     </ul>
                   </div>

@@ -79,7 +79,7 @@ const StudentRegistrationForm = () => {
             password: data.password,
           };
           // save student information to the database
-          fetch("https://edu-trio-dynamix-server.onrender.com/student", {
+          fetch("http://localhost:5000/student", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -90,7 +90,7 @@ const StudentRegistrationForm = () => {
             .then((result) => {
               toast.success(`${data.name} thanks for your registration`);
             });
-          fetch("https://edu-trio-dynamix-server.onrender.com/user", {
+          fetch("http://localhost:5000/user", {
             method: "POST",
             headers: {
               "content-type": "application/json",
