@@ -13,7 +13,9 @@ const MyCollaboration = () => {
 
   useEffect(() => {
     if (userRole === "student" && userEmail) {
-      fetch(`http://localhost:5000/student?email=${userEmail}`)
+      fetch(
+        `https://edu-trio-dynamix-server.onrender.com/student?email=${userEmail}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.length > 0) {
@@ -27,7 +29,7 @@ const MyCollaboration = () => {
         });
     }
 
-    fetch("http://localhost:5000/student/collaborate")
+    fetch("https://edu-trio-dynamix-server.onrender.com/student/collaborate")
       .then((res) => res.json())
       .then((collaborations) => {
         const userCollabs = collaborations.filter(

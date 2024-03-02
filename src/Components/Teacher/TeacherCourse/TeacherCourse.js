@@ -15,7 +15,9 @@ const TeacherCourse = () => {
 
   useEffect(() => {
     if (userRole === "teacher" && userEmail) {
-      fetch(`http://localhost:5000/teacher?email=${userEmail}`)
+      fetch(
+        `https://edu-trio-dynamix-server.onrender.com/teacher?email=${userEmail}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.length > 0) {
@@ -29,7 +31,7 @@ const TeacherCourse = () => {
         });
     }
 
-    fetch("http://localhost:5000/teacher/course")
+    fetch("https://edu-trio-dynamix-server.onrender.com/teacher/course")
       .then((res) => res.json())
       .then((data) => setCourses(data));
   }, []);
@@ -42,13 +44,16 @@ const TeacherCourse = () => {
       teacherEmail: email,
     };
 
-    const response = await fetch("http://localhost:5000/teacher/course", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(courseData),
-    })
+    const response = await fetch(
+      "https://edu-trio-dynamix-server.onrender.com/teacher/course",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(courseData),
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
         console.log(result);

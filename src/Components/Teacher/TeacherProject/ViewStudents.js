@@ -20,13 +20,13 @@ const ViewStudents = () => {
   const teacherEmail = localStorage.getItem("userEmail");
 
   useEffect(() => {
-    fetch("http://localhost:5000/teacher/project")
+    fetch("https://edu-trio-dynamix-server.onrender.com/teacher/project")
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);
       });
 
-    fetch("http://localhost:5000/student/collaborate")
+    fetch("https://edu-trio-dynamix-server.onrender.com/student/collaborate")
       .then((res) => res.json())
       .then((data) => {
         setCollaborators(data);
@@ -58,7 +58,9 @@ const ViewStudents = () => {
 
   useEffect(() => {
     if (userEmail) {
-      fetch(`http://localhost:5000/teacher/project?email=${userEmail}`)
+      fetch(
+        `https://edu-trio-dynamix-server.onrender.com/teacher/project?email=${userEmail}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setLoggedTeacherProjects(data);
@@ -75,7 +77,7 @@ const ViewStudents = () => {
         batch: selectedCourse.batch,
         grade: selectedCourse.grade,
       };
-      fetch("http://localhost:5000/teacher/assignment", {
+      fetch("https://edu-trio-dynamix-server.onrender.com/teacher/assignment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -9,7 +9,9 @@ const StudentAssignment = () => {
   const [uploadedFiles, setUploadedFiles] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/student/project?email=${userEmail}`)
+    fetch(
+      `https://edu-trio-dynamix-server.onrender.com/student/project?email=${userEmail}`
+    )
       .then((res) => res.json())
       .then((data) => {
         const userProjects = data?.filter(
@@ -70,10 +72,13 @@ const StudentAssignment = () => {
     formData.append("requirement", project.project.requirement);
 
     try {
-      const response = await fetch("http://localhost:5000/uploadFile", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://edu-trio-dynamix-server.onrender.com/uploadFile",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
       if (response.status === 200) {
         toast.success("PDF file uploaded successfully.");
         setSelectedFile(null);
@@ -93,7 +98,9 @@ const StudentAssignment = () => {
 
   const fetchUploadedFiles = async () => {
     try {
-      const response = await fetch("http://localhost:5000/uploadFile");
+      const response = await fetch(
+        "https://edu-trio-dynamix-server.onrender.com/uploadFile"
+      );
       if (response.ok) {
         const files = await response.json();
         const userFiles = files.filter(

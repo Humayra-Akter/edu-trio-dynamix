@@ -63,3 +63,16 @@ download the zip for frontend from ([https://github.com/Humayra-Akter/edu-trio-d
 extract the file
 on the command shell run `npm i react-scripts`
 after installing run `npm start`
+
+Features
+
+Interactive device in classroom
+Content availability for any topic you need
+Content availability in multiple languages
+Virtual teaching
+Unlimited practise test
+Unlimited hands-on projects for critical thinking
+Teacher, student & Parent Communication
+Student learning progress reports
+Apps for teachers, students & parents
+School analytics

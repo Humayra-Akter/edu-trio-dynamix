@@ -14,7 +14,9 @@ const StudentFeedback = () => {
 
   useEffect(() => {
     if (userRole === "student" && userEmail) {
-      fetch(`http://localhost:5000/student?email=${userEmail}`)
+      fetch(
+        `https://edu-trio-dynamix-server.onrender.com/student?email=${userEmail}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.length > 0) {
@@ -30,7 +32,7 @@ const StudentFeedback = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/student/course")
+    fetch("https://edu-trio-dynamix-server.onrender.com/student/course")
       .then((res) => res.json())
       .then((data) => {
         const filteredCourses = data.filter(
@@ -57,7 +59,7 @@ const StudentFeedback = () => {
   const getUserReviews = async (userEmail) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/student/submitFeedback?userEmail=${userEmail}`
+        `https://edu-trio-dynamix-server.onrender.com/student/submitFeedback?userEmail=${userEmail}`
       );
 
       if (response.ok) {
@@ -101,13 +103,16 @@ const StudentFeedback = () => {
               reviewText,
               reviewType: "course",
             };
-            return fetch("http://localhost:5000/student/submitFeedback", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(review),
-            });
+            return fetch(
+              "https://edu-trio-dynamix-server.onrender.com/student/submitFeedback",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(review),
+              }
+            );
           });
           await Promise.all(promises);
           toast.success("Thanks for your reviews.", {

@@ -21,7 +21,9 @@ const StudentCourse = () => {
 
   useEffect(() => {
     if (userRole === "student" && userEmail) {
-      fetch(`http://localhost:5000/student?email=${userEmail}`)
+      fetch(
+        `https://edu-trio-dynamix-server.onrender.com/student?email=${userEmail}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.length > 0) {
@@ -35,7 +37,7 @@ const StudentCourse = () => {
         });
     }
 
-    fetch("http://localhost:5000/teacher/course")
+    fetch("https://edu-trio-dynamix-server.onrender.com/teacher/course")
       .then((res) => res.json())
       .then((data) => setCourses(data));
   }, []);
@@ -66,7 +68,9 @@ const StudentCourse = () => {
 
   const fetchUploadedFiles = async () => {
     try {
-      const response = await fetch("http://localhost:5000/student/course");
+      const response = await fetch(
+        "https://edu-trio-dynamix-server.onrender.com/student/course"
+      );
       if (response.ok) {
         const files = await response.json();
         setYourCourse(files);
@@ -93,7 +97,7 @@ const StudentCourse = () => {
             course: selectedCourse,
           };
           setHasApplied(true);
-          fetch("http://localhost:5000/student/course", {
+          fetch("https://edu-trio-dynamix-server.onrender.com/student/course", {
             method: "POST",
             headers: {
               "content-type": "application/json",

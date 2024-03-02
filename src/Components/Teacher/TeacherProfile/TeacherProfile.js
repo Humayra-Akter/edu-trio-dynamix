@@ -15,7 +15,9 @@ const TeacherProfile = () => {
   useEffect(() => {
     // console.log(userEmail, userRole);
     if (userRole === "teacher" && userEmail) {
-      fetch(`http://localhost:5000/teacher?email=${userEmail}`)
+      fetch(
+        `https://edu-trio-dynamix-server.onrender.com/teacher?email=${userEmail}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.length > 0) {
@@ -39,7 +41,7 @@ const TeacherProfile = () => {
   };
 
   const handleCreateProject = () => {
-    fetch(`http://localhost:5000/teacher/project`, {
+    fetch(`https://edu-trio-dynamix-server.onrender.com/teacher/project`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
