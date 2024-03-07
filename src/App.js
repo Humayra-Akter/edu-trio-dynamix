@@ -27,6 +27,7 @@ import StudentReward from "./Components/Student/StudentAnalytics/StudentReward";
 import StudentCollaboration from "./Components/Student/StudentCollaboration/StudentCollaboration";
 import AddProjects from "./Components/Teacher/TeacherProject/AddProjects";
 import TeacherViewProjects from "./Components/Teacher/TeacherViewProjects/TeacherViewProjects";
+import About from "./Components/About/About";
 
 function App() {
   const userRole = localStorage.getItem("userRole");
@@ -37,6 +38,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<About />} />
         <Route path="/board" element={<Container />} />
         <Route
           path="/teacherRegistrationForm"
