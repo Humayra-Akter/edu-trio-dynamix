@@ -28,6 +28,7 @@ import StudentCollaboration from "./Components/Student/StudentCollaboration/Stud
 import AddProjects from "./Components/Teacher/TeacherProject/AddProjects";
 import TeacherViewProjects from "./Components/Teacher/TeacherViewProjects/TeacherViewProjects";
 import About from "./Components/About/About";
+import Chat from "./Components/Chat/Chat";
 
 function App() {
   const userRole = localStorage.getItem("userRole");
@@ -80,7 +81,8 @@ function App() {
           <>
             {" "}
             <Route path="/studentProfile" element={<StudentProfile />} />
-            <Route path="/studentCourse" element={<StudentCourse />} />
+            <Route path="/studentCourse" element={<StudentCourse />} />{" "}
+            <Route path="/chat" element={<Chat />} />
             <Route path="/myCourse" element={<MyCourses />} />
             <Route path="/studentAssignment" element={<StudentAssignment />} />
             <Route
