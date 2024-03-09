@@ -22,7 +22,7 @@ const CourseViewStudent = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
-    fetch("https://edu-trio-dynamix-server.onrender.com/teacher/course")
+    fetch("http://localhost:5000/teacher/course")
       .then((res) => res.json())
       .then((data) => {
         const filteredCourses = data.filter(
@@ -33,7 +33,7 @@ const CourseViewStudent = () => {
   }, [userEmail]);
 
   useEffect(() => {
-    fetch("https://edu-trio-dynamix-server.onrender.com/student/course")
+    fetch("http://localhost:5000/student/course")
       .then((res) => res.json())
       .then((data) => {
         setEnrolledStudents(data);
@@ -80,16 +80,13 @@ const CourseViewStudent = () => {
         return;
       }
 
-      const response = await fetch(
-        "https://edu-trio-dynamix-server.onrender.com/student/rewards",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch("http://localhost:5000/student/rewards", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
       if (response.ok) {
         setSuccessMessage("Reward added successfully.");
       } else {

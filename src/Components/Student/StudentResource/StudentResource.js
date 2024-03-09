@@ -5,7 +5,7 @@ const StudentResource = () => {
 
   useEffect(() => {
     // Fetch resources from the server
-    fetch("https://edu-trio-dynamix-server.onrender.com/teacher/resource")
+    fetch("http://localhost:5000/teacher/resource")
       .then((res) => res.json())
       .then((data) => setResources(data));
   }, []);

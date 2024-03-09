@@ -128,16 +128,13 @@ const TeacherRegistrationForm = () => {
           };
 
           // Save teacher information to the database
-          const teacherResponse = await fetch(
-            "https://edu-trio-dynamix-server.onrender.com/teacher",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(teacher),
-            }
-          );
+          const teacherResponse = await fetch("http://localhost:5000/teacher", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(teacher),
+          });
 
           if (teacherResponse.ok) {
             toast.success(`${data.name} thanks for your registration`);
@@ -146,16 +143,13 @@ const TeacherRegistrationForm = () => {
           }
 
           // Save user information to the database
-          const userResponse = await fetch(
-            "https://edu-trio-dynamix-server.onrender.com/user",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(user),
-            }
-          );
+          const userResponse = await fetch("http://localhost:5000/user", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+          });
 
           if (userResponse.ok) {
             toast.success(`${data.name} welcome to EduTrio Dynamos`);

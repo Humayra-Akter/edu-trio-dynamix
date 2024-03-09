@@ -9,9 +9,7 @@ const MyCourses = () => {
 
   useEffect(() => {
     if (userRole === "student" && userEmail) {
-      fetch(
-        `https://edu-trio-dynamix-server.onrender.com/student?email=${userEmail}`
-      )
+      fetch(`http://localhost:5000/student?email=${userEmail}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.length > 0) {
@@ -27,7 +25,7 @@ const MyCourses = () => {
   }, []);
 
   useEffect(() => {
-    fetch("https://edu-trio-dynamix-server.onrender.com/student/course")
+    fetch("http://localhost:5000/student/course")
       .then((res) => res.json())
       .then((data) => {
         const filteredCourses = data.filter(

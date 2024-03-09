@@ -5,7 +5,7 @@ const TeacherViewProjects = () => {
   const teacherEmail = localStorage.getItem("userEmail");
 
   useEffect(() => {
-    fetch(`https://edu-trio-dynamix-server.onrender.com/uploadFile`)
+    fetch(`http://localhost:5000/uploadFile`)
       .then((res) => res.json())
       .then((data) => {
         const filesForTeacher = data.filter(

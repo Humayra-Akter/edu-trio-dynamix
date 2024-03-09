@@ -21,9 +21,7 @@ const TeacherProject = () => {
 
   useEffect(() => {
     if (userRole === "teacher" && userEmail) {
-      fetch(
-        `https://edu-trio-dynamix-server.onrender.com/teacher?email=${userEmail}`
-      )
+      fetch(`http://localhost:5000/teacher?email=${userEmail}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.length > 0) {
@@ -37,13 +35,13 @@ const TeacherProject = () => {
         });
     }
 
-    fetch("https://edu-trio-dynamix-server.onrender.com/teacher/project")
+    fetch("http://localhost:5000/teacher/project")
       .then((res) => res.json())
       .then((data) => setProjects(data));
   }, []);
 
   useEffect(() => {
-    fetch("https://edu-trio-dynamix-server.onrender.com/student/project")
+    fetch("http://localhost:5000/student/project")
       .then((res) => res.json())
       .then((data) => setStuProjects(data));
   }, []);
@@ -62,7 +60,7 @@ const TeacherProject = () => {
       teacherEmail: email,
     };
     const projectResponse = await fetch(
-      "https://edu-trio-dynamix-server.onrender.com/teacher/project",
+      "http://localhost:5000/teacher/project",
       {
         method: "POST",
         headers: {

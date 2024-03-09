@@ -8,16 +8,14 @@ const StudentLeaderboard = () => {
     const fetchStudents = async () => {
       try {
         // Fetch all students
-        const studentsResponse = await fetch(
-          "https://edu-trio-dynamix-server.onrender.com/student"
-        );
+        const studentsResponse = await fetch("http://localhost:5000/student");
         const studentsData = await studentsResponse.json();
 
         // Fetch rewards for each student
         const studentsWithRewards = await Promise.all(
           studentsData.map(async (student) => {
             const rewardsResponse = await fetch(
-              `https://edu-trio-dynamix-server.onrender.com/student/rewards?studentEmail=${student.email}`
+              `http://localhost:5000/student/rewards?studentEmail=${student.email}`
             );
             const rewardsData = await rewardsResponse.json();
 

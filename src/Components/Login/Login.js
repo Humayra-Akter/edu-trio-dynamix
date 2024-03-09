@@ -19,7 +19,7 @@ const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   useEffect(() => {
-    fetch("https://edu-trio-dynamix-server.onrender.com/user")
+    fetch("http://localhost:5000/user")
       .then((res) => res.json())
       .then((data) => {
         setLoggedUser(data);
