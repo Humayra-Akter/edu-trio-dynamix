@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
     "@emotion/styled": "^11.11.0",
     "@google/generative-ai": "^0.2.1",
     "@monaco-editor/react": "^4.6.0",

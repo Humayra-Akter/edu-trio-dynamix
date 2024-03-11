@@ -331,6 +331,32 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
+                      to="/studentCollaboration"
+                      className={`text-lg font-bold hover:text-neutral ${
+                        selectedRoute === "/chat"
+                          ? "text-yellow-900"
+                          : "text-black"
+                      }`}
+                      onClick={() => handleRouteClick("/chat")}
+                    >
+                      Chat
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/codeEditor"
+                      className={`text-lg font-bold hover:text-neutral ${
+                        selectedRoute === "/codeEditor"
+                          ? "text-yellow-900"
+                          : "text-black"
+                      }`}
+                      onClick={() => handleRouteClick("/studentCollaboration")}
+                    >
+                      Code-Editor
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
                       to="/studentResource"
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/studentResource"
