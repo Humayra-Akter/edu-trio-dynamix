@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-primary via-secondary to-accent text-black font-bold p-4">
+    <nav className="bg-gradient-to-r from-primary via-secondary to-accent text-white font-bold p-4">
       <div className="container mx-auto flex justify-center items-center">
         {!userRole && (
           <Link to="/" className="text-4xl">
@@ -69,7 +69,7 @@ const Navbar = () => {
                         className={`text-lg font-bold hover:text-neutral ${
                           selectedRoute === "/teacherProfile"
                             ? "text-yellow-400"
-                            : "text-black"
+                            : "text-white"
                         }`}
                         onClick={() => handleRouteClick("/teacherProfile")}
                       >
@@ -79,7 +79,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/teacherCourse"
-                        className="text-black text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-neutral"
                       >
                         Course
                       </Link>
@@ -87,7 +87,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/teacherProject"
-                        className="text-black text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-neutral"
                       >
                         Project
                       </Link>
@@ -95,7 +95,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/teacherAssignment"
-                        className="text-black text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-neutral"
                       >
                         Assignment
                       </Link>
@@ -103,7 +103,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/teacherResource"
-                        className="text-black text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-neutral"
                       >
                         Resource
                       </Link>
@@ -111,7 +111,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/teacherAnalytics"
-                        className="text-black text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-neutral"
                       >
                         Analytics
                       </Link>
@@ -123,7 +123,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/studentProfile"
-                        className="text-black text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-neutral"
                       >
                         Profile
                       </Link>
@@ -131,7 +131,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/studentCourse"
-                        className="text-black text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-neutral"
                       >
                         Course
                       </Link>
@@ -139,7 +139,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/studentProject"
-                        className="text-black text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-neutral"
                       >
                         Project
                       </Link>
@@ -147,7 +147,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/studentAssignment"
-                        className="text-black text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-neutral"
                       >
                         Assignment
                       </Link>
@@ -155,7 +155,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/studentResource"
-                        className="text-black text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-neutral"
                       >
                         Resource
                       </Link>
@@ -163,7 +163,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/studentAnalytics"
-                        className="text-black text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-neutral"
                       >
                         Analytics
                       </Link>
@@ -173,7 +173,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/logout"
-                    className="text-red font-bold hover:text-black"
+                    className="text-red font-bold hover:text-white"
                   >
                     Logout
                   </Link>
@@ -201,7 +201,7 @@ const Navbar = () => {
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/teacherProfile"
                           ? "text-yellow-900"
-                          : "text-black"
+                          : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/teacherProfile")}
                     >
@@ -214,7 +214,7 @@ const Navbar = () => {
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/teacherCourse"
                           ? "text-yellow-900"
-                          : "text-black"
+                          : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/teacherCourse")}
                     >
@@ -227,7 +227,7 @@ const Navbar = () => {
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/teacherProject"
                           ? "text-yellow-900"
-                          : "text-black"
+                          : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/teacherProject")}
                     >
@@ -240,7 +240,7 @@ const Navbar = () => {
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/teacherViewProject"
                           ? "text-yellow-900"
-                          : "text-black"
+                          : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/teacherViewProject")}
                     >
@@ -253,7 +253,7 @@ const Navbar = () => {
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/teacherResource"
                           ? "text-yellow-900"
-                          : "text-black"
+                          : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/teacherResource")}
                     >
@@ -270,7 +270,7 @@ const Navbar = () => {
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/studentProfile"
                           ? "text-yellow-900"
-                          : "text-black"
+                          : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/studentProfile")}
                     >
@@ -283,7 +283,7 @@ const Navbar = () => {
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/studentCourse"
                           ? "text-yellow-900"
-                          : "text-black"
+                          : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/studentCourse")}
                     >
@@ -296,7 +296,7 @@ const Navbar = () => {
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/studentProject"
                           ? "text-yellow-900"
-                          : "text-black"
+                          : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/studentProject")}
                     >
@@ -309,7 +309,7 @@ const Navbar = () => {
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/studentAssignment"
                           ? "text-yellow-900"
-                          : "text-black"
+                          : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/studentAssignment")}
                     >
@@ -322,7 +322,7 @@ const Navbar = () => {
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/studentCollaboration"
                           ? "text-yellow-900"
-                          : "text-black"
+                          : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/studentCollaboration")}
                     >
@@ -331,11 +331,11 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      to="/studentCollaboration"
+                      to="/chat"
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/chat"
                           ? "text-yellow-900"
-                          : "text-black"
+                          : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/chat")}
                     >
@@ -348,7 +348,7 @@ const Navbar = () => {
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/codeEditor"
                           ? "text-yellow-900"
-                          : "text-black"
+                          : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/studentCollaboration")}
                     >
@@ -361,7 +361,7 @@ const Navbar = () => {
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/studentResource"
                           ? "text-yellow-900"
-                          : "text-black"
+                          : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/studentResource")}
                     >
@@ -374,7 +374,7 @@ const Navbar = () => {
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/studentAnalytics"
                           ? "text-yellow-900"
-                          : "text-black"
+                          : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/studentAnalytics")}
                     >
@@ -391,7 +391,7 @@ const Navbar = () => {
                   Logout
                 </button>
               </li>{" "}
-              <li className="text-black text-xs font-semibold hover:text-neutral justify-end">
+              <li className="text-white text-xs font-semibold hover:text-neutral justify-end">
                 {userEmail}
                 <br />
                 {userRole}

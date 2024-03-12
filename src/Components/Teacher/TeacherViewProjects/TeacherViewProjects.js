@@ -80,7 +80,7 @@ const TeacherViewProjects = () => {
                   href={file.cloudinaryUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black font-black underline"
+                  className="text-white font-black underline"
                 >
                   View File
                 </a>

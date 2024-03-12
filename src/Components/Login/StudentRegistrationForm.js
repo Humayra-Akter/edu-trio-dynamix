@@ -408,7 +408,7 @@ const StudentRegistrationForm = () => {
 
               <div className="flex justify-center items-center mt-7">
                 <input
-                  className="custom-btn text-black"
+                  className="custom-btn text-white"
                   value="REGISTER"
                   type="submit"
                 />

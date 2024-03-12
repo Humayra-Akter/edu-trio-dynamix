@@ -253,7 +253,7 @@ const TeacherResource = () => {
                 <h3 className="mb-2 text-center font-bold text-primary">
                   Teacher name : {post.teacherName}
                 </h3>
-                <h3 className="mb-2 text-center font-bold text-black">
+                <h3 className="mb-2 text-center font-bold text-white">
                   Grade : {post.grade}
                 </h3>
                 <iframe
