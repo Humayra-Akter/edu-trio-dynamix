@@ -106,7 +106,7 @@ const StudentProject = () => {
     <div>
       <div className="flex flex-wrap bg-gradient-to-r from-slate-800 via-black to-slate-600 ">
         <div className=" p-4 my-10 mx-auto">
-          <h1 className="text-2xl font-bold text-center uppercase text-neutral mb-4">
+          <h1 className="text-2xl font-bold text-center uppercase text-accent mb-4">
             Search for Project by name
           </h1>
           <div className="flex flex-wrap justify-center">
@@ -309,7 +309,7 @@ const StudentProject = () => {
         </div>
 
         <div className="p-4 my-10 mx-auto">
-          <h1 className="text-2xl font-bold text-center uppercase text-neutral mb-4">
+          <h1 className="text-2xl font-bold text-center uppercase text-accent mb-4">
             ALL Projects
           </h1>
           <div className="flex flex-wrap justify-center">

@@ -85,10 +85,10 @@ const AddProjects = () => {
   });
 
   return (
-    <div className="flex flex-wrap bg-gradient-to-r from-neutral via-blue-100 to-neutral">
+    <div className="flex flex-wrap bg-gradient-to-r from-slate-800 via-black to-slate-600">
       {/* Left half of the screen */}
       <div className="w-1/2 p-4 my-10 mx-10">
-        <h1 className="text-2xl font-bold text-center uppercase text-neutral mb-4">
+        <h1 className="text-2xl font-bold text-center uppercase text-white mb-4">
           Search for Project by name
         </h1>
         <div className="flex flex-wrap justify-center">
@@ -104,31 +104,31 @@ const AddProjects = () => {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="bg-gradient-to-b from-yellow-50 to-blue-200  border-gray-300 rounded-lg p-4 m-4 w-80 shadow-md"
+              className="bg-gradient-to-b from-teal-50 to-slate-300  border-gray-300 rounded-lg p-4 m-4 w-80 shadow-md"
             >
               <h2 className="text-lg font-semibold mb-2">{project.project}</h2>
               <p>
-                <span className="text-md font-bold text-blue-700">Batch:</span>{" "}
+                <span className="text-md font-bold text-green-800">Batch:</span>{" "}
                 {project.batch}
               </p>
               <p>
-                <span className="text-md font-bold text-blue-700">Class:</span>{" "}
+                <span className="text-md font-bold text-green-800">Class:</span>{" "}
                 {project.grade}
               </p>
               <p>
-                <span className="text-md font-bold text-blue-700">
+                <span className="text-md font-bold text-green-800">
                   Subject:
                 </span>{" "}
                 {project.time}
               </p>
               <p>
-                <span className="text-md font-bold text-blue-700">
+                <span className="text-md font-bold text-green-800">
                   Teacher Name:
                 </span>{" "}
                 {project.teacherName}
               </p>{" "}
               <p>
-                <span className="text-md font-bold text-blue-700">
+                <span className="text-md font-bold text-green-800">
                   Teacher Email:
                 </span>{" "}
                 {project.teacherEmail}
@@ -229,8 +229,8 @@ const AddProjects = () => {
       </div>
       {/* Right half of the screen */}
       <div className="w-1/3">
-        <div className="max-w-2xl p-6 bg-gradient-to-t from-blue-100 to-yellow-50 border-2 border-accent my-20">
-          <h1 className="text-2xl font-semibold text-center uppercase text-neutral mb-4">
+        <div className="max-w-2xl p-6 bg-gradient-to-t from-slate-100 to-teal-50 border-2 border-accent my-20">
+          <h1 className="text-2xl font-semibold text-center uppercase text-accent mb-4">
             Add Project
           </h1>
           <form onSubmit={handleSubmit(handleAddProject)} className="space-y-4">

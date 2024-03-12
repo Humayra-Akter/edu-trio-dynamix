@@ -178,7 +178,7 @@ const TeacherRegistrationForm = () => {
       <div className="lg:w-2/3 lg:pt-28 p-8">
         <div className="card max-w-2xl bg-gradient-to-r from-neutral via-yellow-50 to-blue-50 shadow-xl">
           <div className="card-body">
-            <h1 className="text-center text-2xl text-neutral font-extrabold mb-4">
+            <h1 className="text-center text-2xl text-accent font-extrabold mb-4">
               Teacher Registration
             </h1>
 
@@ -186,7 +186,7 @@ const TeacherRegistrationForm = () => {
               {/* Name field */}
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text text-blue-700 font-bold text-md">
+                  <span className="label-text text-green-800 font-bold text-md">
                     Name
                   </span>
                 </label>
@@ -214,7 +214,7 @@ const TeacherRegistrationForm = () => {
               {/* Email field */}
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text text-blue-700 font-bold text-md">
+                  <span className="label-text text-green-800 font-bold text-md">
                     Email
                   </span>
                 </label>
@@ -251,7 +251,7 @@ const TeacherRegistrationForm = () => {
               {/* Subjects */}
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text text-blue-700 font-bold text-md">
+                  <span className="label-text text-green-800 font-bold text-md">
                     Subjects
                   </span>
                 </label>
@@ -266,7 +266,7 @@ const TeacherRegistrationForm = () => {
               {/* Gender */}
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text text-blue-700 font-bold text-md">
+                  <span className="label-text text-green-800 font-bold text-md">
                     Gender
                   </span>
                 </label>
@@ -282,7 +282,7 @@ const TeacherRegistrationForm = () => {
               {/* Education Level */}
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text text-blue-700 font-bold text-md">
+                  <span className="label-text text-green-800 font-bold text-md">
                     Education Level
                   </span>
                 </label>
@@ -298,7 +298,7 @@ const TeacherRegistrationForm = () => {
               {/* Professional Title */}
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text text-blue-700 font-bold text-md">
+                  <span className="label-text text-green-800 font-bold text-md">
                     Professional Title
                   </span>
                 </label>
@@ -314,7 +314,7 @@ const TeacherRegistrationForm = () => {
               {/* Date of Birth */}
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text text-blue-700 font-bold text-md">
+                  <span className="label-text text-green-800 font-bold text-md">
                     Date of Birth
                   </span>
                 </label>
@@ -330,7 +330,7 @@ const TeacherRegistrationForm = () => {
               {/* Image upload */}
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text text-blue-700 font-bold text-md">
+                  <span className="label-text text-green-800 font-bold text-md">
                     Photo
                   </span>
                 </label>
@@ -359,7 +359,7 @@ const TeacherRegistrationForm = () => {
                 {/* Password */}
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text text-blue-700 font-bold text-md">
+                    <span className="label-text text-green-800 font-bold text-md">
                       Password
                     </span>
                   </label>
@@ -395,7 +395,7 @@ const TeacherRegistrationForm = () => {
                 {/* Confirm Password */}
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text text-blue-700 font-bold text-md">
+                    <span className="label-text text-green-800 font-bold text-md">
                       Confirm Password
                     </span>
                   </label>
@@ -440,7 +440,7 @@ const TeacherRegistrationForm = () => {
             <p className="text-center">
               <small className="font-semibold">
                 Already have an account?{" "}
-                <Link className="text-blue-700" to="/login">
+                <Link className="text-green-800" to="/login">
                   Login
                 </Link>
               </small>

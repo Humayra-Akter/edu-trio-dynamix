@@ -3,7 +3,7 @@ import Board from "./Board";
 
 const Container = () => {
   return (
-    <div className="bg-gradient-to-r from-neutral via-blue-100 to-neutral">
+    <div className="bg-gradient-to-r from-slate-800 via-black to-slate-600">
       <div className="flex justify-center items-center h-screen">
         <div className="border border-gray-500 p-8">
           <div className="flex justify-center mb-4">

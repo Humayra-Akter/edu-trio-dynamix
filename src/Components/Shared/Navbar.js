@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-primary via-secondary to-accent text-white font-bold p-4">
+    <nav className="bg-gradient-to-r from-accent via-secondary to-accent text-white font-bold p-4">
       <div className="container mx-auto flex justify-center items-center">
         {!userRole && (
           <Link to="/" className="text-4xl">
@@ -66,7 +66,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/teacherProfile"
-                        className={`text-lg font-bold hover:text-neutral ${
+                        className={`text-lg font-bold hover:text-accent ${
                           selectedRoute === "/teacherProfile"
                             ? "text-yellow-400"
                             : "text-white"
@@ -79,7 +79,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/teacherCourse"
-                        className="text-white text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-accent"
                       >
                         Course
                       </Link>
@@ -87,7 +87,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/teacherProject"
-                        className="text-white text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-accent"
                       >
                         Project
                       </Link>
@@ -95,7 +95,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/teacherAssignment"
-                        className="text-white text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-accent"
                       >
                         Assignment
                       </Link>
@@ -103,7 +103,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/teacherResource"
-                        className="text-white text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-accent"
                       >
                         Resource
                       </Link>
@@ -111,7 +111,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/teacherAnalytics"
-                        className="text-white text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-accent"
                       >
                         Analytics
                       </Link>
@@ -123,7 +123,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/studentProfile"
-                        className="text-white text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-accent"
                       >
                         Profile
                       </Link>
@@ -131,7 +131,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/studentCourse"
-                        className="text-white text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-accent"
                       >
                         Course
                       </Link>
@@ -139,7 +139,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/studentProject"
-                        className="text-white text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-accent"
                       >
                         Project
                       </Link>
@@ -147,7 +147,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/studentAssignment"
-                        className="text-white text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-accent"
                       >
                         Assignment
                       </Link>
@@ -155,7 +155,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/studentResource"
-                        className="text-white text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-accent"
                       >
                         Resource
                       </Link>
@@ -163,7 +163,7 @@ const Navbar = () => {
                     <li>
                       <Link
                         to="/studentAnalytics"
-                        className="text-white text-lg font-bold hover:text-neutral"
+                        className="text-white text-lg font-bold hover:text-accent"
                       >
                         Analytics
                       </Link>
@@ -187,7 +187,7 @@ const Navbar = () => {
               <li>
                 <Link
                   style={{ fontFamily: "cursive" }}
-                  className="text-blue-900 text-lg font-bold hover:text-neutral"
+                  className="text-green-200 text-lg font-bold hover:text-accent"
                   to="/"
                 >
                   EdiTrio-Dynamix
@@ -198,7 +198,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/teacherProfile"
-                      className={`text-lg font-bold hover:text-neutral ${
+                      className={`text-lg font-bold hover:text-accent ${
                         selectedRoute === "/teacherProfile"
                           ? "text-yellow-200"
                           : "text-white"
@@ -211,7 +211,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/teacherCourse"
-                      className={`text-lg font-bold hover:text-neutral ${
+                      className={`text-lg font-bold hover:text-accent ${
                         selectedRoute === "/teacherCourse"
                           ? "text-yellow-200"
                           : "text-white"
@@ -224,7 +224,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/teacherProject"
-                      className={`text-lg font-bold hover:text-neutral ${
+                      className={`text-lg font-bold hover:text-accent ${
                         selectedRoute === "/teacherProject"
                           ? "text-yellow-200"
                           : "text-white"
@@ -237,7 +237,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/teacherViewProject"
-                      className={`text-lg font-bold hover:text-neutral ${
+                      className={`text-lg font-bold hover:text-accent ${
                         selectedRoute === "/teacherViewProject"
                           ? "text-yellow-200"
                           : "text-white"
@@ -250,7 +250,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/teacherResource"
-                      className={`text-lg font-bold hover:text-neutral ${
+                      className={`text-lg font-bold hover:text-accent ${
                         selectedRoute === "/teacherResource"
                           ? "text-yellow-200"
                           : "text-white"
@@ -267,7 +267,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/studentProfile"
-                      className={`text-lg font-bold hover:text-neutral ${
+                      className={`text-lg font-bold hover:text-accent ${
                         selectedRoute === "/studentProfile"
                           ? "text-yellow-200"
                           : "text-white"
@@ -280,7 +280,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/studentCourse"
-                      className={`text-lg font-bold hover:text-neutral ${
+                      className={`text-lg font-bold hover:text-accent ${
                         selectedRoute === "/studentCourse"
                           ? "text-yellow-200"
                           : "text-white"
@@ -293,7 +293,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/studentProject"
-                      className={`text-lg font-bold hover:text-neutral ${
+                      className={`text-lg font-bold hover:text-accent ${
                         selectedRoute === "/studentProject"
                           ? "text-yellow-200"
                           : "text-white"
@@ -306,7 +306,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/studentAssignment"
-                      className={`text-lg font-bold hover:text-neutral ${
+                      className={`text-lg font-bold hover:text-accent ${
                         selectedRoute === "/studentAssignment"
                           ? "text-yellow-200"
                           : "text-white"
@@ -319,7 +319,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/studentCollaboration"
-                      className={`text-lg font-bold hover:text-neutral ${
+                      className={`text-lg font-bold hover:text-accent ${
                         selectedRoute === "/studentCollaboration"
                           ? "text-yellow-200"
                           : "text-white"
@@ -332,7 +332,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/chat"
-                      className={`text-lg font-bold hover:text-neutral ${
+                      className={`text-lg font-bold hover:text-accent ${
                         selectedRoute === "/chat"
                           ? "text-yellow-200"
                           : "text-white"
@@ -345,7 +345,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/codeEditor"
-                      className={`text-lg font-bold hover:text-neutral ${
+                      className={`text-lg font-bold hover:text-accent ${
                         selectedRoute === "/codeEditor"
                           ? "text-yellow-200"
                           : "text-white"
@@ -358,7 +358,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/studentResource"
-                      className={`text-lg font-bold hover:text-neutral ${
+                      className={`text-lg font-bold hover:text-accent ${
                         selectedRoute === "/studentResource"
                           ? "text-yellow-200"
                           : "text-white"
@@ -371,7 +371,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/studentAnalytics"
-                      className={`text-lg font-bold hover:text-neutral ${
+                      className={`text-lg font-bold hover:text-accent ${
                         selectedRoute === "/studentAnalytics"
                           ? "text-yellow-200"
                           : "text-white"
@@ -386,12 +386,12 @@ const Navbar = () => {
               <li>
                 <button
                   onClick={logout}
-                  className="text-red-600 text-lg font-bold hover:text-neutral"
+                  className="text-red-600 text-lg font-bold hover:text-accent"
                 >
                   Logout
                 </button>
               </li>{" "}
-              <li className="text-white text-xs font-semibold hover:text-neutral justify-end">
+              <li className="text-white text-xs font-semibold hover:text-accent justify-end">
                 {userEmail}
                 <br />
                 {userRole}

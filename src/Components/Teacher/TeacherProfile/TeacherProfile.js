@@ -66,21 +66,21 @@ const TeacherProfile = () => {
       <div className="flex justify-center items-center h-screen">
         <div className="bg-white px-24 p-7">
           <div className="text-center">
-            <h2 className="text-3xl text-neutral font-bold">
+            <h2 className="text-3xl text-accent font-bold">
               {loggedTeacher?.name}
             </h2>
           </div>
 
           <div className="lg:w-full lg:pt-12 gap-7 p-8 lg:flex">
-            <div className="card max-w-2xl flex items-center justify-center bg-gradient-to-b from-yellow-50 to-blue-300  border-gray-300 shadow-xl">
+            <div className="card max-w-2xl flex items-center justify-center bg-gradient-to-b from-teal-50 to-slate-400  border-gray-300 shadow-xl">
               <div className="card-body">
-                <h1 className="text-center text-2xl text-neutral font-extrabold mb-4">
+                <h1 className="text-center text-2xl text-accent font-extrabold mb-4">
                   Teacher Information
                 </h1>
                 <div className="flex w-96">
                   <ul className="mb-4">
                     <li className="mb-2">
-                      <span className="text-md font-bold text-blue-700">
+                      <span className="text-md font-bold text-green-800">
                         Email:
                       </span>
                       <span className="ml-4 font-bold">
@@ -88,7 +88,7 @@ const TeacherProfile = () => {
                       </span>
                     </li>
                     <li className="mb-2">
-                      <span className="text-md font-bold text-blue-700">
+                      <span className="text-md font-bold text-green-800">
                         Gender:
                       </span>
                       <span className="ml-4 capitalize font-bold ">
@@ -96,7 +96,7 @@ const TeacherProfile = () => {
                       </span>
                     </li>
                     <li className="mb-2">
-                      <span className="text-md font-bold text-blue-700">
+                      <span className="text-md font-bold text-green-800">
                         Date of Birth:
                       </span>
                       <span className="ml-4 font-bold">
@@ -104,7 +104,7 @@ const TeacherProfile = () => {
                       </span>
                     </li>
                     <li className="mb-2">
-                      <span className="text-md font-bold text-blue-700">
+                      <span className="text-md font-bold text-green-800">
                         Subjects:
                       </span>
                       <span className="ml-4 capitalize font-bold">
@@ -112,7 +112,7 @@ const TeacherProfile = () => {
                       </span>
                     </li>
                     <li className="mb-2">
-                      <span className="text-md font-bold text-blue-700">
+                      <span className="text-md font-bold text-green-800">
                         Education Level:
                       </span>
                       <span className="ml-4 capitalize font-bold">
@@ -120,7 +120,7 @@ const TeacherProfile = () => {
                       </span>
                     </li>
                     <li className="mb-2">
-                      <span className="text-md font-bold text-blue-700">
+                      <span className="text-md font-bold text-green-800">
                         Professional Title:
                       </span>
                       <span className="ml-4 capitalize font-bold">

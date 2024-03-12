@@ -85,9 +85,9 @@ const TeacherProject = () => {
   });
 
   return (
-    <div className="flex flex-wrap bg-gradient-to-r from-neutral via-blue-100 to-neutral">
+    <div className="flex flex-wrap bg-gradient-to-r from-slate-800 via-black to-slate-600">
       <div className="p-4 my-10 mx-10">
-        <h1 className="text-2xl font-bold text-center uppercase text-neutral mb-4">
+        <h1 className="text-2xl font-bold text-center uppercase text-white mb-4">
           ALL Projects
         </h1>
         <div className="flex items-center justify-center my-5">
@@ -185,31 +185,31 @@ const TeacherProject = () => {
           {projects.map((project) => (
             <div
               key={project._id}
-              className="bg-gradient-to-b from-yellow-50 to-blue-200  border-gray-300 rounded-lg p-4 m-6 w-96 shadow-md"
+              className="bg-gradient-to-b from-teal-50 to-slate-300  border-gray-300 rounded-lg p-4 m-6 w-96 shadow-md"
             >
               <h2 className="text-lg font-semibold mb-2">{project.project}</h2>
               <p>
-                <span className="text-md font-bold text-blue-700">Batch:</span>{" "}
+                <span className="text-md font-bold text-green-800">Batch:</span>{" "}
                 {project.batch}
               </p>
               <p>
-                <span className="text-md font-bold text-blue-700">Class:</span>{" "}
+                <span className="text-md font-bold text-green-800">Class:</span>{" "}
                 {project.grade}
               </p>
               <p>
-                <span className="text-md font-bold text-blue-700">
+                <span className="text-md font-bold text-green-800">
                   Subject:
                 </span>{" "}
                 {project.time}
               </p>
               <p>
-                <span className="text-md font-bold text-blue-700">
+                <span className="text-md font-bold text-green-800">
                   Teacher Name:
                 </span>{" "}
                 {project.teacherName}
               </p>{" "}
               <p>
-                <span className="text-md font-bold text-blue-700">
+                <span className="text-md font-bold text-green-800">
                   Teacher Email:
                 </span>{" "}
                 {project.teacherEmail}

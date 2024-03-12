@@ -105,7 +105,7 @@ const StudentCollaboration = () => {
           <div className="flex items-center justify-center">
             <MyCollaboration />
           </div>{" "}
-          <h1 className="text-2xl font-bold text-center uppercase text-neutral mb-4">
+          <h1 className="text-2xl font-bold text-center uppercase text-accent mb-4">
             ALL Projects
           </h1>
           <div className="flex flex-wrap justify-center">

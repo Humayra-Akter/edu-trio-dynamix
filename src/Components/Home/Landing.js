@@ -233,7 +233,7 @@ const Landing = () => {
       {/* Modal */}
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
-          <h3 className="font-bold text-neutral text-center text-lg">
+          <h3 className="font-bold text-accent text-center text-lg">
             Choose Your Role
           </h3>
 

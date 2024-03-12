@@ -42,7 +42,7 @@ const StudentReward = () => {
       <div className="lg:w-1/2 lg:pt-28 p-8">
         <div>
           <div className="card-body">
-            <h2 className="text-center text-2xl text-neutral font-extrabold mb-4">
+            <h2 className="text-center text-2xl text-accent font-extrabold mb-4">
               Your Rewards
             </h2>
             {rewards.map((reward) => (

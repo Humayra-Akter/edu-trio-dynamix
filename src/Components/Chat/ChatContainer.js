@@ -76,7 +76,7 @@ function ChatContainer() {
             ></textarea>
             <button
               onClick={handleOpen}
-              class="rounded-full inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-neutral-foreground hover:bg-primary/90 h-10 w-10 hover:bg-black hover:rounded-full text-white hover:text-[#b2b2b2]"
+              class="rounded-full inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-accent-foreground hover:bg-primary/90 h-10 w-10 hover:bg-black hover:rounded-full text-white hover:text-[#b2b2b2]"
             >
               <Mic className=" " />
             </button>
@@ -84,7 +84,7 @@ function ChatContainer() {
             <button
               disabled={user === ""}
               onClick={handleSubmit}
-              class="rounded-full hover:bg-black hover:rounded-full text-white hover:text-[#b2b2b2] inline-flex items-center justify-center whitespace-nowrap  text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-neutral-foreground hover:bg-primary/90 h-10 w-10"
+              class="rounded-full hover:bg-black hover:rounded-full text-white hover:text-[#b2b2b2] inline-flex items-center justify-center whitespace-nowrap  text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-accent-foreground hover:bg-primary/90 h-10 w-10"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

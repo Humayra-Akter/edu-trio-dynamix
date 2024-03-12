@@ -100,11 +100,11 @@ const ViewStudents = () => {
   };
 
   return (
-    <div className="flex bg-gradient-to-r from-neutral via-blue-100 to-neutral">
+    <div className="flex bg-gradient-to-r from-slate-800 via-black to-slate-600">
       <div className="p-8">
-        <div className="bg-gradient-to-r from-neutral via-blue-100 to-neutral px-24 p-7">
+        <div className="bg-gradient-to-r from-slate-800 via-black to-slate-600 px-24 p-7">
           <div className="text-center">
-            <h2 className="text-3xl text-neutral capitalize font-bold">
+            <h2 className="text-3xl text-white capitalize font-bold">
               Student List
             </h2>
           </div>
@@ -112,7 +112,7 @@ const ViewStudents = () => {
             {loggedTeacherProjects.map((project) => (
               <div
                 key={project._id}
-                className="card max-w-2xl bg-gradient-to-b from-yellow-50 to-blue-300 shadow-xl m-4 p-4"
+                className="card max-w-2xl bg-gradient-to-b from-teal-50 to-slate-300 shadow-xl m-4 p-4"
                 onClick={() => {
                   handleOpenModal(project);
                   handleCourseSelect(project);
@@ -120,29 +120,31 @@ const ViewStudents = () => {
               >
                 <h2 className="text-lg font-bold">{project.project}</h2>
                 <p>
-                  <span className="text-md font-bold text-blue-700">
+                  <span className="text-md font-bold text-green-800">
                     Teacher Name:
                   </span>{" "}
                   {project.teacherName}
                 </p>
                 <p>
-                  <span className="text-md font-bold text-blue-700">
+                  <span className="text-md font-bold text-green-800">
                     Batch:
                   </span>{" "}
                   {project.batch}
                 </p>
                 <p>
-                  <span className="text-md font-bold text-blue-700">
+                  <span className="text-md font-bold text-green-800">
                     Grade:
                   </span>{" "}
                   {project.grade}
                 </p>
                 <p>
-                  <span className="text-md font-bold text-blue-700">Type:</span>{" "}
+                  <span className="text-md font-bold text-green-800">
+                    Type:
+                  </span>{" "}
                   {project.type}
                 </p>
                 <p>
-                  <span className="text-md font-bold text-blue-700">
+                  <span className="text-md font-bold text-green-800">
                     Submit Last Date:
                   </span>{" "}
                   {project.submitLastDate}
@@ -249,7 +251,7 @@ const ViewStudents = () => {
       {showModal && selectedProject && (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center">
           <div className="bg-white p-8 rounded-md max-w-md">
-            <h2 className="text-2xl text-neutral font-bold mb-4">
+            <h2 className="text-2xl text-accent font-bold mb-4">
               Collaborators for {selectedProject.project}
             </h2>
             {/* <ul className="text-center">
@@ -272,7 +274,7 @@ const ViewStudents = () => {
                 )}
               </ul>
             ) : (
-              <p className="text-center text-red-600 text-md font-bold text-blue-700">
+              <p className="text-center text-red-600 text-md font-bold text-green-800">
                 No collaboration so far.
               </p>
             )}

@@ -61,14 +61,14 @@ const Login = () => {
       <div className="lg:w-1/2 lg:pt-28 p-8">
         <div className="card max-w-md bg-gradient-to-r from-neutral via-yellow-50 to-blue-50 shadow-xl">
           <div className="card-body">
-            <h1 className="text-center text-2xl text-neutral font-extrabold mb-4">
+            <h1 className="text-center text-2xl text-accent font-extrabold mb-4">
               LOGIN
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
               {/* email field */}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-blue-700 font-bold text-md">
+                  <span className="label-text text-green-800 font-bold text-md">
                     Email
                   </span>
                 </label>
@@ -104,7 +104,7 @@ const Login = () => {
               {/* role  */}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-blue-700 font-bold text-md">
+                  <span className="label-text text-green-800 font-bold text-md">
                     Select your Role
                   </span>
                 </label>
@@ -134,7 +134,7 @@ const Login = () => {
               {/* Password field */}
               <div className="form-control pb-4">
                 <label className="label">
-                  <span className="label-text text-blue-700 font-bold text-md">
+                  <span className="label-text text-green-800 font-bold text-md">
                     Password
                   </span>
                 </label>
@@ -190,7 +190,7 @@ const Login = () => {
               </div>
               <p className="text-left">
                 <small className="font-semibold">
-                  <Link className="text-blue-700" to="/register">
+                  <Link className="text-green-800" to="/register">
                     Forgot password?
                   </Link>
                 </small>
@@ -202,11 +202,17 @@ const Login = () => {
                 <small className="font-semibold">
                   New to elite-dwell-assist?Create new account
                   <br />
-                  <Link className="text-blue-700" to="/teacherRegistrationForm">
+                  <Link
+                    className="text-green-800"
+                    to="/teacherRegistrationForm"
+                  >
                     As Teacher
                   </Link>
                   or
-                  <Link className="text-blue-700" to="/studentRegistrationForm">
+                  <Link
+                    className="text-green-800"
+                    to="/studentRegistrationForm"
+                  >
                     As Student
                   </Link>
                 </small>

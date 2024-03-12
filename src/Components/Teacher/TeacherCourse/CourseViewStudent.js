@@ -105,7 +105,7 @@ const CourseViewStudent = () => {
       <div className="flex justify-center items-center pt-14">
         <div className="bg-white px-24 p-7">
           <div className="text-center">
-            <h2 className="text-3xl text-neutral capitalize font-bold">
+            <h2 className="text-3xl text-accent capitalize font-bold">
               Student List
             </h2>
           </div>
@@ -114,17 +114,17 @@ const CourseViewStudent = () => {
               {coursesTaken.map((course) => (
                 <div
                   key={course._id}
-                  className="card max-w-2xl bg-gradient-to-b from-yellow-50 to-blue-300 shadow-xl m-4 p-4"
+                  className="card max-w-2xl bg-gradient-to-b from-teal-100 to-slate-400 shadow-xl m-4 p-4"
                 >
                   <h2 className="text-lg font-bold">{course.course}</h2>
                   <p>
-                    <span className="text-md font-bold text-blue-700">
+                    <span className="text-md font-bold text-green-800">
                       Teacher Name:
                     </span>{" "}
                     {course.teacherName}
                   </p>
                   <div className="mt-2">
-                    <h3 className="text-md text-md font-bold text-blue-700">
+                    <h3 className="text-md text-md font-bold text-green-800">
                       Enrolled Students:
                     </h3>
 
@@ -138,43 +138,43 @@ const CourseViewStudent = () => {
                         .map((student) => (
                           <div key={student._id}>
                             <p>
-                              <span className="text-md font-bold text-blue-700">
+                              <span className="text-md font-bold text-green-800">
                                 Name:
                               </span>{" "}
                               {student.student.name}
                             </p>
                             <p>
-                              <span className="text-md font-bold text-blue-700">
+                              <span className="text-md font-bold text-green-800">
                                 Email:
                               </span>{" "}
                               {student.student.email}
                             </p>
                             <p>
-                              <span className="text-md font-bold text-blue-700">
+                              <span className="text-md font-bold text-green-800">
                                 Grade:
                               </span>{" "}
                               {student.student.gradeYear}
                             </p>{" "}
                             <p>
-                              <span className="text-md font-bold text-blue-700">
+                              <span className="text-md font-bold text-green-800">
                                 Batch:
                               </span>{" "}
                               {student.course.batch}
                             </p>{" "}
                             <p>
-                              <span className="text-md font-bold text-blue-700">
+                              <span className="text-md font-bold text-green-800">
                                 Time:
                               </span>{" "}
                               {student.course.time}
                             </p>
                             <p>
-                              <span className="text-md font-bold text-blue-700">
+                              <span className="text-md font-bold text-green-800">
                                 Institution:
                               </span>{" "}
                               {student.student.institution}
                             </p>
                             <p>
-                              <span className="text-md font-bold text-blue-700">
+                              <span className="text-md font-bold text-green-800">
                                 Preferred Communication Channel:
                               </span>{" "}
                               {student.student.communicationChannel}

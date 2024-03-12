@@ -133,7 +133,7 @@ const StudentFeedback = () => {
       <div className="lg:w-1/2 lg:pt-28 p-8">
         <div className="card max-w-md bg-gradient-to-r from-neutral via-yellow-50 to-blue-50 shadow-xl">
           <div className="card-body">
-            <h2 className="text-center text-2xl text-neutral font-extrabold mb-4">
+            <h2 className="text-center text-2xl text-accent font-extrabold mb-4">
               Give Feedback for{" "}
               {coursesTaken.length > 0 ? "Your Courses" : "No courses taken"}
             </h2>
@@ -141,7 +141,7 @@ const StudentFeedback = () => {
               <>
                 {coursesReview.map((course, index) => (
                   <div key={index} className="mt-4">
-                    <h3 className="font-bold text-lg text-neutral">
+                    <h3 className="font-bold text-lg text-accent">
                       Teacher: {course.course.teacherName}
                     </h3>
                     <p className="font-bold">Course: {course.course.course}</p>
@@ -162,7 +162,7 @@ const StudentFeedback = () => {
               <>
                 {coursesTaken.map((course, index) => (
                   <div key={index} className="mt-4">
-                    <h3 className="font-bold text-lg text-neutral">
+                    <h3 className="font-bold text-lg text-accent">
                       Teacher: {course.course.teacherName}
                     </h3>
                     <p className="font-bold">Course: {course.course.course}</p>

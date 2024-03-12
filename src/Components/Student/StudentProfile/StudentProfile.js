@@ -27,7 +27,7 @@ const StudentProfile = () => {
       <div className="flex justify-center items-center h-screen">
         <div className="bg-white px-24 p-7">
           <div className="text-center">
-            <h2 className="text-3xl text-neutral capitalize font-bold">
+            <h2 className="text-3xl text-accent capitalize font-bold">
               {loggedStudent?.name}
             </h2>
           </div>
@@ -35,13 +35,13 @@ const StudentProfile = () => {
           <div className="lg:w-full lg:pt-12 gap-7 p-8 lg:flex">
             <div className="card max-w-2xl flex items-center justify-center bg-gradient-to-b from-yellow-50 to-blue-300 shadow-xl">
               <div className="card-body">
-                <h1 className="text-center text-2xl text-neutral font-extrabold mb-4">
+                <h1 className="text-center text-2xl text-accent font-extrabold mb-4">
                   Student Information
                 </h1>
                 <div className="flex w-96">
                   <ul className="mb-4">
                     <li className="mb-2">
-                      <span className="text-md font-medium text-neutral">
+                      <span className="text-md font-medium text-accent">
                         Email:
                       </span>
                       <span className="ml-4 font-bold">
@@ -49,7 +49,7 @@ const StudentProfile = () => {
                       </span>
                     </li>
                     <li className="mb-2">
-                      <span className="text-md font-medium text-neutral">
+                      <span className="text-md font-medium text-accent">
                         Date of Birth:
                       </span>
                       <span className="ml-4 font-bold">
@@ -57,7 +57,7 @@ const StudentProfile = () => {
                       </span>
                     </li>
                     <li className="mb-2">
-                      <span className="text-md font-medium text-neutral">
+                      <span className="text-md font-medium text-accent">
                         Grade Year:
                       </span>
                       <span className="ml-4 font-bold">
@@ -65,7 +65,7 @@ const StudentProfile = () => {
                       </span>
                     </li>
                     <li className="mb-2">
-                      <span className="text-md font-medium text-neutral">
+                      <span className="text-md font-medium text-accent">
                         Institution:
                       </span>
                       <span className="ml-4 uppercase font-bold">
@@ -73,7 +73,7 @@ const StudentProfile = () => {
                       </span>
                     </li>
                     <li className="mb-2">
-                      <span className="text-md font-medium text-neutral">
+                      <span className="text-md font-medium text-accent">
                         Interests & Hobbies:
                       </span>
                       <span className="ml-4 capitalize font-bold">
@@ -81,7 +81,7 @@ const StudentProfile = () => {
                       </span>
                     </li>
                     <li className="mb-2">
-                      <span className="text-md font-medium text-neutral">
+                      <span className="text-md font-medium text-accent">
                         Parent/Guardian:
                       </span>
                       <span className="ml-4 font-bold">
@@ -89,7 +89,7 @@ const StudentProfile = () => {
                       </span>
                     </li>
                     <li className="mb-2">
-                      <span className="text-md font-medium text-neutral">
+                      <span className="text-md font-medium text-accent">
                         Guardian Email:
                       </span>
                       <span className="ml-4 font-bold">
@@ -97,7 +97,7 @@ const StudentProfile = () => {
                       </span>
                     </li>
                     <li className="mb-2">
-                      <span className="text-md font-medium text-neutral">
+                      <span className="text-md font-medium text-accent">
                         Guardian Phone Number:
                       </span>
                       <span className="ml-4 font-bold">

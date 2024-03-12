@@ -58,17 +58,17 @@ const TeacherCourse = () => {
   console.log(courses);
 
   return (
-    <div className="flex flex-wrap bg-gradient-to-r from-neutral via-blue-100 to-neutral">
+    <div className="flex flex-wrap bg-gradient-to-r from-slate-800 via-black to-slate-600">
       {/* Left half of the screen */}
       <div className="w-1/2 p-4 my-10 mx-10">
-        <h1 className="text-2xl font-bold text-center uppercase text-neutral mb-4">
+        <h1 className="text-2xl font-bold text-center uppercase text-white mb-4">
           Courses
         </h1>
         <div className="flex flex-wrap justify-center">
           {courses.map((course) => (
             <div
               key={course.id}
-              className="bg-gradient-to-b from-yellow-50 to-blue-200  border-gray-300 rounded-lg p-4 m-4 w-80 shadow-md"
+              className="bg-gradient-to-b from-teal-50 to-slate-400  border-gray-300 rounded-lg p-4 m-4 w-80 shadow-md"
             >
               <h2 className="text-lg font-semibold mb-2">{course.course}</h2>
               <p>
@@ -368,8 +368,8 @@ const TeacherCourse = () => {
       </div>
       {/* Right half of the screen */}
       <div className="w-1/3">
-        <div className="w-full p-6 bg-gradient-to-r from-neutral via-yellow-50 to-blue-50 border-2 border-accent my-32">
-          <h1 className="text-2xl font-semibold text-center uppercase text-neutral mb-4">
+        <div className="w-full p-6 bg-gradient-to-r from-neutral via-teal-50 to-slate-100 border-2 border-accent my-32">
+          <h1 className="text-2xl font-semibold text-center uppercase text-accent mb-4">
             Add Course
           </h1>
           <form onSubmit={handleSubmit(handleAddCourse)} className="space-y-4">
