@@ -45,7 +45,7 @@ const MyCollaboration = () => {
     <div>
       {collabProjects && collabProjects.length > 0 && (
         <div className="p-4 my-10 mx-auto">
-          <h1 className="text-2xl font-bold text-center text-primary mb-4">
+          <h1 className="text-2xl font-bold text-center text-neutral mb-4">
             Your Collaborated Projects
           </h1>
           <div className="flex flex-wrap justify-center">

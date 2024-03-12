@@ -62,11 +62,11 @@ const TeacherProfile = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50">
+    <div className="bg-gradient-to-r from-slate-800 via-black to-slate-600">
       <div className="flex justify-center items-center h-screen">
         <div className="bg-white px-24 p-7">
           <div className="text-center">
-            <h2 className="text-3xl text-primary font-bold">
+            <h2 className="text-3xl text-neutral font-bold">
               {loggedTeacher?.name}
             </h2>
           </div>
@@ -74,7 +74,7 @@ const TeacherProfile = () => {
           <div className="lg:w-full lg:pt-12 gap-7 p-8 lg:flex">
             <div className="card max-w-2xl flex items-center justify-center bg-gradient-to-b from-yellow-50 to-blue-300  border-gray-300 shadow-xl">
               <div className="card-body">
-                <h1 className="text-center text-2xl text-primary font-extrabold mb-4">
+                <h1 className="text-center text-2xl text-neutral font-extrabold mb-4">
                   Teacher Information
                 </h1>
                 <div className="flex w-96">

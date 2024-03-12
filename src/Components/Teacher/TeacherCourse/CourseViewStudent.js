@@ -101,11 +101,11 @@ const CourseViewStudent = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50">
+    <div className="bg-gradient-to-r from-slate-800 via-black to-slate-600">
       <div className="flex justify-center items-center pt-14">
         <div className="bg-white px-24 p-7">
           <div className="text-center">
-            <h2 className="text-3xl text-primary capitalize font-bold">
+            <h2 className="text-3xl text-neutral capitalize font-bold">
               Student List
             </h2>
           </div>

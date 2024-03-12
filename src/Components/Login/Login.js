@@ -54,14 +54,14 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50 lg:flex">
+    <div className="bg-gradient-to-r from-slate-800 via-black to-slate-600 lg:flex">
       <div className="lg:w-1/2">
         <img src={login} className="w-full p-20 h-auto" alt="Login" />
       </div>
       <div className="lg:w-1/2 lg:pt-28 p-8">
         <div className="card max-w-md bg-gradient-to-r from-neutral via-yellow-50 to-blue-50 shadow-xl">
           <div className="card-body">
-            <h1 className="text-center text-2xl text-primary font-extrabold mb-4">
+            <h1 className="text-center text-2xl text-neutral font-extrabold mb-4">
               LOGIN
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>

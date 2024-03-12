@@ -61,7 +61,7 @@ const TeacherCourse = () => {
     <div className="flex flex-wrap bg-gradient-to-r from-neutral via-blue-100 to-neutral">
       {/* Left half of the screen */}
       <div className="w-1/2 p-4 my-10 mx-10">
-        <h1 className="text-2xl font-bold text-center uppercase text-primary mb-4">
+        <h1 className="text-2xl font-bold text-center uppercase text-neutral mb-4">
           Courses
         </h1>
         <div className="flex flex-wrap justify-center">
@@ -369,7 +369,7 @@ const TeacherCourse = () => {
       {/* Right half of the screen */}
       <div className="w-1/3">
         <div className="w-full p-6 bg-gradient-to-r from-neutral via-yellow-50 to-blue-50 border-2 border-accent my-32">
-          <h1 className="text-2xl font-semibold text-center uppercase text-primary mb-4">
+          <h1 className="text-2xl font-semibold text-center uppercase text-neutral mb-4">
             Add Course
           </h1>
           <form onSubmit={handleSubmit(handleAddCourse)} className="space-y-4">

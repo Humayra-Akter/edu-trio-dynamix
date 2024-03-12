@@ -104,7 +104,7 @@ const ViewStudents = () => {
       <div className="p-8">
         <div className="bg-gradient-to-r from-neutral via-blue-100 to-neutral px-24 p-7">
           <div className="text-center">
-            <h2 className="text-3xl text-primary capitalize font-bold">
+            <h2 className="text-3xl text-neutral capitalize font-bold">
               Student List
             </h2>
           </div>
@@ -249,7 +249,7 @@ const ViewStudents = () => {
       {showModal && selectedProject && (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center">
           <div className="bg-white p-8 rounded-md max-w-md">
-            <h2 className="text-2xl text-primary font-bold mb-4">
+            <h2 className="text-2xl text-neutral font-bold mb-4">
               Collaborators for {selectedProject.project}
             </h2>
             {/* <ul className="text-center">

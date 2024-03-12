@@ -200,7 +200,7 @@ const Navbar = () => {
                       to="/teacherProfile"
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/teacherProfile"
-                          ? "text-yellow-900"
+                          ? "text-yellow-200"
                           : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/teacherProfile")}
@@ -213,7 +213,7 @@ const Navbar = () => {
                       to="/teacherCourse"
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/teacherCourse"
-                          ? "text-yellow-900"
+                          ? "text-yellow-200"
                           : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/teacherCourse")}
@@ -226,7 +226,7 @@ const Navbar = () => {
                       to="/teacherProject"
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/teacherProject"
-                          ? "text-yellow-900"
+                          ? "text-yellow-200"
                           : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/teacherProject")}
@@ -239,7 +239,7 @@ const Navbar = () => {
                       to="/teacherViewProject"
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/teacherViewProject"
-                          ? "text-yellow-900"
+                          ? "text-yellow-200"
                           : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/teacherViewProject")}
@@ -252,7 +252,7 @@ const Navbar = () => {
                       to="/teacherResource"
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/teacherResource"
-                          ? "text-yellow-900"
+                          ? "text-yellow-200"
                           : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/teacherResource")}
@@ -269,7 +269,7 @@ const Navbar = () => {
                       to="/studentProfile"
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/studentProfile"
-                          ? "text-yellow-900"
+                          ? "text-yellow-200"
                           : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/studentProfile")}
@@ -282,7 +282,7 @@ const Navbar = () => {
                       to="/studentCourse"
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/studentCourse"
-                          ? "text-yellow-900"
+                          ? "text-yellow-200"
                           : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/studentCourse")}
@@ -295,7 +295,7 @@ const Navbar = () => {
                       to="/studentProject"
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/studentProject"
-                          ? "text-yellow-900"
+                          ? "text-yellow-200"
                           : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/studentProject")}
@@ -308,7 +308,7 @@ const Navbar = () => {
                       to="/studentAssignment"
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/studentAssignment"
-                          ? "text-yellow-900"
+                          ? "text-yellow-200"
                           : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/studentAssignment")}
@@ -321,7 +321,7 @@ const Navbar = () => {
                       to="/studentCollaboration"
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/studentCollaboration"
-                          ? "text-yellow-900"
+                          ? "text-yellow-200"
                           : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/studentCollaboration")}
@@ -334,7 +334,7 @@ const Navbar = () => {
                       to="/chat"
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/chat"
-                          ? "text-yellow-900"
+                          ? "text-yellow-200"
                           : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/chat")}
@@ -347,7 +347,7 @@ const Navbar = () => {
                       to="/codeEditor"
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/codeEditor"
-                          ? "text-yellow-900"
+                          ? "text-yellow-200"
                           : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/studentCollaboration")}
@@ -360,7 +360,7 @@ const Navbar = () => {
                       to="/studentResource"
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/studentResource"
-                          ? "text-yellow-900"
+                          ? "text-yellow-200"
                           : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/studentResource")}
@@ -373,7 +373,7 @@ const Navbar = () => {
                       to="/studentAnalytics"
                       className={`text-lg font-bold hover:text-neutral ${
                         selectedRoute === "/studentAnalytics"
-                          ? "text-yellow-900"
+                          ? "text-yellow-200"
                           : "text-white"
                       }`}
                       onClick={() => handleRouteClick("/studentAnalytics")}

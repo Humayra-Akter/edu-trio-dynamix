@@ -100,12 +100,12 @@ const StudentCollaboration = () => {
 
   return (
     <div>
-      <div className="flex flex-wrap bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50 ">
+      <div className="flex flex-wrap bg-gradient-to-r from-slate-800 via-black to-slate-600 ">
         <div className="p-4 mx-auto">
           <div className="flex items-center justify-center">
             <MyCollaboration />
           </div>{" "}
-          <h1 className="text-2xl font-bold text-center uppercase text-primary mb-4">
+          <h1 className="text-2xl font-bold text-center uppercase text-neutral mb-4">
             ALL Projects
           </h1>
           <div className="flex flex-wrap justify-center">

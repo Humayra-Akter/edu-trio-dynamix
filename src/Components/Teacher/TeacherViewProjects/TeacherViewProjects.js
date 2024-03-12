@@ -19,8 +19,8 @@ const TeacherViewProjects = () => {
   }, [teacherEmail]);
 
   return (
-    <div className="p-6 bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50">
-      <h1 className="text-3xl text-center text-primary font-bold mb-7">
+    <div className="p-6 bg-gradient-to-r from-slate-800 via-black to-slate-600">
+      <h1 className="text-3xl text-center text-neutral font-bold mb-7">
         Uploaded Files
       </h1>
       {uploadedFiles.length > 0 ? (

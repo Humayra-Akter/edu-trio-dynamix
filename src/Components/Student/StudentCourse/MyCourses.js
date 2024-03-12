@@ -44,11 +44,11 @@ const MyCourses = () => {
   console.log(coursesTaken);
 
   return (
-    <div className="bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50">
+    <div className="bg-gradient-to-r from-slate-800 via-black to-slate-600">
       <div className="flex justify-center items-center pt-14">
         <div className="bg-white px-24 p-7">
           <div className="text-center">
-            <h2 className="text-3xl text-primary capitalize font-bold">
+            <h2 className="text-3xl text-neutral capitalize font-bold">
               Courses Taken
             </h2>
           </div>
@@ -59,7 +59,7 @@ const MyCourses = () => {
                   <div className="flex w-96">
                     <ul className="mb-4">
                       <li className="mb-2">
-                        <span className="text-md font-medium text-primary">
+                        <span className="text-md font-medium text-neutral">
                           Course:
                         </span>
                         <span className="ml-4 font-bold">
@@ -67,7 +67,7 @@ const MyCourses = () => {
                         </span>
                       </li>
                       <li className="mb-2">
-                        <span className="text-md font-medium text-primary">
+                        <span className="text-md font-medium text-neutral">
                           Batch:
                         </span>
                         <span className="ml-4 font-bold">
@@ -75,7 +75,7 @@ const MyCourses = () => {
                         </span>
                       </li>
                       <li className="mb-2">
-                        <span className="text-md font-medium text-primary">
+                        <span className="text-md font-medium text-neutral">
                           Grade:
                         </span>
                         <span className="ml-4 font-bold">
@@ -83,7 +83,7 @@ const MyCourses = () => {
                         </span>
                       </li>
                       <li className="mb-2">
-                        <span className="text-md font-medium text-primary">
+                        <span className="text-md font-medium text-neutral">
                           Time:
                         </span>
                         <span className="ml-4 uppercase font-bold">
@@ -91,7 +91,7 @@ const MyCourses = () => {
                         </span>
                       </li>
                       <li className="mb-2">
-                        <span className="text-md font-medium text-primary">
+                        <span className="text-md font-medium text-neutral">
                           Teacher Name:
                         </span>
                         <span className="ml-4 capitalize font-bold">
@@ -99,7 +99,7 @@ const MyCourses = () => {
                         </span>
                       </li>
                       <li className="mb-2">
-                        <span className="text-md font-medium text-primary">
+                        <span className="text-md font-medium text-neutral">
                           Teacher Email:
                         </span>
                         <span className="ml-4 font-bold">

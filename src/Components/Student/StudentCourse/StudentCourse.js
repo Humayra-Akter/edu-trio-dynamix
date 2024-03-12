@@ -116,7 +116,7 @@ const StudentCourse = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50">
+    <div className="bg-gradient-to-r from-slate-800 via-black to-slate-600">
       <div className="p-4 mx-10">
         <h1 className="text-2xl font-bold text-center uppercase text-blue-700 my-10">
           Courses

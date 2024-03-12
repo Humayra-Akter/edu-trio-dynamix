@@ -113,8 +113,8 @@ const StudentAssignment = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50">
-      <h1 className="text-2xl font-bold text-center uppercase text-primary mb-7 pt-10">
+    <div className="bg-gradient-to-r from-slate-800 via-black to-slate-600">
+      <h1 className="text-2xl font-bold text-center uppercase text-neutral mb-7 pt-10">
         Your Applied Projects
       </h1>
       <div className="grid grid-cols-1 ml-80">

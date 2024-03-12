@@ -87,7 +87,7 @@ const TeacherProject = () => {
   return (
     <div className="flex flex-wrap bg-gradient-to-r from-neutral via-blue-100 to-neutral">
       <div className="p-4 my-10 mx-10">
-        <h1 className="text-2xl font-bold text-center uppercase text-primary mb-4">
+        <h1 className="text-2xl font-bold text-center uppercase text-neutral mb-4">
           ALL Projects
         </h1>
         <div className="flex items-center justify-center my-5">

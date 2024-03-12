@@ -247,10 +247,10 @@ const TeacherResource = () => {
               className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 mb-4 px-4"
             >
               <div className="border bg-gradient-to-b from-neutral to-accent  border-gray-300 rounded p-4">
-                <h3 className="mb-2 text-center font-bold text-xl text-primary">
+                <h3 className="mb-2 text-center font-bold text-xl text-neutral">
                   {post.title}
                 </h3>
-                <h3 className="mb-2 text-center font-bold text-primary">
+                <h3 className="mb-2 text-center font-bold text-neutral">
                   Teacher name : {post.teacherName}
                 </h3>
                 <h3 className="mb-2 text-center font-bold text-white">

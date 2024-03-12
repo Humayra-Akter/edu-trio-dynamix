@@ -88,7 +88,7 @@ const AddProjects = () => {
     <div className="flex flex-wrap bg-gradient-to-r from-neutral via-blue-100 to-neutral">
       {/* Left half of the screen */}
       <div className="w-1/2 p-4 my-10 mx-10">
-        <h1 className="text-2xl font-bold text-center uppercase text-primary mb-4">
+        <h1 className="text-2xl font-bold text-center uppercase text-neutral mb-4">
           Search for Project by name
         </h1>
         <div className="flex flex-wrap justify-center">
@@ -230,7 +230,7 @@ const AddProjects = () => {
       {/* Right half of the screen */}
       <div className="w-1/3">
         <div className="max-w-2xl p-6 bg-gradient-to-t from-blue-100 to-yellow-50 border-2 border-accent my-20">
-          <h1 className="text-2xl font-semibold text-center uppercase text-primary mb-4">
+          <h1 className="text-2xl font-semibold text-center uppercase text-neutral mb-4">
             Add Project
           </h1>
           <form onSubmit={handleSubmit(handleAddProject)} className="space-y-4">

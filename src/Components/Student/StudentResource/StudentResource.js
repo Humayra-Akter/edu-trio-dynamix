@@ -11,8 +11,8 @@ const StudentResource = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50">
-      <h1 className="text-2xl font-bold text-center uppercase text-primary mb-10 pt-10">
+    <div className="bg-gradient-to-r from-slate-800 via-black to-slate-600">
+      <h1 className="text-2xl font-bold text-center uppercase text-neutral mb-10 pt-10">
         Available Resources
       </h1>
       <div className="flex flex-wrap justify-center">
@@ -28,8 +28,8 @@ const StudentResource = () => {
               </span>
               {resource.teacherName}
             </p>
-            <p className="text-primary font-bold">
-              <span className="text-primary font-bold">Grade:</span>
+            <p className="text-neutral font-bold">
+              <span className="text-neutral font-bold">Grade:</span>
               {resource.grade}
             </p>
             <p>

@@ -11,7 +11,7 @@ const StudentAnalytics = () => {
   };
 
   return (
-    <div className=" bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50">
+    <div className=" bg-gradient-to-r from-slate-800 via-black to-slate-600">
       <div>
         <div className="flex items-center justify-center pt-3 gap-7">
           <button

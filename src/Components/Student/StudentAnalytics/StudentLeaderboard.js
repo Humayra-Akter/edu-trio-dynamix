@@ -41,9 +41,9 @@ const StudentLeaderboard = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-slate-100 via-blue-200 to-yellow-50 mt-20 p-8">
+    <div className="bg-gradient-to-r from-slate-800 via-black to-slate-600 mt-20 p-8">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-center text-3xl font-bold text-primary mb-8">
+        <h2 className="text-center text-3xl font-bold text-neutral mb-8">
           Student Leaderboard
         </h2>
         {loading ? (
