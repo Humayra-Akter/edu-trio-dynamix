@@ -46,14 +46,14 @@ const MyCourses = () => {
   return (
     <div className="bg-gradient-to-r from-slate-800 via-black to-slate-600">
       <div className="flex justify-center items-center pt-14">
-        <div className="bg-white px-24 p-7">
+        <div className="bg-white mb-80 px-24 p-7">
           <div className="text-center">
             <h2 className="text-3xl text-accent capitalize font-bold">
               Courses Taken
             </h2>
           </div>
           <div className="lg:w-full lg:pt-12 gap-7 p-8 lg:flex">
-            <div className="card max-w-2xl flex items-center justify-center bg-gradient-to-b from-yellow-50 to-blue-300 shadow-xl">
+            <div className="card max-w-2xl flex items-center justify-center bg-gradient-to-b from-teal-50 to-slate-300 border-2 shadow-xl">
               {coursesTaken.map((course, index) => (
                 <div className="card-body" key={index}>
                   <div className="flex w-96">

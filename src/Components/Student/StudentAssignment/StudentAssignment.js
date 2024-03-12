@@ -114,7 +114,7 @@ const StudentAssignment = () => {
 
   return (
     <div className="bg-gradient-to-r from-slate-800 via-black to-slate-600">
-      <h1 className="text-2xl font-bold text-center uppercase text-accent mb-7 pt-10">
+      <h1 className="text-2xl font-bold text-center uppercase text-white mb-7 pt-10">
         Your Applied Projects
       </h1>
       <div className="grid grid-cols-1 ml-80">
@@ -123,63 +123,63 @@ const StudentAssignment = () => {
             appliedProjects && (
               <div
                 key={appliedProject?._id}
-                className="bg-gradient-to-b from-slate-100 to-blue-300 border-gray-300 rounded-lg p-4 m-6 w-2/3 shadow-md"
+                className="bg-gradient-to-b from-teal-50 to-slate-300 border-2 rounded-lg p-4 m-6 w-2/3 shadow-md"
               >
                 <div>
                   <h2 className="text-lg capitalize font-semibold mb-2">
                     {appliedProject.project.project}
                   </h2>
                   <p className="capitalize">
-                    <span className="text-md font-bold text-blue-700">
+                    <span className="text-md font-bold text-green-800">
                       Batch:
                     </span>{" "}
                     {appliedProject.project.batch}
                   </p>
                   <p className="capitalize">
-                    <span className="text-md font-bold text-blue-700">
+                    <span className="text-md font-bold text-green-800">
                       Class:
                     </span>{" "}
                     {appliedProject.project.grade}
                   </p>
                   <p className="capitalize">
-                    <span className="text-md font-bold text-blue-700">
+                    <span className="text-md font-bold text-green-800">
                       Subject:
                     </span>{" "}
                     {appliedProject.project.time}
                   </p>
                   <p className="capitalize">
-                    <span className="text-md font-bold text-blue-700">
+                    <span className="text-md font-bold text-green-800">
                       Type:
                     </span>{" "}
                     {appliedProject.project.type}
                   </p>
                   <p className="capitalize">
-                    <span className="text-md font-bold text-blue-700">
+                    <span className="text-md font-bold text-green-800">
                       Expected Outcome:
                     </span>{" "}
                     {appliedProject.project.expectedOutcome}
                   </p>
                   <p className="text-red-600">
-                    <span className="text-md font-bold text-blue-700">
+                    <span className="text-md font-bold text-green-800">
                       Remaining Days to Submit:
                     </span>{" "}
                     {getRemainingDays(appliedProject.project.submitLastDate)}{" "}
                     days
                   </p>
                   <p className="capitalize">
-                    <span className="text-md font-bold text-blue-700">
+                    <span className="text-md font-bold text-green-800">
                       Teacher Name:
                     </span>{" "}
                     {appliedProject.project.teacherName}
                   </p>
                   <p>
-                    <span className="text-md font-bold text-blue-700">
+                    <span className="text-md font-bold text-green-800">
                       Teacher Email:
                     </span>{" "}
                     {appliedProject.project.teacherEmail}
                   </p>
                   <p className="capitalize">
-                    <span className="text-md font-bold text-blue-700">
+                    <span className="text-md font-bold text-green-800">
                       Requirement:
                     </span>{" "}
                     {appliedProject.project.requirement}
@@ -201,7 +201,7 @@ const StudentAssignment = () => {
                       .map((file) => (
                         <div key={file._id}>
                           <p>
-                            <span className="text-md font-bold text-blue-700">
+                            <span className="text-md font-bold text-green-800">
                               Uploaded File:
                             </span>{" "}
                             <a

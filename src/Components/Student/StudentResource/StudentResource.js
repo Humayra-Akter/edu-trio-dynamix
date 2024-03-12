@@ -12,18 +12,18 @@ const StudentResource = () => {
 
   return (
     <div className="bg-gradient-to-r from-slate-800 via-black to-slate-600">
-      <h1 className="text-2xl font-bold text-center uppercase text-accent mb-10 pt-10">
+      <h1 className="text-2xl font-bold text-center uppercase text-white mb-10 pt-10">
         Available Resources
       </h1>
       <div className="flex flex-wrap justify-center">
         {resources.map((resource) => (
           <div
             key={resource._id}
-            className="bg-gradient-to-b from-slate-100 to-blue-300 border-gray-300 rounded-lg p-4 m-6 w-1/3 shadow-md"
+            className="bg-gradient-to-b from-teal-50 to-slate-300 border-gray-300 rounded-lg p-4 m-6 w-1/3 shadow-md"
           >
             <h2 className="text-lg font-semibold mb-2">{resource.title}</h2>
             <p>
-              <span className="text-md font-bold text-blue-700">
+              <span className="text-md font-bold text-green-800">
                 Teacher Name:
               </span>
               {resource.teacherName}
@@ -33,11 +33,11 @@ const StudentResource = () => {
               {resource.grade}
             </p>
             <p>
-              <span className="text-md font-bold text-blue-700">Subject:</span>
+              <span className="text-md font-bold text-green-800">Subject:</span>
               {resource.subject}
             </p>
             <p className="mb-5">
-              <span className="text-md font-bold text-blue-700">
+              <span className="text-md font-bold text-green-800">
                 Teacher Email:
               </span>
               {resource.teacherEmail}

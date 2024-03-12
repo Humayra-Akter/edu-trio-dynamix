@@ -105,66 +105,68 @@ const StudentCollaboration = () => {
           <div className="flex items-center justify-center">
             <MyCollaboration />
           </div>{" "}
-          <h1 className="text-2xl font-bold text-center uppercase text-accent mb-4">
+          <h1 className="text-2xl font-bold text-center uppercase text-white mb-4">
             ALL Projects
           </h1>
           <div className="flex flex-wrap justify-center">
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="bg-gradient-to-b from-slate-100 to-blue-300  border-gray-300 rounded-lg p-4 m-6 shadow-md"
+                className="bg-gradient-to-b from-teal-50 to-slate-300  border-2 rounded-lg p-4 m-6 shadow-md"
               >
                 <h2 className="text-lg font-semibold mb-2">
                   {project.project}
                 </h2>
                 <p>
-                  <span className="text-md font-bold text-blue-700">
+                  <span className="text-md font-bold text-green-800">
                     Batch:
                   </span>{" "}
                   {project.batch}
                 </p>
                 <p>
-                  <span className="text-md font-bold text-blue-700">
+                  <span className="text-md font-bold text-green-800">
                     Class:
                   </span>{" "}
                   {project.grade}
                 </p>
                 <p>
-                  <span className="text-md font-bold text-blue-700">
+                  <span className="text-md font-bold text-green-800">
                     Subject:
                   </span>{" "}
                   {project.time}
                 </p>
                 <p className="capitalize font-bold">
-                  <span className="text-md font-bold text-blue-700">Type:</span>{" "}
+                  <span className="text-md font-bold text-green-800">
+                    Type:
+                  </span>{" "}
                   {project.type}
                 </p>
                 <p>
-                  <span className="text-md font-bold text-blue-700">
+                  <span className="text-md font-bold text-green-800">
                     Expected Outcome:
                   </span>{" "}
                   {project.expectedOutcome}
                 </p>
                 <p>
-                  <span className="text-md font-bold text-blue-700">
+                  <span className="text-md font-bold text-green-800">
                     Skills:
                   </span>{" "}
                   {selectedProject?.skills ? selectedProject.skills : "n/a"}
                 </p>
                 <p>
-                  <span className="text-md font-bold text-blue-700">
+                  <span className="text-md font-bold text-green-800">
                     Last day of Submit:
                   </span>{" "}
                   {project.submitLastDate}
                 </p>
                 <p>
-                  <span className="text-md font-bold text-blue-700">
+                  <span className="text-md font-bold text-green-800">
                     Teacher Name:
                   </span>{" "}
                   {project.teacherName}
                 </p>
                 <p>
-                  <span className="text-md font-bold text-blue-700">
+                  <span className="text-md font-bold text-green-800">
                     Teacher Email:
                   </span>{" "}
                   {project.teacherEmail}
@@ -181,7 +183,7 @@ const StudentCollaboration = () => {
                       return (
                         <div key={collab._id}>
                           <p>
-                            <span className="text-md font-bold text-blue-700">
+                            <span className="text-md font-bold text-green-800">
                               Collaborator:
                             </span>{" "}
                             {collab.student.name}
@@ -386,67 +388,67 @@ const StudentCollaboration = () => {
                 {selectedProject && (
                   <div
                     key={selectedProject.id}
-                    className="bg-gradient-to-b from-slate-100 to-blue-300  border-gray-300 rounded-lg p-4 m-6 w-96 shadow-md"
+                    className="bg-gradient-to-b from-teal-50 to-slate-300  border-2 rounded-lg p-4 m-6 w-96 shadow-md"
                   >
                     <h2 className="text-lg font-semibold mb-2">
                       {selectedProject.project}
                     </h2>
                     <p>
-                      <span className="text-md font-bold text-blue-700">
+                      <span className="text-md font-bold text-green-800">
                         Batch:
                       </span>{" "}
                       {selectedProject.batch}
                     </p>
                     <p>
-                      <span className="text-md font-bold text-blue-700">
+                      <span className="text-md font-bold text-green-800">
                         Class:
                       </span>{" "}
                       {selectedProject.grade}
                     </p>
                     <p>
-                      <span className="text-md font-bold text-blue-700">
+                      <span className="text-md font-bold text-green-800">
                         Subject:
                       </span>{" "}
                       {selectedProject.time}
                     </p>{" "}
                     <p>
-                      <span className="text-md font-bold text-blue-700">
+                      <span className="text-md font-bold text-green-800">
                         Skills:
                       </span>{" "}
                       {selectedProject?.skills ? selectedProject.skills : "n/a"}
                     </p>
                     <p className="capitalize font-bold">
-                      <span className="text-md font-bold text-blue-700">
+                      <span className="text-md font-bold text-green-800">
                         Type:
                       </span>{" "}
                       {selectedProject.type}
                     </p>
                     <p>
-                      <span className="text-md font-bold text-blue-700">
+                      <span className="text-md font-bold text-green-800">
                         Expected Outcome:
                       </span>{" "}
                       {selectedProject.expectedOutcome}
                     </p>
                     <p>
-                      <span className="text-md font-bold text-blue-700">
+                      <span className="text-md font-bold text-green-800">
                         Last day of Submit:
                       </span>{" "}
                       {selectedProject.submitLastDate}
                     </p>
                     <p>
-                      <span className="text-md font-bold text-blue-700">
+                      <span className="text-md font-bold text-green-800">
                         Teacher Name:
                       </span>{" "}
                       {selectedProject.teacherName}
                     </p>{" "}
                     <p>
-                      <span className="text-md font-bold text-blue-700">
+                      <span className="text-md font-bold text-green-800">
                         Teacher Email:
                       </span>{" "}
                       {selectedProject.teacherEmail}
                     </p>{" "}
                     <p>
-                      <span className="text-md font-bold text-blue-700">
+                      <span className="text-md font-bold text-green-800">
                         Requirement:
                       </span>{" "}
                       {selectedProject.requirement}

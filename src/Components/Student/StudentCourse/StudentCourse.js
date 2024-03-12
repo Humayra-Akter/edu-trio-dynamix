@@ -118,7 +118,7 @@ const StudentCourse = () => {
   return (
     <div className="bg-gradient-to-r from-slate-800 via-black to-slate-600">
       <div className="p-4 mx-10">
-        <h1 className="text-2xl font-bold text-center uppercase text-blue-700 my-10">
+        <h1 className="text-2xl font-bold text-center uppercase text-white my-10">
           Courses
         </h1>
         <div className="flex items-center justify-center">
@@ -218,34 +218,36 @@ const StudentCourse = () => {
           {courses.map((course) => (
             <div
               key={course.id}
-              className="bg-gradient-to-t from-blue-200 to-blue-50 border border-gray-300 rounded-lg p-4 m-4 w-96 shadow-md"
+              className="bg-gradient-to-t from-slate-200 to-teal-50 border border-gray-300 rounded-lg p-4 m-4 w-96 shadow-md"
             >
               <h2 className="text-lg font-semibold mb-2">{course.course}</h2>
               <p>
-                <span className="text-md font-medium text-blue-700">
+                <span className="text-md font-medium text-green-800">
                   Batch:
                 </span>{" "}
                 {course.batch}
               </p>
               <p>
                 {" "}
-                <span className="text-md font-medium text-blue-700">
+                <span className="text-md font-medium text-green-800">
                   Class:
                 </span>{" "}
                 {course.grade}
               </p>
               <p>
-                <span className="text-md font-medium text-blue-700">Time:</span>{" "}
+                <span className="text-md font-medium text-green-800">
+                  Time:
+                </span>{" "}
                 {course.time}
               </p>
               <p>
-                <span className="text-md font-medium text-blue-700">
+                <span className="text-md font-medium text-green-800">
                   Teacher Name:
                 </span>{" "}
                 {course.teacherName}
               </p>
               <p>
-                <span className="text-md font-medium text-blue-700">
+                <span className="text-md font-medium text-green-800">
                   Teacher Email:
                 </span>{" "}
                 {course.teacherEmail}

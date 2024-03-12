@@ -20,7 +20,7 @@ const TeacherViewProjects = () => {
 
   return (
     <div className="p-6 bg-gradient-to-r from-slate-800 via-black to-slate-600">
-      <h1 className="text-3xl text-center text-accent font-bold mb-7">
+      <h1 className="text-3xl text-center text-white font-bold mb-7">
         Uploaded Files
       </h1>
       {uploadedFiles.length > 0 ? (
@@ -28,49 +28,49 @@ const TeacherViewProjects = () => {
           {uploadedFiles.map((file) => (
             <div
               key={file._id}
-              className="border p-4  bg-gradient-to-b from-yellow-50 to-blue-300  border-gray-300 rounded-lg shadow-md"
+              className="border p-4  bg-gradient-to-b from-teal-50 to-slate-300  border-gray-300 rounded-lg shadow-md"
             >
               <h2 className="text-xl font-semibold mb-2">
                 {file.originalFileName}
               </h2>
               <p>
-                <span className="text-md font-bold text-blue-700">Batch:</span>{" "}
+                <span className="text-md font-bold text-green-800">Batch:</span>{" "}
                 {file.userEmail.batch}
               </p>
               <p>
-                <span className="text-md font-bold text-blue-700">Grade:</span>{" "}
+                <span className="text-md font-bold text-green-800">Grade:</span>{" "}
                 {file.userEmail.grade}
               </p>
               <p>
-                <span className="text-md font-bold text-blue-700">
+                <span className="text-md font-bold text-green-800">
                   Subject:
                 </span>{" "}
                 {file.userEmail.subject}
               </p>
               <p>
-                <span className="text-md font-bold text-blue-700">Type:</span>{" "}
+                <span className="text-md font-bold text-green-800">Type:</span>{" "}
                 {file.userEmail.type}
               </p>
               <p>
-                <span className="text-md font-bold text-blue-700">
+                <span className="text-md font-bold text-green-800">
                   Teacher Name:
                 </span>{" "}
                 {file.userEmail.teacherName}
               </p>
               <p>
-                <span className="text-md font-bold text-blue-700">
+                <span className="text-md font-bold text-green-800">
                   Teacher Email:
                 </span>{" "}
                 {file.userEmail.teacherEmail}
               </p>
               <p>
-                <span className="text-md font-bold text-blue-700">
+                <span className="text-md font-bold text-green-800">
                   Expected Outcome:
                 </span>{" "}
                 {file.userEmail.expectedOutcome}
               </p>
               <p>
-                <span className="text-md font-bold text-blue-700">
+                <span className="text-md font-bold text-green-800">
                   Requirement:
                 </span>{" "}
                 {file.userEmail.requirement}
@@ -80,7 +80,7 @@ const TeacherViewProjects = () => {
                   href={file.cloudinaryUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white font-black underline"
+                  className="text-black font-black underline"
                 >
                   View File
                 </a>

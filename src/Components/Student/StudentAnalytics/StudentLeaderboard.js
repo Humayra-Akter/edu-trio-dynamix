@@ -43,7 +43,7 @@ const StudentLeaderboard = () => {
   return (
     <div className="bg-gradient-to-r from-slate-800 via-black to-slate-600 mt-20 p-8">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-center text-3xl font-bold text-accent mb-8">
+        <h2 className="text-center text-3xl font-bold text-white mb-8">
           Student Leaderboard
         </h2>
         {loading ? (
@@ -60,9 +60,11 @@ const StudentLeaderboard = () => {
             <tbody>
               {students.map((student, index) => (
                 <tr key={student._id} className="border-b">
-                  <td className="py-2 px-4">{index + 1}</td>
-                  <td className="py-2 px-4 capitalize">{student.name}</td>
-                  <td className="py-2 px-4">
+                  <td className="py-2 text-white px-4">{index + 1}</td>
+                  <td className="py-2 px-4 text-white capitalize">
+                    {student.name}
+                  </td>
+                  <td className="py-2 text-white px-4">
                     {student.rewards.some(
                       (reward) => reward.studentEmail === student.email
                     ) ? (

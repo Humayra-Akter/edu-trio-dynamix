@@ -42,7 +42,7 @@ const StudentReward = () => {
       <div className="lg:w-1/2 lg:pt-28 p-8">
         <div>
           <div className="card-body">
-            <h2 className="text-center text-2xl text-accent font-extrabold mb-4">
+            <h2 className="text-center text-2xl text-white font-extrabold mb-4">
               Your Rewards
             </h2>
             {rewards.map((reward) => (
@@ -50,29 +50,29 @@ const StudentReward = () => {
                 key={reward._id}
                 className="bg-white shadow-md p-4 rounded-md mb-4"
               >
-                <h2 className="text-lg text-md font-bold text-blue-700">
+                <h2 className="text-lg text-md font-bold text-green-800">
                   {reward.rewardTitle}
                 </h2>
                 <p className="text-gray-600 mt-2">
-                  <span className="text-md font-bold text-blue-700">
+                  <span className="text-md font-bold text-green-800">
                     Student:
                   </span>{" "}
                   {reward.studentName}
                 </p>
                 <p className="text-gray-600">
-                  <span className="text-md font-bold text-blue-700">
+                  <span className="text-md font-bold text-green-800">
                     Teacher:
                   </span>{" "}
                   {reward.teacherEmail}
                 </p>
                 <p className="text-gray-600">
-                  <span className="text-md font-bold text-blue-700">
+                  <span className="text-md font-bold text-green-800">
                     Description:
                   </span>{" "}
                   {reward.description}
                 </p>
                 <p className="text-gray-600">
-                  <span className="text-md font-bold text-blue-700">
+                  <span className="text-md font-bold text-green-800">
                     Points:
                   </span>{" "}
                   {reward.points}
