@@ -1,6 +1,6 @@
-import React, { Children } from "react";
+import React from "react";
 
-const Button = () => {
+const Button = ({ children }) => {
   return (
     <button
       style={{
@@ -32,7 +32,7 @@ const Button = () => {
           textShadow: "0 0 4px white",
         }}
       >
-        {Children}
+        {children}
       </strong>
       <div
         id="container-stars"

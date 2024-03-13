@@ -1,9 +1,9 @@
 import React from "react";
 import "./Landing.css";
-import bg from "../../images/landing4.jpg";
+import bg from "../../images/landing.jpg";
 import student from "../../images/student.png";
 import teacher from "../../images/teacher.png";
-import landing from "../../images/landing.png";
+import landing from "../../images/bg1.png";
 import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 
@@ -222,15 +222,23 @@ const Landing = () => {
           </div>
         </div>
       </div>
-      {/* <img
+      <img
         src={landing}
-        className="w-full md:w-1/2 h-auto"
+        className="w-full md:w-1/2 h-auto relative filter saturate-150 brightness-110"
         alt="landing image"
-      /> */}
+      />
+
       {/* Modal */}
-      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box">
-          <h3 className="font-bold text-accent text-center text-lg">
+      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle ">
+        <div
+          style={{
+            backgroundImage: `url(${bg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          className="modal-box border-4"
+        >
+          <h3 className="font-bold text-white text-center text-lg">
             Choose Your Role
           </h3>
 
