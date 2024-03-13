@@ -1,6 +1,6 @@
 import React from "react";
 import "./Landing.css";
-import bg from "../../images/patternpad.png";
+import bg from "../../images/landing2.jpg";
 import student from "../../images/student.png";
 import teacher from "../../images/teacher.png";
 import landing from "../../images/landing.png";
