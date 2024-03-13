@@ -1,6 +1,6 @@
 import React from "react";
 import "./Landing.css";
-import bg from "../../images/landing2.jpg";
+import bg from "../../images/landing4.jpg";
 import student from "../../images/student.png";
 import teacher from "../../images/teacher.png";
 import landing from "../../images/landing.png";
@@ -24,13 +24,10 @@ const Landing = () => {
     >
       <div className="flex justify-center items-center">
         <div className="text-center md:w mx-auto md:mx-0 md:mr-8">
-          <h1
-            style={{ fontFamily: "cursive" }}
-            className="lg:text-4xl text-blue-900 font-bold mb-4"
-          >
+          <h1 className="lg:text-4xl text-white font-bold mb-4">
             Welcome to EduTrio Dynamix
           </h1>
-          <h2 className="text-lg text-yellow-700 font-bold mb-8">
+          <h2 className="text-lg text-teal-200 font-bold mb-8">
             <TypeAnimation
               sequence={[
                 "Empowering Collaboration & Innovation Across Disciplines",
@@ -225,11 +222,11 @@ const Landing = () => {
           </div>
         </div>
       </div>
-      <img
+      {/* <img
         src={landing}
         className="w-full md:w-1/2 h-auto"
         alt="landing image"
-      />
+      /> */}
       {/* Modal */}
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
