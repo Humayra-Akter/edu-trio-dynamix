@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { MultiSelect } from "react-multi-select-component";
+import { Link } from "react-router-dom";
+import Button from "../../Shared/Button";
 
 const AddCourse = () => {
   const {
@@ -47,7 +49,13 @@ const AddCourse = () => {
 
     fetch("http://localhost:5000/teacher/course")
       .then((res) => res.json())
-      .then((data) => setCourses(data));
+      .then((data) => {
+        // Filter courses where the teacher's email matches the logged user's email
+        const userCourses = data.filter(
+          (course) => course.teacherEmail === userEmail
+        );
+        setCourses(userCourses);
+      });
   }, []);
 
   const handleAddCourse = async (data) => {
@@ -89,7 +97,8 @@ const AddCourse = () => {
   };
 
   return (
-    <div className="flex items-center justify-center bg-gradient-to-r from-slate-800 via-black to-slate-600">
+    <div className="flex flex-wrap px-20 gap-20 bg-gradient-to-r from-slate-800 via-black to-slate-600">
+      {/* add course form  */}
       <div className="w-1/3 p-6 bg-gradient-to-r from-neutral via-teal-50 to-slate-100 border-2 border-accent my-24">
         <h1 className="text-2xl font-bold text-center uppercase text-accent mb-4">
           Add Course
@@ -179,6 +188,64 @@ const AddCourse = () => {
             </button>
           </div>
         </form>
+      </div>
+      {/* my courses  */}
+      <div className="w-max p-6">
+        <h1 className="text-2xl mt-20 font-bold text-center uppercase text-white mb-4">
+          My Courses
+        </h1>
+        {courses.length === 0 ? (
+          <p className="text-center text-gray-500">No course added yet</p>
+        ) : (
+          <div className="grid grid-cols-2 gap-10 justify-around">
+            {courses.map((course) => (
+              <li
+                className="bg-gradient-to-b from-teal-50 to-slate-400  border-2 rounded-lg p-4 m-4 w-80 shadow-md"
+                key={course.id}
+              >
+                <span>{course.name}</span> - <span>{course.teacherName}</span>{" "}
+                <span className="text-lg capitalize font-semibold mb-2">
+                  {course.course}
+                </span>
+                <p>
+                  <span className="text-md font-bold text-blue-700">
+                    Batch:
+                  </span>{" "}
+                  {course.batch}
+                </p>
+                <p>
+                  <span className="text-md font-bold text-blue-700">
+                    Class:
+                  </span>{" "}
+                  {course.grade}
+                </p>
+                <p>
+                  <span className="text-md font-bold text-blue-700">Year:</span>{" "}
+                  {course.year}
+                </p>
+                {course.days && (
+                  <p>
+                    <span className="text-md font-bold text-blue-700">
+                      Days:
+                    </span>{" "}
+                    {course.days.join(", ")}
+                  </p>
+                )}
+                {userEmail === course.teacherEmail && (
+                  <div className="flex flex-wrap ml-10 mt-4">
+                    <Link to="/board">
+                      <Button>TAKE CLASS</Button>
+                    </Link>
+
+                    <Link to="/teacherCourseViewStudent">
+                      <Button> VIEW STUDENTS</Button>
+                    </Link>
+                  </div>
+                )}
+              </li>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

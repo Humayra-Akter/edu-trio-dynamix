@@ -35,29 +35,6 @@ const TeacherCourse = () => {
       .then((data) => setCourses(data));
   }, []);
 
-  const handleAddCourse = async (data) => {
-    const { name, email } = loggedTeacher;
-    const courseData = {
-      ...data,
-      teacherName: name,
-      teacherEmail: email,
-    };
-
-    const response = await fetch("http://localhost:5000/teacher/course", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(courseData),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        setCourses([...courses, result]);
-      });
-  };
-  console.log(courses);
-
   return (
     <div className="flex flex-wrap bg-gradient-to-r from-slate-800 via-black to-slate-600">
       <div className="p-4 my-10 mx-10">
@@ -73,9 +50,11 @@ const TeacherCourse = () => {
           {courses.map((course) => (
             <div
               key={course.id}
-              className="bg-gradient-to-b from-teal-50 to-slate-400  border-gray-300 rounded-lg p-4 m-4 w-80 shadow-md"
+              className="bg-gradient-to-b from-teal-50 to-slate-400  border-2 rounded-lg p-4 m-4 w-80 shadow-md"
             >
-              <h2 className="text-lg font-semibold mb-2">{course.course}</h2>
+              <h2 className="text-lg capitalize font-semibold mb-2">
+                {course.course}
+              </h2>
               <p>
                 <span className="text-md font-bold text-blue-700">Batch:</span>{" "}
                 {course.batch}
@@ -85,32 +64,29 @@ const TeacherCourse = () => {
                 {course.grade}
               </p>
               <p>
-                <span className="text-md font-bold text-blue-700">Time:</span>{" "}
-                {course.time}
+                <span className="text-md font-bold text-blue-700">Year:</span>{" "}
+                {course.year}
               </p>
+              {course.days && (
+                <p>
+                  <span className="text-md font-bold text-blue-700">Days:</span>{" "}
+                  {course.days.join(", ")}
+                </p>
+              )}
               <p>
                 <span className="text-md font-bold text-blue-700">
                   Teacher Name:
                 </span>{" "}
                 {course.teacherName}
               </p>{" "}
+              
               <p>
                 <span className="text-md font-bold text-blue-700">
                   Teacher Email:
                 </span>{" "}
                 {course.teacherEmail}
               </p>
-              {userEmail === course.teacherEmail && (
-                <div className="flex flex-wrap ml-10 mt-4">
-                  <Link to="/board">
-                    <Button>TAKE CLASS</Button>
-                  </Link>
-
-                  <Link to="/teacherCourseViewStudent">
-                    <Button> VIEW STUDENTS</Button>
-                  </Link>
-                </div>
-              )}
+              
             </div>
           ))}
         </div>
