@@ -30,6 +30,7 @@ import TeacherViewProjects from "./Components/Teacher/TeacherViewProjects/Teache
 import About from "./Components/About/About";
 import Chat from "./Components/Chat/Chat";
 import CodeEditor from "./Components/Student/CodeEditor/CodeEditor";
+import AddCourse from "./Components/Teacher/TeacherCourse/AddCourse";
 
 function App() {
   const userRole = localStorage.getItem("userRole");
@@ -51,6 +52,7 @@ function App() {
           <>
             <Route path="/teacherProfile" element={<TeacherProfile />} />
             <Route path="/teacherCourse" element={<TeacherCourse />} />
+            <Route path="/teacherAddCourse" element={<AddCourse />} />
             <Route
               path="/teacherCourseViewStudent"
               element={<CourseViewStudent />}

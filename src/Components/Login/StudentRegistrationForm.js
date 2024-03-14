@@ -63,12 +63,9 @@ const StudentRegistrationForm = () => {
             gender: data.gender,
             institution: data.institution,
             gradeYear: data.gradeYear,
-            city: data.city,
-            country: data.country,
             phoneNumber: data.phoneNumber,
             image: imgData.data.url,
             termsConditions: data.termsConditions,
-            privacyPolicy: data.privacyPolicy,
           };
           console.log(student);
           fetch("http://localhost:5000/student", {
@@ -103,7 +100,7 @@ const StudentRegistrationForm = () => {
       <div className="lg:w-2/3">
         <img src={student} className="w-full p-20 h-auto" alt="Login" />
       </div>
-      <div className="lg:w-2/3 lg:pt-28 p-8">
+      <div className="lg:w-2/3 lg:pt-20 p-8">
         <div className="card max-w-2xl bg-gradient-to-r from-neutral via-yellow-50 to-blue-50 shadow-xl">
           <div className="card-body">
             <h1 className="text-center text-2xl text-accent font-extrabold mb-4">
@@ -328,40 +325,6 @@ const StudentRegistrationForm = () => {
               </div>
 
               <div className="flex gap-7">
-                {/* City */}
-                <div className="form-control w-full">
-                  <label className="label">
-                    <span className="label-text text-green-800 font-bold text-md">
-                      City
-                    </span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="City"
-                    name="city"
-                    className="input input-sm input-bordered w-full"
-                    {...register("city")}
-                  />
-                </div>
-
-                {/* Country */}
-                <div className="form-control w-full">
-                  <label className="label">
-                    <span className="label-text text-green-800 font-bold text-md">
-                      Country
-                    </span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Country"
-                    name="country"
-                    className="input input-sm input-bordered w-full"
-                    {...register("country")}
-                  />
-                </div>
-              </div>
-
-              <div className="flex gap-7">
                 {/* Phone Number */}
                 <div className="form-control w-full">
                   <label className="label">
@@ -407,56 +370,29 @@ const StudentRegistrationForm = () => {
                 </div>
               </div>
 
-              <div className="flex gap-7">
-                {/* Terms and Conditions */}
-                <div className="form-control w-full">
-                  <label className="label flex items-center">
-                    <input
-                      type="checkbox"
-                      name="termsConditions"
-                      className="checkbox checkbox-sm"
-                      {...register("termsConditions", {
-                        required: true,
-                      })}
-                    />
-                    <span className="ml-2">
-                      I accept the{" "}
-                      <Link to="/terms" className="text-accent">
-                        Terms and Conditions
-                      </Link>
-                    </span>
-                  </label>
-                  {errors.termsConditions && (
-                    <p className="text-red-500 text-xs mt-1">
-                      You must accept the Terms and Conditions
-                    </p>
-                  )}
-                </div>
-
-                {/* Privacy Policy */}
-                <div className="form-control w-full">
-                  <label className="label flex items-center">
-                    <input
-                      type="checkbox"
-                      name="privacyPolicy"
-                      className="checkbox checkbox-sm"
-                      {...register("privacyPolicy", {
-                        required: true,
-                      })}
-                    />
-                    <span className="ml-2">
-                      I accept the{" "}
-                      <Link to="/privacy" className="text-accent">
-                        Privacy Policy
-                      </Link>
-                    </span>
-                  </label>
-                  {errors.privacyPolicy && (
-                    <p className="text-red-500 text-xs mt-1">
-                      You must accept the Privacy Policy
-                    </p>
-                  )}
-                </div>
+              {/* Terms and Conditions */}
+              <div className="form-control w-full">
+                <label className="label flex items-center">
+                  <input
+                    type="checkbox"
+                    name="termsConditions"
+                    className="checkbox checkbox-sm"
+                    {...register("termsConditions", {
+                      required: true,
+                    })}
+                  />
+                  <span className="ml-2">
+                    I accept the{" "}
+                    <Link to="/terms" className="text-accent">
+                      Terms and Conditions
+                    </Link>
+                  </span>
+                </label>
+                {errors.termsConditions && (
+                  <p className="text-red-500 text-xs mt-1">
+                    You must accept the Terms and Conditions
+                  </p>
+                )}
               </div>
 
               <div className="flex justify-center items-center mt-7">
