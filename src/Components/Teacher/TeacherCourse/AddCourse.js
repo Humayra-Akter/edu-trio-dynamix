@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import Button from "../../Shared/Button";
+import { toast } from "react-toastify";
 import { MultiSelect } from "react-multi-select-component";
 
 const AddCourse = () => {
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
@@ -52,6 +52,15 @@ const AddCourse = () => {
 
   const handleAddCourse = async (data) => {
     const { name, email } = loggedTeacher;
+    const currentYear = new Date().getFullYear();
+
+    if (data.year !== currentYear.toString()) {
+      toast.warning(
+        "The specified year does not match the current year. Please enter the correct year."
+      );
+      return;
+    }
+
     const courseData = {
       ...data,
       teacherName: name,
@@ -68,19 +77,25 @@ const AddCourse = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         setCourses([...courses, result]);
+        resetFormFields();
+        toast.success("Course added successfully!");
       });
-    console.log(courseData);
+  };
+
+  const resetFormFields = () => {
+    setSelectedDays([]);
+    reset();
   };
 
   return (
     <div className="flex items-center justify-center bg-gradient-to-r from-slate-800 via-black to-slate-600">
       <div className="w-1/3 p-6 bg-gradient-to-r from-neutral via-teal-50 to-slate-100 border-2 border-accent my-24">
-        <h1 className="text-2xl font-semibold text-center uppercase text-accent mb-4">
+        <h1 className="text-2xl font-bold text-center uppercase text-accent mb-4">
           Add Course
         </h1>
         <form onSubmit={handleSubmit(handleAddCourse)} className="space-y-4">
+          {/* course  */}
           <div>
             <label className="label-text text-green-800 font-bold mb-2">
               Course:
@@ -100,7 +115,7 @@ const AddCourse = () => {
               <span className="text-red-500">This field is required</span>
             )}
           </div>
-
+          {/* batch  */}
           <div>
             <label className="label-text text-green-800 font-bold mb-2">
               Batch:
@@ -114,6 +129,21 @@ const AddCourse = () => {
               <span className="text-red-500">This field is required</span>
             )}
           </div>
+          {/* year  */}
+          <div>
+            <label className="label-text text-green-800 font-bold mb-2">
+              Year:
+            </label>
+            <input
+              type="text"
+              {...register("year", { required: true })}
+              className="mb-2 p-2 w-full border border-gray-300 rounded"
+            />
+            {errors.year && (
+              <span className="text-red-500">This field is required</span>
+            )}
+          </div>
+          {/* class  */}
           <div>
             <label className="label-text text-green-800 font-bold mb-2">
               Class:
@@ -131,7 +161,7 @@ const AddCourse = () => {
               <span className="text-red-500">This field is required</span>
             )}
           </div>
-          {/* Subjects */}
+          {/* days */}
           <div className="form-control w-full">
             <label className="label">
               <span className="label-text text-green-800 font-bold">Days</span>
@@ -143,7 +173,6 @@ const AddCourse = () => {
               labelledBy="Select days"
             />{" "}
           </div>
-
           <div className="flex items-center justify-center">
             <button type="submit" className="custom-btn">
               ADD COURSE
