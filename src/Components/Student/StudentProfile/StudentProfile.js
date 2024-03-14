@@ -113,7 +113,7 @@ const StudentProfile = () => {
 
             <div className="card rounded-full w-64 h-64 p-3 bg-secondary shadow-xl">
               <img
-                src={loggedStudent?.profilePicture}
+                src={loggedStudent?.image}
                 alt="user"
                 className="w-60 h-60 rounded-full mb-4 mx-auto"
               />

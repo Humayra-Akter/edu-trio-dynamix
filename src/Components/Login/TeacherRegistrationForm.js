@@ -43,21 +43,21 @@ const TeacherRegistrationForm = () => {
     { label: "Mathematics", value: "mathematics" },
     { label: "Science", value: "science" },
     { label: "English", value: "english" },
-    // Add more subjects as needed
+    { label: "Physics", value: "physics" },
+    { label: "Chemistry", value: "chemistry" },
+    { label: "Biology", value: "biology" },
   ];
 
   const educationLevelOptions = [
-    { label: "High School", value: "high_school" },
     { label: "Bachelor's Degree", value: "bachelors_degree" },
     { label: "Master's Degree", value: "masters_degree" },
-    // Add more education levels as needed
+    { label: "PHD", value: "phd" },
   ];
 
   const professionalTitleOptions = [
-    { label: "Teacher", value: "teacher" },
     { label: "Professor", value: "professor" },
+    { label: "Lecturer", value: "lecturer" },
     { label: "Instructor", value: "instructor" },
-    // Add more professional titles as needed
   ];
 
   // Function to close the success modal
@@ -175,184 +175,192 @@ const TeacherRegistrationForm = () => {
       <div className="lg:w-2/3">
         <img src={teacher} className="w-full p-20 h-auto" alt="Login" />
       </div>
-      <div className="lg:w-2/3 lg:pt-28 p-8">
-        <div className="card max-w-2xl bg-gradient-to-r from-neutral via-yellow-50 to-blue-50 shadow-xl">
+      <div className="lg:w-2/3 lg:pt-20 p-8">
+        <div className="card max-w-2xl bg-gradient-to-r from-neutral via-teal-50 to-slate-50 shadow-xl">
           <div className="card-body">
             <h1 className="text-center text-2xl text-accent font-extrabold mb-4">
               Teacher Registration
             </h1>
 
             <form onSubmit={handleSubmit(handleAddTeacher)}>
-              {/* Name field */}
-              <div className="form-control w-full">
-                <label className="label">
-                  <span className="label-text text-green-800 font-bold text-md">
-                    Name
-                  </span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  name="name"
-                  className="input input-sm input-bordered w-full"
-                  {...register("name", {
-                    required: {
-                      value: true,
-                      message: "Name is required",
-                    },
-                  })}
-                />
-                <label>
-                  {errors.name?.type === "required" && (
-                    <span className="text-red-500 text-xs mt-1">
-                      {errors.name.message}
+              <div className="flex gap-7">
+                {/* Name field */}
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text text-green-800 font-bold text-md">
+                      Name
                     </span>
-                  )}
-                </label>
-              </div>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    name="name"
+                    className="input input-sm input-bordered w-full"
+                    {...register("name", {
+                      required: {
+                        value: true,
+                        message: "Name is required",
+                      },
+                    })}
+                  />
+                  <label>
+                    {errors.name?.type === "required" && (
+                      <span className="text-red-500 text-xs mt-1">
+                        {errors.name.message}
+                      </span>
+                    )}
+                  </label>
+                </div>
 
-              {/* Email field */}
-              <div className="form-control w-full">
-                <label className="label">
-                  <span className="label-text text-green-800 font-bold text-md">
-                    Email
-                  </span>
-                </label>
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  name="email"
-                  className="input input-sm input-bordered w-full"
-                  {...register("email", {
-                    required: {
-                      value: true,
-                      message: "Email is required",
-                    },
-                    pattern: {
-                      value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                      message: "Provide a valid email",
-                    },
-                  })}
-                />
-                <label>
-                  {errors.email?.type === "required" && (
-                    <span className="text-red-500 text-xs mt-1">
-                      {errors.email.message}
+                {/* Email field */}
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text text-green-800 font-bold text-md">
+                      Email
                     </span>
-                  )}
-                  {errors.email?.type === "pattern" && (
-                    <span className="text-red-500 text-xs mt-1">
-                      {errors.email.message}
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="Your email"
+                    name="email"
+                    className="input input-sm input-bordered w-full"
+                    {...register("email", {
+                      required: {
+                        value: true,
+                        message: "Email is required",
+                      },
+                      pattern: {
+                        value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                        message: "Provide a valid email",
+                      },
+                    })}
+                  />
+                  <label>
+                    {errors.email?.type === "required" && (
+                      <span className="text-red-500 text-xs mt-1">
+                        {errors.email.message}
+                      </span>
+                    )}
+                    {errors.email?.type === "pattern" && (
+                      <span className="text-red-500 text-xs mt-1">
+                        {errors.email.message}
+                      </span>
+                    )}
+                  </label>
+                </div>
+              </div>
+
+              <div className="flex gap-7">
+                {/* Subjects */}
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text text-green-800 font-bold text-md">
+                      Subjects
                     </span>
-                  )}
-                </label>
-              </div>
+                  </label>
+                  <MultiSelect
+                    options={subjectOptions}
+                    value={selectedSubjects}
+                    onChange={handleSubjectsChange}
+                    labelledBy="Select subjects"
+                  />
+                </div>
 
-              {/* Subjects */}
-              <div className="form-control w-full">
-                <label className="label">
-                  <span className="label-text text-green-800 font-bold text-md">
-                    Subjects
-                  </span>
-                </label>
-                <MultiSelect
-                  options={subjectOptions}
-                  value={selectedSubjects}
-                  onChange={handleSubjectsChange}
-                  labelledBy="Select subjects"
-                />
-              </div>
-
-              {/* Gender */}
-              <div className="form-control w-full">
-                <label className="label">
-                  <span className="label-text text-green-800 font-bold text-md">
-                    Gender
-                  </span>
-                </label>
-                <Select
-                  value={selectedGender}
-                  options={genderOptions}
-                  onChange={handleGenderChange}
-                  isSearchable={false}
-                  placeholder="Select Gender"
-                />
-              </div>
-
-              {/* Education Level */}
-              <div className="form-control w-full">
-                <label className="label">
-                  <span className="label-text text-green-800 font-bold text-md">
-                    Education Level
-                  </span>
-                </label>
-                <Select
-                  value={selectedEducationLevel}
-                  options={educationLevelOptions}
-                  onChange={handleEducationLevelChange}
-                  isSearchable={false}
-                  placeholder="Select Education Level"
-                />
-              </div>
-
-              {/* Professional Title */}
-              <div className="form-control w-full">
-                <label className="label">
-                  <span className="label-text text-green-800 font-bold text-md">
-                    Professional Title
-                  </span>
-                </label>
-                <Select
-                  value={selectedProfessionalTitle}
-                  options={professionalTitleOptions}
-                  onChange={handleProfessionalTitleChange}
-                  isSearchable={false}
-                  placeholder="Select Professional Title"
-                />
-              </div>
-
-              {/* Date of Birth */}
-              <div className="form-control w-full">
-                <label className="label">
-                  <span className="label-text text-green-800 font-bold text-md">
-                    Date of Birth
-                  </span>
-                </label>
-                <DatePicker
-                  selected={selectedDate}
-                  onChange={(date) => setSelectedDate(date)}
-                  dateFormat="yyyy-MM-dd"
-                  className="input input-sm input-bordered w-full"
-                  placeholderText="yyyy-MM-dd"
-                />
-              </div>
-
-              {/* Image upload */}
-              <div className="form-control w-full">
-                <label className="label">
-                  <span className="label-text text-green-800 font-bold text-md">
-                    Photo
-                  </span>
-                </label>
-                <input
-                  type="file"
-                  placeholder="Your image"
-                  name="image"
-                  className="input input-sm input-bordered w-full"
-                  {...register("image", {
-                    required: {
-                      value: true,
-                      message: "Image is required",
-                    },
-                  })}
-                />
-                <label>
-                  {errors.image?.type === "required" && (
-                    <span className="text-red-500 text-xs mt-1">
-                      {errors.image.message}
+                {/* Gender */}
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text text-green-800 font-bold text-md">
+                      Gender
                     </span>
-                  )}
-                </label>
+                  </label>
+                  <Select
+                    value={selectedGender}
+                    options={genderOptions}
+                    onChange={handleGenderChange}
+                    isSearchable={false}
+                    placeholder="Select Gender"
+                  />
+                </div>
+              </div>
+
+              <div className="flex gap-7">
+                {/* Education Level */}
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text text-green-800 font-bold text-md">
+                      Education Level
+                    </span>
+                  </label>
+                  <Select
+                    value={selectedEducationLevel}
+                    options={educationLevelOptions}
+                    onChange={handleEducationLevelChange}
+                    isSearchable={false}
+                    placeholder="Select Education Level"
+                  />
+                </div>
+
+                {/* Professional Title */}
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text text-green-800 font-bold text-md">
+                      Professional Title
+                    </span>
+                  </label>
+                  <Select
+                    value={selectedProfessionalTitle}
+                    options={professionalTitleOptions}
+                    onChange={handleProfessionalTitleChange}
+                    isSearchable={false}
+                    placeholder="Select Professional Title"
+                  />
+                </div>
+              </div>
+
+              <div className="flex gap-7">
+                {/* Date of Birth */}
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text text-green-800 font-bold text-md">
+                      Date of Birth
+                    </span>
+                  </label>
+                  <DatePicker
+                    selected={selectedDate}
+                    onChange={(date) => setSelectedDate(date)}
+                    dateFormat="yyyy-MM-dd"
+                    className="input input-sm input-bordered w-full"
+                    placeholderText="yyyy-MM-dd"
+                  />
+                </div>
+
+                {/* Image upload */}
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text text-green-800 font-bold text-md">
+                      Photo
+                    </span>
+                  </label>
+                  <input
+                    type="file"
+                    placeholder="Your image"
+                    name="image"
+                    className="input input-sm input-bordered w-full"
+                    {...register("image", {
+                      required: {
+                        value: true,
+                        message: "Image is required",
+                      },
+                    })}
+                  />
+                  <label>
+                    {errors.image?.type === "required" && (
+                      <span className="text-red-500 text-xs mt-1">
+                        {errors.image.message}
+                      </span>
+                    )}
+                  </label>
+                </div>
               </div>
 
               <div className="flex gap-7">
