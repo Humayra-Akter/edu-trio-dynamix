@@ -63,7 +63,12 @@ const TeacherCourse = () => {
       <div className="p-4 my-10 mx-10">
         <h1 className="text-2xl font-bold text-center uppercase text-white mb-4">
           Courses
-        </h1>
+        </h1>{" "}
+        <div className="flex items-center justify-center my-5">
+          <Link to="/teacherAddCourse">
+            <Button>ADD COURSE</Button>
+          </Link>
+        </div>
         <div className="flex flex-wrap justify-center">
           {courses.map((course) => (
             <div
